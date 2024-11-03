@@ -63,7 +63,7 @@ function AboutMe() {
         <div className="text-center mt-12 mb-20 px-4 lg:px-0">
           <h1 className="text-4xl lg:text-6xl font-bold text-teal-500 mb-4">About Me</h1>
           <p className="text-xl lg:text-2xl font-light text-gray-200 mx-auto text-justify lg:max-w-none">
-            My mission is to craft unique and captivating user experiences that are not only seamlessly functional but also maintainable and efficient. I thrive on creativity and love the challenge of thinking outside the box, yet I equally value the elegance of a sleek, minimalist design. Driven by a commitment to excellence, I approach every project with a meticulous eye and don`&#38;`t rest until every detail meets the highest standard. I`&#38;`m passionate about staying on the cutting edge of technology and am a lifelong learner, currently deepening my expertise in Web3 and Smart Contracts. Feel free to reach out with any questions, ideas, or thoughts—and don`&#38;`t forget to visit my blog to learn more about my journey. Thank you for stopping by!
+            My mission is to craft unique and captivating user experiences that are not only seamlessly functional but also maintainable and efficient. I thrive on creativity and love the challenge of thinking outside the box, yet I equally value the elegance of a sleek, minimalist design. Driven by a commitment to excellence, I approach every project with a meticulous eye and don`&#39;`t rest until every detail meets the highest standard. I`&#39;`m passionate about staying on the cutting edge of technology and am a lifelong learner, currently deepening my expertise in Web3 and Smart Contracts. Feel free to reach out with any questions, ideas, or thoughts—and don`&#39;`t forget to visit my blog to learn more about my journey. Thank you for stopping by!
           </p>
         </div>
         {/* Skills Section */}
@@ -87,9 +87,9 @@ function AboutMe() {
 
         {/* CTA Section */}
         <div className="text-center my-20">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Let`&#38;`s Connect!</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Let`&#39;`s Connect!</h2>
           <p className="text-lg lg:text-xl text-gray-200 mb-8">
-            I`&#38;`m always open to exciting projects and collaborations. If you`&#38;`re interested in working together or just want to say hi, feel free to reach out!
+            I`&#39;`m always open to exciting projects and collaborations. If you`&#39;`re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <a href="/contact" className="px-8 py-4 bg-teal-500 text-white text-xl font-medium rounded-lg shadow hover:bg-teal-600 transition duration-200">
             Contact Me
