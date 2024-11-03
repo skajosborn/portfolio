@@ -28,7 +28,7 @@ function Blog() {
   };
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-gray-100 min-h-screen">
       <Header />
       
       {/* Hero Image Section */}
@@ -41,9 +41,9 @@ function Blog() {
           priority
         /> */}
         <div className="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center">
-          <div className="text-center text-white">
+          <div className="text-center text-black">
             <h1 className="text-6xl font-bold mb-4">
-              MY <span className="text-teal-300">BLOG</span>
+              MY <span className="text-black">BLOG</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto px-4">
               Welcome to my blog! Here you will find my latest thoughts, projects, and tutorials on web development, design, and more.
