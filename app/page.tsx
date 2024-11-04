@@ -5,11 +5,11 @@ import PictureOnWall from "@/app/components/wallPicture";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
       <Header />
 
       {/* Main container with flex layout */}
-      <div className="flex flex-col bg-white lg:flex-row mt-24 lg:mt-36">
+      <div className="flex flex-col  lg:flex-row mt-24 lg:mt-36">
 
         {/* Left side profile section */}
         <div className="flex-shrink-0 w-full lg:w-1/3 px-4 md:px-10 lg:px-14 lg:sticky lg:top-36">
@@ -26,9 +26,9 @@ export default function Home() {
             </div>
 
             <div className="mt-4 text-center lg:text-left">
-              <h2 className="font-semibold text-black text-xl md:text-2xl mb-2">Hi, I'm Sara</h2>
-              <p className="text-gray-500 text-xl md:text-2xl mb-4">Full Stack Developer</p>
-              <p className="text-black text-base md:text-lg leading-relaxed">
+              <h2 className="font-semibold text-white text-xl md:text-2xl mb-2">Hi, I'm Sara</h2>
+              <p className="text-gray-300 text-xl md:text-2xl mb-4">Full Stack Developer</p>
+              <p className="text-white text-base md:text-lg leading-relaxed">
                 I come with a strong foundation in art and design, years of experience in teaching linguistics, and a drive for perfection in everything I do. I am fully dedicated to creating high-quality, exceptional user experiences. <br /><br />
                 As a full-stack developer, I will build your website from start to finish. Leave me a message so we can bring your ideas to fruition.
               </p>

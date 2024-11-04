@@ -4,7 +4,7 @@ import ProjectCard from '@/app/components/projects-card';
 
 const Projects: React.FC = () => {
   return (
-    <div className="p-12 bg-gradient-to-b from-gray-100 to-gray-200 min-h-screen">
+    <div className="p-12 bg-gradient-to-b from-white to-gray-700 min-h-screen">
       <div className="max-w-4xl mx-auto text-center">
         {/* Header Section */}
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 mt-24 animate-fade-in">

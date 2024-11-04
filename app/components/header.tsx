@@ -36,7 +36,7 @@ function Header() {
           <a
             key={label}
             href={label === 'Home' ? '/' : label === 'Blog' ? '/blog' : label === 'About' ? '/about-me' : `/${label.toLowerCase()}`}
-            className="custom-btn h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 bg-[url('/images/.png')] bg-cover bg-center hover:bg-gradient-to-r hover:from-teal-700 hover:via-teal-500 hover:to-teal-300 relative before:absolute before:inset-0 before:bg-black/20 before:top-[3px] active:before:top-0 active:translate-y-[3px] before:transition-all"
+            className="custom-btn h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 bg-[url('/images/greenglowbutton.png')] bg-cover bg-center relative before:absolute before:inset-0 before:bg-black/20 before:top-[3px] active:before:top-0 active:translate-y-[3px] before:transition-all text-white flex items-center justify-center"
             style={{
               transition: 'box-shadow 0.3s, transform 0.3s',
               boxShadow: '0 3px 0 rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0)',
