@@ -2,17 +2,16 @@
 
 import React from 'react';
 import Image from 'next/image';
-
 function Header() {
   return (
-    <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-black z-50 flex items-center shadow-lg px-4 sm:px-5 md:px-6 lg:px-8">
+    <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-white z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
       {/* Brand/Logo Section */}
-      <div className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold ml-4 sm:ml-6 md:ml-10 lg:ml-20 font-rouge-script"></div>
+      <div className="text-black ml-10 text-2xl mr-10 sm:text-2xl md:text-3xl lg:text-4xl font-bold font-rouge-script"></div>
       
       {/* Profile Image with Neon Glow */}
-      <div className="relative h-[30px] w-[150px] sm:h-[35px] sm:w-[160px] md:h-[50px] md:w-[190px] lg:h-[60px] lg:w-[210px] ml-4">
+      <div className="relative h-[50px] w-[25px] sm:h-[60px] sm:w-[280px] md:h-[70px] md:w-[310px] lg:h-[90px] lg:w-[350px]">
         <Image
-          src="/images/Neonnamenb.png"
+          src="/images/black4.png"
           alt="Descriptive alt text"
           fill
           priority

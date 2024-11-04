@@ -28,15 +28,14 @@ function Blog() {
   };
 
   return (
-    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
-    <Header />
-
+    <div className="bg-gray-50 pt-20 min-h-screen">
+      <Header />
 
       {/* Hero Section */}
       <div className="relative h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/images/desk2.png')" }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="text-center text-white relative z-10">
-          <h1 className="text-5xl mt-44 md:text-6xl font-extrabold mb-8">
+          <h1 className="text-lg mt-44 md:text-4xl font-extrabold mb-8">
             MY <span className="text-mountain-meadow-400">BLOG</span>
           </h1>
           <p className="text-xl mt-32 md:text-2xl max-w-3xl mx-auto px-4">

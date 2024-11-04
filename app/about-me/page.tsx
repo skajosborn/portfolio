@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Header from '@/app/components/header';
+// import Header from '@/app/components/header';
 
 interface Skill {
   name: string;
@@ -58,7 +58,7 @@ function AboutMe() {
 
   return (
     <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
-      <Header />
+      {/* <Header /> */}
 
       <div className="max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-24">
         
