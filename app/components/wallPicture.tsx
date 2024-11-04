@@ -13,8 +13,8 @@ function PictureOnWall() {
     <button 
       onClick={handleClick}
       className="
-        w-[20%] sm:w-[85%] md:w-[102%] lg:w-[123%] xl:w-[130%]
-        h-[260px] sm:h-[102px] md:h-[118px] lg:h-[120px] xl:h-[160px] 1.5xl:h-[160px] 2xl:h-[225px]
+        w-[20%] sm:w-[85%] md:w-[102%] lg:w-[123%] xl:w-[132%]
+        h-[260px] sm:h-[103px] md:h-[118px] lg:h-[120px] xl:h-[160px] 1.5xl:h-[160px] 2xl:h-[234px]
         bg-white border-4 border-gray-300 shadow-lg transition-all duration-300 cursor-pointer
       "
       style={{

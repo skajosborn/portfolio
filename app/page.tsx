@@ -48,7 +48,7 @@ export default function Home() {
           {/* Background Image with responsive layout */}
           <div className="relative w-full aspect-[16/9]">
               <Image
-                src="/images/desk1.png"
+                src="/images/hero.png"
                 alt="Desk Background"
                 fill
                 className="object-cover"
