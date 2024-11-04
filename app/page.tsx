@@ -5,7 +5,7 @@ import PictureOnWall from "@/app/components/wallPicture";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-400 font-poppins text-xl overflow-hidden">
       <Header />
 
       {/* Main container with flex layout */}
@@ -59,7 +59,7 @@ export default function Home() {
             </div>
 
           {/* Picture on Wall with responsive positioning */}
-          <div className="
+          {/* <div className="
             absolute
             top-[10%] left-[10%] w-[20%]
             sm:top-[13%] sm:left-[24.5%] sm:w-[15%]
@@ -70,10 +70,10 @@ export default function Home() {
             2xl:top-[12%] 2xl:left-[25%] 2xl:w-[9.5%]
           ">
             <PictureOnWall />
-          </div>
+          </div> */}
 
           {/* Interactive Monitor with responsive positioning */}
-          <div className="
+          {/* <div className="
             absolute
             top-[20%] left-[25%] w-[40%]
             sm:top-[23%] sm:left-[39.4%] sm:w-[35%]
@@ -84,7 +84,7 @@ export default function Home() {
             2xl:top-[21.5%] 2xl:left-[39%] 2xl:w-[29.5%]
           ">
             <PortfolioInteractive />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

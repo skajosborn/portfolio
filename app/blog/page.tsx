@@ -28,8 +28,9 @@ function Blog() {
   };
 
   return (
-    <div className="bg-gray-50 pt-20 min-h-screen">
-      <Header />
+    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
+    <Header />
+
 
       {/* Hero Section */}
       <div className="relative h-[500px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/images/desk2.png')" }}>

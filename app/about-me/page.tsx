@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import Image from 'next/image';
 import Header from '@/app/components/header';
@@ -55,21 +57,22 @@ function AboutMe() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-black">
+    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
       <Header />
+
       <div className="max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-24">
         
         {/* Header Section */}
       {/* Header Section */}
         <div className="text-center mt-12 mb-20 px-4 lg:px-0">
-          <h1 className="text-4xl lg:text-6xl font-bold text-black mb-4">About Me</h1>
+          <h1 className="text-4xl lg:text-6xl font-bold text-gray-600 mb-4">About Me</h1>
           <p className="text-xl lg:text-2xl font-light text-gray-800 mx-auto text-justify lg:max-w-none">
             My mission is to craft unique and captivating user experiences that are not only seamlessly functional but also maintainable and efficient. I thrive on creativity and love the challenge of thinking outside the box, yet I equally value the elegance of a sleek, minimalist design. Driven by a commitment to excellence, I approach every project with a meticulous eye and don&#39;t rest until every detail meets the highest standard. I&#39;m passionate about staying on the cutting edge of technology and am a lifelong learner, currently deepening my expertise in Web3 and Smart Contracts. Feel free to reach out with any questions, ideas, or thoughts—and don&#39;t forget to visit my blog to learn more about my journey. Thank you for stopping by!
           </p>
         </div>
         {/* Skills Section */}
         <div className="my-20">
-          <h2 className="text-3xl font-bold text-black mb-16 text-center">Skills & Expertise</h2>
+          <h2 className="text-4xl font-bold text-gray-700 mb-16 text-center">Skills & Expertise</h2>
           <div className="flex justify-between gap-10">
             
             {/* Frontend Skills */}
@@ -85,16 +88,43 @@ function AboutMe() {
             <SkillSection title="Other" skills={skills.other} />
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="text-center my-20">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">Let&#39;s Connect!</h2>
-          <p className="text-lg lg:text-xl text-gray-800 mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Let&#39;s Connect!</h2>
+          <p className="text-lg lg:text-xl text-gray-200 mb-8">
             I&#39;m always open to exciting projects and collaborations. If you&#39;re interested in working together or just want to say hi, feel free to reach out!
           </p>
-          <a href="/contact" className="px-8 py-4 bg-gray-600 text-white text-xl font-medium rounded-lg shadow-2xl hover:bg-teal-400 transition duration-200">
-            Contact Me
-          </a>
+          <div className="flex justify-center">
+            <a
+              href="/contact"
+              className="custom-btn h-[60px] w-[160px] sm:h-[80px] sm:w-[180px] md:h-[100px] md:w-[200px] lg:h-[120px] lg:w-[240px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 bg-gray-300 relative text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+              style={{
+                transition: 'all 0.3s ease',
+                boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 255, 0, 0.7)';
+                e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
+                e.currentTarget.style.backgroundSize = 'cover';
+                e.currentTarget.style.backgroundPosition = 'center';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+                e.currentTarget.style.backgroundImage = 'none';
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+                e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
+                e.currentTarget.style.backgroundSize = 'cover';
+                e.currentTarget.style.backgroundPosition = 'center';
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+            >
+              Contact Me
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -119,14 +149,14 @@ function SkillSection({ title, skills }: SkillSectionProps) {
 function SkillCard({ skill }: SkillCardProps) {
   return (
     <div className="group perspective-1000">
-      <div className="relative w-32 h-32 text-xl font-medium text-white transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
-        {/* Front Side */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-teal-400 bg-[url('/images/roundglass.png')] bg-cover bg-center">
+      <div className="relative w-32 h-32 text-xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
+        {/* Front Side - Shows name with glass overlay */}
+        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-cover bg-center">
           {skill.name}
         </div>
-        {/* Back Side */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden group-hover:rotate-y-0 border-2 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-teal-400 bg-black">
-          <Image src={skill.logo} alt={`${skill.name} logo`} width={64} height={64} />
+        {/* Back Side - Shows icon */}
+        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
+          <Image src={skill.logo} alt={skill.name} width={48} height={48} />
         </div>
       </div>
     </div>
