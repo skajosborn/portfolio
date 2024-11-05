@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 const ProfileSidebar = () => {
   return (
-    <nav className="w-72 sm:w-80 md:w-96 bg-white text-gray-500 h-full pt-8 px-6 shadow-[2px_0_10px_-2px_rgba(0,0,0,0.1)]">
+    <nav className="w-72 sm:w-80 mt-0 h-[900px] pt-10 md:w-96 bg-white text-gray-500 px-6 shadow-[2px_0_10px_-2px_rgba(0,0,0,0.1)]">
       {/* Profile Image and Text */}
-      <div className="max-w-xs mx-auto">
-        <div className="relative w-64 h-80 mx-auto mb-6">
+      <div className="max-w-xs mx-auto pt-4">
+        <div className="relative w-64 h-80 mx-auto mb-4">
           <Image
             src="/images/myface3.jpeg" 
             alt="Profile Image"
@@ -20,12 +20,12 @@ const ProfileSidebar = () => {
         </div>
 
         <div className="text-center px-4">
-          <h2 className="font-semibold text-gray-500 text-xl md:text-2xl mb-2">Hi, I'm Sara</h2>
-          <p className="text-gray-900 text-lg md:text-xl mb-4">Full Stack Developer</p>
-          <p className="text-gray-900 text-base leading-relaxed">
+          <h2 className="font-semibold text-gray-500 text-4xl md:text-3xl mb-2">Hi, I'm Sara</h2>
+          <p className="text-gray-900 text-xl md:text-2xl mb-4">Full Stack Developer</p>
+          <p className="text-gray-900 text-lg leading-relaxed">
             I come with a strong foundation in art and design, years of experience in teaching linguistics, and a drive for perfection in everything I do. I am fully dedicated to creating high-quality, exceptional user experiences.
           </p>
-          <p className="text-gray-900 pb-10 text-base leading-relaxed mt-4">
+          <p className="text-gray-900 text-lg leading-relaxed mt-4">
             As a full-stack developer, I will build your website from start to finish. Leave me a message so we can bring your ideas to fruition.
           </p>
         </div>

@@ -23,25 +23,25 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
       <div className="flex flex-col lg:flex-row lg:items-start mt-24 lg:mt-36">
-        
-        {/* Sidebar */}
-        <aside className="lg:w-1/3 w-full lg:sticky lg:top-0">
-          <ProfileSidebar />
-        </aside>
-        
         {/* Main Content */}
-        <main className="flex-1 w-full mx-auto lg:mt-0 lg:-ml-20 mr-10 max-w-6xl">
+        <main className="flex-1 w-full mx-auto lg:mt-0 lg:-ml-0 max-w-full">
           <h1 className="text-3xl text-gray-800 font-bold text-center mb-8">Welcome to My Page</h1>
-          <div className="relative w-full h-[600px]">
+          <div className="relative w-full h-[900px]"> {/* Increased height for longer sidebar */}
             <Image
-              src="/images/hero.png"
+              src="/images/desk2.png"
               alt="Desk Background"
               fill
-              className="object-cover shadow-lg"
+              className="object-cover shadow-lg w-full"
               quality={100}
               priority
-              sizes="(max-width: 640px) 140vw, (max-width: 768px) 120vw, (max-width: 1024px) 100vw, 90vw"
+              sizes="100vw"
             />
+            {/* Sidebar overlaying the background image */}
+            <aside className="absolute top-0 left-0 pt-16 lg:w-1/3 w-full h-full">
+              <div className="-mt-16">
+                <ProfileSidebar />
+              </div>
+            </aside>
           </div>
           {/* Additional Content */}
          
@@ -54,7 +54,7 @@ export default function Home() {
       <div className="mt-40">
         <h2 className="text-4xl text-black font-bold text-center mb-10">Blog</h2>
         <div className="relative w-full h-[600px]">
-          <Image
+          {/* <Image
             src="/images/desk2.png"
             alt="Blog Header Image"
             fill
@@ -62,7 +62,7 @@ export default function Home() {
             quality={100}
             priority
             sizes="100vw"
-          />
+          /> */}
         </div>
         <div className="mt-10">
           <BlogPosts posts={posts} />
