@@ -5,7 +5,7 @@ import ProfileSidebar from "@/app/components/profileSidebar";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-gray-100 font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
       <div className="flex flex-col lg:flex-row lg:items-start mt-24 lg:mt-36">
         
         {/* Sidebar */}

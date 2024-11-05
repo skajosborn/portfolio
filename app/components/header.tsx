@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 function Header() {
   return (
-    <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-white z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
+    <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-gray-300 z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
       {/* Brand/Logo Section */}
       <div className="text-black ml-10 text-2xl mr-10 sm:text-2xl md:text-3xl lg:text-4xl font-bold font-rouge-script"></div>
       
@@ -30,39 +30,37 @@ function Header() {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden sm:flex gap-2 sm:gap-3 md:gap-4 lg:gap-6 ml-auto mr-4 sm:mr-6 md:mr-10 lg:mr-20">
+      <div className="hidden sm:flex text-white gap-2 sm:gap-3 md:gap-4 lg:gap-6 ml-auto mr-4 sm:mr-6 md:mr-10 lg:mr-20">
         {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((label) => (
           <a
-            key={label}
-            href={label === 'Home' ? '/' : label === 'Blog' ? '/blog' : label === 'About' ? '/about-me' : `/${label.toLowerCase()}`}
-            className="custom-btn h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 bg-gray-300 relative text-black flex items-center justify-center transform hover:scale-105 rounded-md"
-            style={{
-              transition: 'all 0.3s ease',
-              boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 255, 0, 0.7)';
-              e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
-              e.currentTarget.style.backgroundSize = 'cover';
-              e.currentTarget.style.backgroundPosition = 'center';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-              e.currentTarget.style.backgroundImage = 'none';
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-              e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
-              e.currentTarget.style.backgroundSize = 'cover';
-              e.currentTarget.style.backgroundPosition = 'center';
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-          >
-            {label}
-          </a>
-        ))}
+          key={label}
+          href={label === 'Home' ? '/' : label === 'Blog' ? '/blog' : label === 'About' ? '/about-me' : `/${label.toLowerCase()}`}
+          className="bg-gray-200 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+          style={{
+            transition: 'all 0.3s ease',
+            boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = `
+              0 0 10px rgba(255, 255, 255, 0.6), 
+              0 0 20px rgba(255, 255, 255, 0.5), 
+              0 0 30px rgba(255, 255, 255, 0.4),
+              inset 0 0 10px rgba(255, 255, 255, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+          }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.transform = 'scale(1.05)';
+          }}
+        >
+          {label}
+        </a>
+        ))} <h1></h1>
       </div>
 
       {/* Mobile Menu Button */}
