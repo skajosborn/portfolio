@@ -3,19 +3,36 @@ import Image from "next/image";
 // import PortfolioInteractive from "@/app/components/computer";
 // import PictureOnWall from "@/app/components/wallPicture";
 import ProfileSidebar from "@/app/components/profileSidebar";
+// import ProfileSidebarRight from '@/app/components/profileSidebarRight';
 import BlogPosts from "@/app/components/blogPost";
 import { useEffect, useState } from 'react';
 import ProjectCard from "./components/projects-card";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [displayText, setDisplayText] = useState('');
+  const fullText = 'Welcome to\nMy Page';
 
   useEffect(() => {
     // Fetch blog posts data
     fetch('http://localhost:3000/api/blogs')
       .then(response => response.json())
       .then(data => setPosts(data));
+
+    // Typing animation effect
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setDisplayText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100); // Adjust speed by changing interval time
+
+    return () => clearInterval(typingInterval);
   }, []);
+
 
   const postsPerPage = 6;
   const totalPages = Math.ceil(posts.length / postsPerPage);
@@ -24,9 +41,8 @@ export default function Home() {
     <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
       <div className="flex flex-col lg:flex-row lg:items-start mt-24 lg:mt-36">
         {/* Main Content */}
-        <main className="flex-1 w-full mx-auto lg:mt-0 lg:-ml-0 max-w-full">
-          <h1 className="text-3xl text-gray-800 font-bold text-center mb-8">Welcome to My Page</h1>
-          <div className="relative w-full h-[900px]"> {/* Increased height for longer sidebar */}
+        <main className="flex-1 w-full mx-auto lg:mt-0 max-w-full">
+          <div className="relative w-full h-[800px]"> {/* Increased height for longer sidebar */}
             <Image
               src="/images/desk2.png"
               alt="Desk Background"
@@ -36,11 +52,28 @@ export default function Home() {
               priority
               sizes="100vw"
             />
+            {/* Typing text overlay */}
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 text-3xl text-gray-800 font-bold font-mono whitespace-pre-line text-center">
+              {displayText}<span className="animate-blink">|</span>
+            </div>
+            {/* Oval image overlaying the background */}
+            <div 
+              className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 border-white overflow-hidden rounded-[4%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+            >
+              <Image
+                src="/images/myface1.jpeg"
+                alt="Profile Image"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+                sizes="256px"
+                priority
+              />
+            </div>
             {/* Sidebar overlaying the background image */}
-            <aside className="absolute top-0 left-0 pt-16 lg:w-1/3 w-full h-full">
-              <div className="-mt-16">
+            <aside className="absolute top-0 left-1/2 -translate-x-1/2 pt-16 lg:w-1/3 w-full h-full">
+              {/* <div className="-mt-16">
                 <ProfileSidebar />
-              </div>
+              </div> */}
             </aside>
           </div>
           {/* Additional Content */}
@@ -52,17 +85,23 @@ export default function Home() {
         </main>
       </div>
       <div className="mt-40">
-        <h2 className="text-4xl text-black font-bold text-center mb-10">Blog</h2>
-        <div className="relative w-full h-[600px]">
-          {/* <Image
-            src="/images/desk2.png"
+        <h2 className="text-4xl text-black font-bold text-center mb-10">About me</h2>
+        <div className="relative w-[1200px] h-[900px] mx-auto">
+          <Image
+            src="/images/simp2.png"
             alt="Blog Header Image"
             fill
             className="object-cover shadow-lg"
             quality={100}
             priority
-            sizes="100vw"
-          /> */}
+            sizes="1200px"
+          />
+          <div className="absolute top-0 left-0 -translate-x-1/2 h-full">
+            <ProfileSidebar />
+          </div>
+          {/* <div className="absolute top-0 right-0 h-full">
+            <ProfileSidebarRight />
+          </div> */}
         </div>
         <div className="mt-10">
           <BlogPosts posts={posts} />
