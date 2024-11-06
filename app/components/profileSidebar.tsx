@@ -3,14 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ProfileSidebar = () => {
+const ProfileSidebarRight = () => {
   return (
     <nav className="w-72 sm:w-80 mt-0 h-[900px] pt-10 md:w-96 bg-white text-gray-500 px-6 shadow-[2px_0_10px_-2px_rgba(0,0,0,0.1)]">
       {/* Profile Image and Text */}
       <div className="max-w-xs mx-auto pt-4">
         <div className="relative w-64 h-80 mx-auto mb-4">
           <Image
-            src="/images/myface3.jpeg" 
+            src="/images/myface.png" 
             alt="Profile Image"
             className="rounded-lg shadow-lg object-cover"
             fill
@@ -42,4 +42,4 @@ const ProfileSidebar = () => {
   );
 };
 
-export default ProfileSidebar;
+export default ProfileSidebarRight;

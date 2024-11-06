@@ -57,7 +57,7 @@ function AboutMe() {
   };
 
   return (
-    <div className="relative min-h-screen p-12 bg-gradient-to-b from-white to-gray-800 font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen p-1 font-poppins text-xl overflow-hidden">
       {/* <Header /> */}
 
       <div className="max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-24">

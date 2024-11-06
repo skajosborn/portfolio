@@ -3,7 +3,7 @@ import Image from "next/image";
 // import PortfolioInteractive from "@/app/components/computer";
 // import PictureOnWall from "@/app/components/wallPicture";
 import ProfileSidebar from "@/app/components/profileSidebar";
-// import ProfileSidebarRight from '@/app/components/profileSidebarRight';
+import ProfileSidebarRight from '@/app/components/profileSidebarRight';
 import BlogPosts from "@/app/components/blogPost";
 import { useEffect, useState } from 'react';
 import ProjectCard from "@/app/components/projects-card";
@@ -45,6 +45,7 @@ export default function Home() {
       <div className="flex flex-col lg:flex-row lg:items-start mt-24 lg:mt-36">
         {/* Main Content */}
         <main className="flex-1 w-full mx-auto lg:mt-0 max-w-full">
+          <h2 className="text-4xl text-black font-bold text-center mb-10">Portfolio</h2>
           <div className="relative w-full h-[800px]"> {/* Increased height for longer sidebar */}
             <Image
               src="/images/desk2.png"
@@ -61,7 +62,7 @@ export default function Home() {
             </div>
             {/* Oval image overlaying the background */}
             <div 
-              className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 border-white overflow-hidden rounded-[4%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+              className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 bg-white border-white overflow-hidden rounded-[50%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
             >
               <Image
                 src="/images/myface.png"
@@ -72,8 +73,14 @@ export default function Home() {
                 priority
               />
             </div>
+            
             {/* Sidebar overlaying the background image */}
-            <aside className="absolute top-0 left-1/2 -translate-x-1/2 pt-16 lg:w-1/3 w-full h-full">
+            <aside className="absolute top-0 -left-64 pt-16 w-64 h-full">
+              {/* <div className="-mt-16">
+                <ProfileSidebar />
+              </div> */}
+            </aside>
+            <aside className="absolute top-0 -right-64 pt-16 w-64 h-full">
               {/* <div className="-mt-16">
                 <ProfileSidebar />
               </div> */}
@@ -87,26 +94,42 @@ export default function Home() {
           </div> */}
         </main>
       </div>
-      <div className="mt-40">
-        <h2 className="text-4xl text-black font-bold text-center mb-10">About me</h2>
-        <div className="relative w-[1200px] h-[900px] mx-auto">
-          <Image
-            src="/images/simp2.png"
+      <div className="mt-20">
+        <h2 className="text-4xl text-black font-bold text-center mb-20">About me</h2>
+        <div className="relative w-[1600px] h-[900px] mx-auto bg-gray-100 rounded-lg shadow-lg p-8">
+          {/* <Image
+            src="/images/mtbgirl.webp"
             alt="Blog Header Image"
             fill
             className="object-cover shadow-lg"
             quality={100}
             priority
             sizes="1200px"
-          />
-          <div className="absolute top-0 left-0 -translate-x-1/2 h-full">
+          /> */}
+          <div className="absolute top-0 left-0 h-full">
             <ProfileSidebar />
           </div>
-          {/* <div className="absolute top-0 right-0 h-full">
+          <div className="absolute top-0 left-96 right-96 h-full">
+            <div className="bg-white h-full mx-8 rounded-lg shadow-lg p-8 flex items-end justify-center pb-16">
+              {/* Add your text content here */}
+              <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/BBuBQuuEiSE?si=zf1hMieahSKd6Dyc" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+          <div className="absolute top-0 right-0 h-full">
             <ProfileSidebarRight />
-          </div> */}
+          </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-20">
+        <h2 className="text-4xl text-black font-bold text-center mb-20">My Blog</h2>
           <BlogPosts posts={posts} />
           {/* Pagination */}
           <div className="flex justify-center gap-4 mt-8 mb-12">
