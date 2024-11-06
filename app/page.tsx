@@ -6,7 +6,8 @@ import ProfileSidebar from "@/app/components/profileSidebar";
 // import ProfileSidebarRight from '@/app/components/profileSidebarRight';
 import BlogPosts from "@/app/components/blogPost";
 import { useEffect, useState } from 'react';
-import ProjectCard from "./components/projects-card";
+import ProjectCard from "@/app/components/projects-card";
+import AboutMe from "@/app/components/skills";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -139,6 +140,9 @@ export default function Home() {
               </button>
             ))}
           </div>
+
+          {/* Skills section */}
+          <AboutMe />
           {/* Project Cards Section */}
           <h2 className="text-4xl text-black font-bold text-center mt-40 mb-10">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
