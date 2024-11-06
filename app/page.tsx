@@ -19,20 +19,22 @@ export default function Home() {
       .then(response => response.json())
       .then(data => setPosts(data));
 
-    // Typing animation effect
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setDisplayText(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 100); // Adjust speed by changing interval time
+    // Add a delay before starting the animation
+    setTimeout(() => {
+      // Typing animation effect
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= fullText.length) {
+          setDisplayText(fullText.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 100); // Adjust speed by changing interval time
 
-    return () => clearInterval(typingInterval);
+      return () => clearInterval(typingInterval);
+    }, 1000); // 1 second delay before animation starts
   }, []);
-
 
   const postsPerPage = 6;
   const totalPages = Math.ceil(posts.length / postsPerPage);
@@ -52,8 +54,8 @@ export default function Home() {
               priority
               sizes="100vw"
             />
-            {/* Typing text overlay */}
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 text-3xl text-gray-800 font-bold font-mono whitespace-pre-line text-center">
+            {/* Typing text overlay with margin */}
+            <div className="absolute top-64 left-1/2 -translate-x-1/2 text-3xl text-gray-100 font-bold font-mono whitespace-pre-line text-center mt-20">
               {displayText}<span className="animate-blink">|</span>
             </div>
             {/* Oval image overlaying the background */}
@@ -61,7 +63,7 @@ export default function Home() {
               className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 border-white overflow-hidden rounded-[4%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
             >
               <Image
-                src="/images/myface1.jpeg"
+                src="/images/myface.png"
                 alt="Profile Image"
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
