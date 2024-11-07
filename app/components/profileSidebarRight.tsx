@@ -9,17 +9,32 @@ const ProfileSidebar = () => {
       {/* Profile Image and Text */}
       <div className="w-full">
         <div className="relative w-full h-80">
-        <div className="relative w-full h-64">
+          <Image
+            src="/images/mtbgirl.webp"
+            alt="Mountain Biking Girl"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 80vw, 384px"
+          />
         </div>
-        </div>
-
-        <div className="h-full">
-        <Image
-  src="/images/mtbgirl.webp"
-  alt="Mountain Biking Girl"
-  fill
-  sizes="50vw" // Set based on the space it occupies (e.g., half the viewport width)
-/>
+        <div className="p-4 text-center">
+          <p className="text-gray-700 text-lg">
+            When I'm not coding, you can find me mountain biking on the trails, 
+            kayaking through the springs, or seeking adventure in new places. What 
+            many don't know about Florida beyond the home of Mickey Mouse, there are
+            miles upon miles of untouched nature, crystal clear springs, underground
+            caves, prehistoric creeks, and beyond. If you've never made the trip here,
+            start planning!
+          </p>
+          <div className="relative w-[calc(100%+2rem)] h-64 mt-4 -mx-4">
+            <Image
+              src="/images/kayak.jpeg"
+              alt="Florida Springs"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 80vw, 384px"
+            />
+          </div>
         </div>
       </div>
 

@@ -65,14 +65,14 @@ export default function Home() {
             <div 
               className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
             >
-              {/* <Image
+              <Image
                 src="/images/myface.png"
                 alt="Profile Image"
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="256px"
                 priority
-              /> */}
+              />
             </div>
             
             {/* Sidebar overlaying the background image */}
@@ -105,7 +105,7 @@ export default function Home() {
           <div className="absolute top-0 left-96 right-96 h-full">
             <div className="bg-white h-full mx-8 rounded-lg shadow-lg p-8 flex flex-col items-center justify-start">
               {/* Add your text content here */}
-              <div className="text-xl text-black font-medium text-center mb-8">I was born and raised on the east coast of Long Island, NY
+              <div className="text-xl text-black font-medium text-center mb-2">I was born and raised on the east coast of Long Island, NY
               I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
               tip of the U.S. I spent the next several years as an educator, many of those years focused on math, science and technology. 
               I spent endless hours incorporating technology into lessons and coming up with creative ways to promote maximum learning.
@@ -113,12 +113,12 @@ export default function Home() {
               upon them, I fell more and more in love. I began teaching myself coding, starting with Python and moving on to MERN stack. I 
               finally decided it was time to change my path and pursue this field in its entirety. I became a certified software developer 
               and am currently in the process of becoming certified in web3 as well. I hold myself to the highest standards and am committed 
-              to providing excellence in whatever I do. Please feel free to see 'Our Story' below or click on my blog to learn more about me.
+              to providing excellence in whatever I do. Please feel free to watch 'Our Story' below or click on my blog to learn more about me.
               </div>
-              <div className="text-3xl text-black font-bold text-center mb-8">Our Story</div>
+              <div className="text-3xl text-black font-bold text-center mb-2">Our Story</div>
               <iframe
                 width="760" 
-                height="515" 
+                height="615"
                 src="https://www.youtube.com/embed/BBuBQuuEiSE?si=zf1hMieahSKd6Dyc" 
                 title="YouTube video player" 
                 frameBorder="0" 
