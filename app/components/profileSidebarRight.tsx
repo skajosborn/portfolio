@@ -26,7 +26,7 @@ const ProfileSidebar = () => {
             caves, prehistoric creeks, and beyond. If you've never made the trip here,
             start planning!
           </p>
-          <div className="relative w-[calc(100%+2rem)] h-64 mt-4 -mx-4">
+          <div className="relative w-[calc(100%+2rem)] h-64 mt-8 -mx-4">
             <Image
               src="/images/kayak.jpeg"
               alt="Florida Springs"

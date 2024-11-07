@@ -20,7 +20,7 @@ const ProfileSidebarRight = () => {
         </div>
 
         <div className="text-center">
-          <h2 className="font-semibold text-gray-500 text-4xl md:text-3xl mb-2">Hi, I'm Sara</h2>
+          <h2 className="font-semibold text-gray-500 text-4xl md:text-3xl mt-6 mb-2">Hi, I'm Sara</h2>
           <p className="text-gray-900 text-xl md:text-2xl mb-4">Full Stack Developer</p>
           {/* <p className="text-gray-900 text-lg leading-relaxed">
             I come with a strong foundation in art and design, years of experience in teaching linguistics, and a drive for perfection in everything I do. I am fully dedicated to creating high-quality, exceptional user experiences.

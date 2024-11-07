@@ -90,33 +90,31 @@ function AboutMe() {
         </div>
         {/* CTA Section */}
         <div className="text-center my-20">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">Let&#39;s Connect!</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">Let's Connect!</h2>
           <p className="text-lg lg:text-xl text-black mb-8">
-            I&#39;m always open to exciting projects and collaborations. If you&#39;re interested in working together or just want to say hi, feel free to reach out!
+            I'm always open to exciting projects and collaborations. If you're interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
             <a
               href="/contact"
-              className="custom-btn h-[60px] w-[160px] sm:h-[80px] sm:w-[180px] md:h-[100px] md:w-[200px] lg:h-[120px] lg:w-[240px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 bg-gray-300 relative text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+              className="bg-gray-200 h-[35px] w-[100px] sm:h-[45px] sm:w-[115px] md:h-[55px] md:w-[130px] lg:h-[65px] lg:w-[160px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
               style={{
                 transition: 'all 0.3s ease',
-                boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
+                boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 255, 0, 0.7)';
-                e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
-                e.currentTarget.style.backgroundSize = 'cover';
-                e.currentTarget.style.backgroundPosition = 'center';
+                e.currentTarget.style.boxShadow = `
+                  0 0 10px rgba(255, 255, 255, 0.6), 
+                  0 0 20px rgba(255, 255, 255, 0.5), 
+                  0 0 30px rgba(255, 255, 255, 0.4),
+                  inset 0 0 10px rgba(255, 255, 255, 0.3),
+                  inset 0 0 20px rgba(255, 255, 255, 0.2)`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-                e.currentTarget.style.backgroundImage = 'none';
               }}
               onMouseDown={(e) => {
                 e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-                e.currentTarget.style.backgroundImage = "url('/images/greenglowbutton.png')";
-                e.currentTarget.style.backgroundSize = 'cover';
-                e.currentTarget.style.backgroundPosition = 'center';
               }}
               onMouseUp={(e) => {
                 e.currentTarget.style.transform = 'scale(1.05)';

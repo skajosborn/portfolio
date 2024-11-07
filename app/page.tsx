@@ -125,6 +125,7 @@ export default function Home() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 allowFullScreen
+                className="mb-0"
               ></iframe>
             </div>
           </div>
