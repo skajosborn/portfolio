@@ -11,10 +11,16 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl }) => {
   return (
-    <div className="bg-white text-white p-6 rounded-lg w-112 text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl">
+    <div className="bg-white text-black p-6 rounded-lg w-112 text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl">
       {/* Image Section */}
-      <div className="overflow-hidden rounded-lg">
-        <Image src={imageUrl} alt={`${title} screenshot`} width={500} height={300} className="w-full h-auto rounded-md shadow-lg transition-transform duration-300 hover:scale-105" />
+      <div className="overflow-hidden rounded-lg h-[400px] w-[700px] relative">
+        <Image 
+          src={imageUrl} 
+          alt={`${title} screenshot`} 
+          fill
+          style={{ objectFit: 'cover' }}
+          className="rounded-md shadow-lg transition-transform duration-300 hover:scale-105"
+        />
       </div>
 
       {/* Title Section */}

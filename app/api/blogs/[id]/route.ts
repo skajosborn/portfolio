@@ -1,29 +1,47 @@
-import { NextResponse } from 'next/server';
+// app/api/blogs/[id]/route.ts (Individual post route)
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
+import BlogPost from '@/models/BlogPost';
+import mongoose from 'mongoose';
+
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
 export async function GET(
-  _request: Request,
-  context: unknown // Use `unknown` and cast to the desired structure inside the function
+  request: NextRequest,
+  { params }: Props
 ) {
-  // Ensure database connection
-  await dbConnect();
-
-  // Dynamically import the model
-  const BlogPost = (await import('@/models/BlogPost')).default;
-
-  // Cast `context` to the expected structure
-  const { id } = (context as { params: { id: string } }).params;
+  const { id } = await params;
 
   try {
-    const post = await BlogPost.findById(id);
+    await dbConnect();
+
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json(
+        { error: "Invalid blog post ID" },
+        { status: 400 }
+      );
+    }
+
+    const post = await BlogPost.findById(id).lean();
 
     if (!post) {
-      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: "Blog post not found" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json(post);
+
   } catch (error) {
-    console.error('Error fetching post by ID:', error);
-    return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 });
+    console.error("Error fetching blog post:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

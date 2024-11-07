@@ -1,30 +1,41 @@
-// app/api/blogs/route.ts
-import { NextResponse } from 'next/server';
+// app/api/blogs/route.ts (Collection route)
+import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import BlogPost from '@/models/BlogPost';
 
-export async function GET() {
-  await dbConnect();
-
+export async function GET(request: NextRequest) {
   try {
-    const posts = await BlogPost.find();
-    return NextResponse.json(posts, { status: 200 });
+    await dbConnect();
+
+    const searchParams = request.nextUrl.searchParams;
+    const page = parseInt(searchParams.get('page') || '1');
+    const limit = parseInt(searchParams.get('limit') || '20');
+    const skip = (page - 1) * limit;
+
+    const [posts, total] = await Promise.all([
+      BlogPost.find({})
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit)
+        .lean(),
+      BlogPost.countDocuments({})
+    ]);
+
+    return NextResponse.json({
+      posts,
+      pagination: {
+        total,
+        page,
+        limit,
+        pages: Math.ceil(total / limit)
+      }
+    });
+
   } catch (error) {
-    console.error('Error fetching posts:', error);
-    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
+    console.error("Error fetching blog posts:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
-
-export async function POST(request: Request) {
-  await dbConnect();
-
-  try {
-    const { title, content, imageUrl } = await request.json();
-    const newPost = await BlogPost.create({ title, content, imageUrl, date: new Date() });
-    return NextResponse.json(newPost, { status: 201 });
-  } catch (error) {
-    console.error('Error saving blog post:', error);
-    return NextResponse.json({ error: 'Failed to create blog post' }, { status: 500 });
-  }
-}
-

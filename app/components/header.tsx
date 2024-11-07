@@ -10,6 +10,7 @@ function Header() {
       
       {/* Profile Image with Neon Glow */}
       <div className="relative h-[50px] w-[25px] sm:h-[60px] sm:w-[280px] md:h-[70px] md:w-[310px] lg:h-[90px] lg:w-[350px]">
+        <link rel="preload" href="/images/black4.png" as="image" />
         <Image
           src="/images/black4.png"
           alt="Descriptive alt text"

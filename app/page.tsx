@@ -18,7 +18,7 @@ export default function Home() {
     // Fetch blog posts data
     fetch('http://localhost:3000/api/blogs')
       .then(response => response.json())
-      .then(data => setPosts(data));
+      .then(data => setPosts(data.posts || [])); // Access posts array from response
 
     // Add a delay before starting the animation
     setTimeout(() => {
@@ -38,7 +38,8 @@ export default function Home() {
   }, []);
 
   const postsPerPage = 6;
-  const totalPages = Math.ceil(posts.length / postsPerPage);
+  // Only calculate totalPages if posts array exists and has length
+  const totalPages = posts && posts.length ? Math.ceil(posts.length / postsPerPage) : 0;
 
   return (
     <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
@@ -57,21 +58,21 @@ export default function Home() {
               sizes="100vw"
             />
             {/* Typing text overlay with margin */}
-            <div className="absolute top-64 left-1/2 -translate-x-1/2 text-3xl text-gray-100 font-bold font-mono whitespace-pre-line text-center mt-20">
+            <div className="absolute top-80 left-1/2 -translate-x-1/2 text-3xl text-white font-bold font-mono whitespace-pre-line text-center mt-10">
               {displayText}<span className="animate-blink">|</span>
             </div>
             {/* Oval image overlaying the background */}
             <div 
-              className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 bg-white border-white overflow-hidden rounded-[50%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+              className="absolute top-28 left-[18%] -translate-x-1/2 w-64 h-80 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
             >
-              <Image
+              {/* <Image
                 src="/images/myface.png"
                 alt="Profile Image"
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="256px"
                 priority
-              />
+              /> */}
             </div>
             
             {/* Sidebar overlaying the background image */}
@@ -97,24 +98,27 @@ export default function Home() {
       <div className="mt-20">
         <h2 className="text-4xl text-black font-bold text-center mb-20">About me</h2>
         <div className="relative w-[1600px] h-[900px] mx-auto bg-gray-100 rounded-lg shadow-lg p-8">
-          {/* <Image
-            src="/images/mtbgirl.webp"
-            alt="Blog Header Image"
-            fill
-            className="object-cover shadow-lg"
-            quality={100}
-            priority
-            sizes="1200px"
-          /> */}
+        
           <div className="absolute top-0 left-0 h-full">
             <ProfileSidebar />
           </div>
           <div className="absolute top-0 left-96 right-96 h-full">
-            <div className="bg-white h-full mx-8 rounded-lg shadow-lg p-8 flex items-end justify-center pb-16">
+            <div className="bg-white h-full mx-8 rounded-lg shadow-lg p-8 flex flex-col items-center justify-start">
               {/* Add your text content here */}
-              <iframe 
-                width="560" 
-                height="315" 
+              <div className="text-xl text-black font-medium text-center mb-8">I was born and raised on the east coast of Long Island, NY
+              I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
+              tip of the U.S. I spent the next several years as an educator, many of those years focused on math, science and technology. 
+              I spent endless hours incorporating technology into lessons and coming up with creative ways to promote maximum learning.
+              As I veered more towards technology and found myself analyzing programs and learning platforms, brainstorming ways to improve
+              upon them, I fell more and more in love. I began teaching myself coding, starting with Python and moving on to MERN stack. I 
+              finally decided it was time to change my path and pursue this field in its entirety. I became a certified software developer 
+              and am currently in the process of becoming certified in web3 as well. I hold myself to the highest standards and am committed 
+              to providing excellence in whatever I do. Please feel free to see 'Our Story' below or click on my blog to learn more about me.
+              </div>
+              <div className="text-3xl text-black font-bold text-center mb-8">Our Story</div>
+              <iframe
+                width="760" 
+                height="515" 
                 src="https://www.youtube.com/embed/BBuBQuuEiSE?si=zf1hMieahSKd6Dyc" 
                 title="YouTube video player" 
                 frameBorder="0" 
@@ -133,7 +137,7 @@ export default function Home() {
           <BlogPosts posts={posts} />
           {/* Pagination */}
           <div className="flex justify-center gap-4 mt-8 mb-12">
-            {[...Array(totalPages)].map((_, index) => (
+            {Array.from({length: totalPages}, (_, index) => (
               <button
                 key={index}
                 className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
@@ -171,19 +175,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
             <ProjectCard
               title="Movie App"
-              imageUrl="/images/movieapp.png"
+              imageUrl="/images/beach2.jpeg"
               githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
               liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
             />
             <ProjectCard
               title="To Do List"
-              imageUrl="/images/movieapp.png"
+              imageUrl="/images/cattails.png"
               githubUrl="https://github.com/yourusername/todo-app"
               liveDemoUrl="https://todo-app-demo.com"
             />
             <ProjectCard
               title="Movie App"
-              imageUrl="/images/movieapp.png"
+              imageUrl="/images/autumnsprings.jpg"
               githubUrl="https://github.com/yourusername/movie-app"
               liveDemoUrl="https://movie-app-demo.com"
             />

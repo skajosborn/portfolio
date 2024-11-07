@@ -90,8 +90,8 @@ function AboutMe() {
         </div>
         {/* CTA Section */}
         <div className="text-center my-20">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Let&#39;s Connect!</h2>
-          <p className="text-lg lg:text-xl text-gray-200 mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">Let&#39;s Connect!</h2>
+          <p className="text-lg lg:text-xl text-black mb-8">
             I&#39;m always open to exciting projects and collaborations. If you&#39;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
@@ -135,7 +135,7 @@ function AboutMe() {
 function SkillSection({ title, skills }: SkillSectionProps) {
   return (
     <div className="flex-1 flex flex-col items-center">
-      <h3 className="text-2xl font-semibold text-gray-100 mb-6">{title}</h3>
+      <h3 className="text-2xl font-semibold text-black mb-6">{title}</h3>
       <div className="flex flex-wrap gap-4 justify-center">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
@@ -146,21 +146,30 @@ function SkillSection({ title, skills }: SkillSectionProps) {
 }
 
 // SkillCard component for flip animation
+// SkillCard component for flip animation
 function SkillCard({ skill }: SkillCardProps) {
-  return (
-    <div className="group perspective-1000">
-      <div className="relative w-32 h-32 text-xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
-        {/* Front Side - Shows name with glass overlay */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-cover bg-center">
-          {skill.name}
-        </div>
-        {/* Back Side - Shows icon */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
-          <Image src={skill.logo} alt={skill.name} width={48} height={48} />
+    return (
+      <div className="group perspective-1000" style={{position: 'relative'}}>
+        <div className="relative w-32 h-32 text-xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
+          {/* Front Side - Shows name with glass overlay */}
+          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center">
+            {skill.name}
+          </div>
+          {/* Back Side - Shows icon */}
+          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
+            <div style={{position: 'relative', width: '48px', height: '48px'}}>
+              <Image 
+                src={skill.logo} 
+                alt={skill.name} 
+                fill
+                sizes="48px"
+                style={{objectFit: 'contain'}}
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default AboutMe;

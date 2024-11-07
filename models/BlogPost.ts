@@ -1,9 +1,12 @@
+// models/BlogPost.ts
 import mongoose from 'mongoose';
 
-const BlogPostSchema = new mongoose.Schema({
+const blogPostSchema = new mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  date: { type: Date, default: Date.now },
+  // Add other fields as needed
+}, {
+  timestamps: true
 });
 
-export default mongoose.models.BlogPost || mongoose.model('BlogPost', BlogPostSchema);
+export default mongoose.models.BlogPost || mongoose.model('BlogPost', blogPostSchema);

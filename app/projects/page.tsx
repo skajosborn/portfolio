@@ -28,13 +28,13 @@ const Projects: React.FC = () => {
         />
         <ProjectCard
           title="To Do List"
-          imageUrl="/images/movieapp.png"
+          imageUrl="/images/portfolio.png"
           githubUrl="https://github.com/yourusername/todo-app"
           liveDemoUrl="https://todo-app-demo.com"
         />
         <ProjectCard
           title="Movie App"
-          imageUrl="/images/movieapp.png"
+          imageUrl="/images/mybenches.jpg"
           githubUrl="https://github.com/yourusername/movie-app"
           liveDemoUrl="https://movie-app-demo.com"
         />

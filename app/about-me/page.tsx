@@ -72,7 +72,7 @@ function AboutMe() {
         </div>
         {/* Skills Section */}
         <div className="my-20">
-          <h2 className="text-4xl font-bold text-gray-700 mb-16 text-center">Skills & Expertise</h2>
+          <h2 className="text-4xl font-bold text-black mb-16 text-center">Skills & Expertise</h2>
           <div className="flex justify-between gap-10">
             
             {/* Frontend Skills */}
@@ -135,7 +135,7 @@ function AboutMe() {
 function SkillSection({ title, skills }: SkillSectionProps) {
   return (
     <div className="flex-1 flex flex-col items-center">
-      <h3 className="text-2xl font-semibold text-gray-100 mb-6">{title}</h3>
+      <h3 className="text-2xl font-semibold text-gray-900 mb-6">{title}</h3>
       <div className="flex flex-wrap gap-4 justify-center">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />

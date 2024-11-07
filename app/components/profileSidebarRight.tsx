@@ -9,25 +9,17 @@ const ProfileSidebar = () => {
       {/* Profile Image and Text */}
       <div className="w-full">
         <div className="relative w-full h-80">
-          <Image
-            src="/images/mtbgirl.webp" 
-            alt="Profile Image"
-            className="shadow-lg object-cover"
-            fill
-            sizes="100vw"
-            priority
-          />
+        <div className="relative w-full h-64">
+        </div>
         </div>
 
         <div className="h-full">
-          <Image 
-            src="/images/mtbgirl.webp"
-            alt="Profile Image"
-            className="object-cover"
-            fill
-            sizes="100vw"
-            priority
-          />
+        <Image
+  src="/images/mtbgirl.webp"
+  alt="Mountain Biking Girl"
+  fill
+  sizes="50vw" // Set based on the space it occupies (e.g., half the viewport width)
+/>
         </div>
       </div>
 

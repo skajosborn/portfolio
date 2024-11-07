@@ -1,11 +1,9 @@
-// pages/blog/[id].tsx or app/blog/[id]/page.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-// import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
-import Header from '@/app/components/header'
+import Header from '@/app/components/header';
 
 interface BlogPost {
   _id: string;
@@ -21,20 +19,27 @@ function BlogPostPage() {
   const { id } = useParams(); // Extract the blog post ID from the URL
 
   useEffect(() => {
+    if (!id) {
+      setError('Invalid blog post ID');
+      return;
+    }
+  
     const fetchPost = async () => {
       try {
         const response = await fetch(`/api/blogs/${id}`);
         if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Fetch error:', response.status, errorText);
           throw new Error('Failed to fetch the post');
         }
         const data = await response.json();
         setPost(data);
       } catch (error) {
-        console.error(error);
+        console.error('Fetch error:', error);
         setError('Post not found');
       }
     };
-
+  
     fetchPost();
   }, [id]);
 
@@ -55,6 +60,8 @@ function BlogPostPage() {
             src={post.imageUrl}
             alt={post.title}
             className="w-full h-64 object-cover rounded-t-lg mb-6"
+            width={800}
+            height={400}
           />
         )}
         <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>

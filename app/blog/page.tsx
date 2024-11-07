@@ -1,111 +1,114 @@
-// pages/blog.tsx
-'use client'
-
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Header from '@/app/components/header';
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface BlogPost {
   _id: string;
   title: string;
   content: string;
-  date: string;
-  imageUrl?: string;
+  createdAt: string;
+  // Add other fields as needed
 }
 
-function Blog() {
+interface PaginatedResponse {
+  posts: BlogPost[];
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    pages: number;
+  };
+}
+
+export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
-  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/blogs')
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
+    async function fetchPosts() {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/blogs');
+        const data: PaginatedResponse = await response.json();
+        
+        // Ensure we're getting the posts array from the response
+        setPosts(data.posts || []);
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+        setError('Failed to load blog posts');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
   }, []);
 
-  const handlePostClick = (postId: string) => {
-    router.push(`/blog/${postId}`);
-  };
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto p-8">
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto p-8">
+        <div className="text-center text-red-600">
+          <h2 className="text-2xl font-bold">{error}</h2>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="bg-gray-200 min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[600px] bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('/images/desk2.png')" }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="text-center text-white relative z-10">
-          <h1 className="text-lg mt-52 md:text-4xl font-extrabold mb-8">
-            MY <span className="text-mountain-meadow-400">BLOG</span>
-          </h1>
-          <p className="text-xl mt-36 md:text-2xl max-w-3xl mx-auto px-4">
-            Welcome to my blog! Discover my latest thoughts, projects, and tutorials on web development, design, and more.
-          </p>
+    <main className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4">
+          <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
         </div>
       </div>
 
-      {/* Header overlapping hero section */}
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <Header />
-      </div>
-
-      {/* Blog Posts */}
-      <div className="max-w-7xl mx-auto p-8 grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-">
-        {posts.map((post) => (
-          <div
-            key={post._id}
-            className="bg-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden flex flex-col h-[500px]"
-            onClick={() => handlePostClick(post._id)}
-          >
-            {post.imageUrl ? (
-              <div className="h-48 w-full bg-cover bg-center" style={{ backgroundImage: `url(${post.imageUrl})` }}></div>
-            ) : (
-              <div className="h-48 w-full bg-gray-100 flex items-center justify-center text-gray-500">No Image Available</div>
-            )}
-            <div className="p-6 flex flex-col flex-grow">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h2>
-              <div className="text-sm text-gray-500 mb-4">
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </div>
-              <p className="text-gray-700">
-                {post.content.length > 100 ? `${post.content.substring(0, 100)}...` : post.content}
-              </p>
-              <div className="mt-auto">
-                <button 
-                  className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
-                  style={{
-                    transition: 'all 0.3s ease',
-                    boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `
-                      0 0 10px rgba(255, 255, 255, 0.6), 
-                      0 0 20px rgba(255, 255, 255, 0.5), 
-                      0 0 30px rgba(255, 255, 255, 0.4),
-                      inset 0 0 10px rgba(255, 255, 255, 0.3),
-                      inset 0 0 20px rgba(255, 255, 255, 0.2)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                  }}
-                >
-                  Read
-                </button>
-              </div>
-            </div>
+      {/* Blog Posts Grid */}
+      <div className="max-w-7xl mx-auto p-8">
+        {posts.length === 0 ? (
+          <div className="text-center text-gray-600">
+            <h2 className="text-xl">No blog posts found</h2>
           </div>
-        ))}
+        ) : (
+          <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <Link 
+                href={`/blog/${post._id}`} 
+                key={post._id}
+              >
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden flex flex-col h-[500px]">
+                  <div className="p-6 flex-grow">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4">{post.title}</h2>
+                    <p className="text-gray-600 line-clamp-4">{post.content}</p>
+                  </div>
+                  <div className="px-6 py-4 bg-gray-50">
+                    <time className="text-sm text-gray-500">
+                      {new Date(post.createdAt).toLocaleDateString()}
+                    </time>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </main>
   );
 }
-
-export default Blog;

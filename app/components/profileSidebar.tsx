@@ -26,7 +26,7 @@ const ProfileSidebarRight = () => {
             I come with a strong foundation in art and design, years of experience in teaching linguistics, and a drive for perfection in everything I do. I am fully dedicated to creating high-quality, exceptional user experiences.
           </p>
           <p className="text-gray-900 text-lg leading-relaxed mt-4">
-            As a full-stack developer, I will build your website from start to finish. Leave me a message so we can bring your ideas to fruition.
+            As a full-stack developer, I will build your website from start to finish. Leave me a message so we can bring your ideas to fruition. I look forward to the working with you.
           </p>
         </div>
       </div>

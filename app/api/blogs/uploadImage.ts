@@ -1,82 +1,100 @@
-// pages/api/uploadImage.ts
+import { NextRequest, NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
-import { NextApiRequest, NextApiResponse } from 'next';
-import formidable from 'formidable';
-import fs from 'fs';
+import formidable, { IncomingForm } from 'formidable';
+import fs from 'fs/promises';
+import { Readable } from 'stream';
 
-// Ensure Cloudinary is properly configured before using it
-if (!process.env.CLOUDINARY_CLOUD_NAME || 
-    !process.env.CLOUDINARY_API_KEY ||
-    !process.env.CLOUDINARY_API_SECRET) {
-  throw new Error('Cloudinary configuration is missing');
-}
-
+// Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-console.log('Cloudinary Config:', {
-  cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-  apiKey: process.env.CLOUDINARY_API_KEY,
-  apiSecret: process.env.CLOUDINARY_API_SECRET ? 'exists' : 'missing',
-});
-// Disable body parsing to handle FormData manually
+// Disable Next.js body parsing to use formidable
 export const config = {
   api: {
     bodyParser: false,
   },
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+// Utility function to convert Next.js request body (ReadableStream) to a Buffer
+async function streamToBuffer(readableStream: ReadableStream<Uint8Array>): Promise<Buffer> {
+  const reader = readableStream.getReader();
+  const chunks: Uint8Array[] = [];
+  let result = await reader.read();
+
+  while (!result.done) {
+    chunks.push(result.value);
+    result = await reader.read();
   }
-  
 
-  // Use formidable to parse FormData with file upload
-  const form = new formidable.IncomingForm();
+  return Buffer.concat(chunks);
+}
 
-  form.parse(req, async (err, fields, files) => {
-    if (err) {
-      console.error('Error parsing form:', err);
-      return res.status(500).json({ error: 'Error parsing form' });
-    }
+// Helper function to convert NextRequest to a Node.js IncomingMessage-like object
+async function convertNextRequestToIncomingMessage(req: NextRequest) {
+  const buffer = await streamToBuffer(req.body as ReadableStream<Uint8Array>);
+  const readableStream = new Readable({
+    read() {
+      this.push(buffer);
+      this.push(null);
+    },
+  });
+
+  // Mimic the IncomingMessage by adding necessary properties
+  const incomingMessage = Object.assign(readableStream, {
+    headers: req.headers,
+    method: req.method,
+    url: req.url,
+    httpVersion: '1.1',
+    httpVersionMajor: 1,
+    httpVersionMinor: 1,
+    connection: {
+      destroyed: false,
+    },
+  });
+
+  return incomingMessage;
+}
+
+// Function to parse form data using formidable
+async function parseForm(req: NextRequest): Promise<{ fields: formidable.Fields; files: formidable.Files }> {
+  const form = new IncomingForm();
+
+  return new Promise((resolve, reject) => {
+    convertNextRequestToIncomingMessage(req)
+      .then((incomingRequest) => {
+        form.parse(incomingRequest as any, (err, fields, files) => {
+          if (err) reject(err);
+          resolve({ fields, files });
+        });
+      })
+      .catch(reject);
+  });
+}
+
+// API handler for POST request
+export async function POST(req: NextRequest) {
+  try {
+    const { files } = await parseForm(req);
 
     const file = files.file as formidable.File | undefined;
     if (!file) {
-      console.error('File is missing in the request');
-      return res.status(400).json({ error: 'File is required' });
+      return NextResponse.json({ error: 'File is required' }, { status: 400 });
     }
 
-    try {
-      // Verify file path and ensure it exists
-      const filePath = file.filepath;
-      if (!fs.existsSync(filePath)) {
-        throw new Error('File path does not exist');
-      }
-      console.log('File path:', filePath);
+    const filePath = file.filepath;
+    const result = await cloudinary.uploader.upload(filePath, {
+      folder: 'blog-images',
+    });
 
-      // Upload file to Cloudinary
-      const result = await cloudinary.uploader.upload(filePath, {
-        folder: 'blog-images',
-        allowed_formats: ['jpg', 'jpeg', 'png', 'gif'],
-        max_file_size: 10 * 1024 * 1024,
-      });
-    
-      if (!result || !result.secure_url) {
-        console.error('Unexpected Cloudinary response:', result);
-        throw new Error('Upload failed - Cloudinary did not return a secure URL');
-      }
-    
-      fs.unlinkSync(filePath);
-    
-      return res.status(200).json({ url: result.secure_url });
-    } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      console.error('Error during file upload:', errorMessage);
-      return res.status(500).json({ error: 'Failed to upload image to Cloudinary' });
-    }
-  });
+    // Clean up the temporary file
+    await fs.unlink(filePath);
+
+    return NextResponse.json({ url: result.secure_url }, { status: 200 });
+  } catch (error) {
+    console.error('Error during file upload:', error);
+    return NextResponse.json({ error: 'Failed to upload image to Cloudinary' }, { status: 500 });
+  }
 }
