@@ -2,15 +2,15 @@
 
 import React from 'react';
 import Image from 'next/image';
+// Header component
 function Header() {
   return (
     <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-gray-300 z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
       {/* Brand/Logo Section */}
       <div className="text-black ml-10 text-2xl mr-10 sm:text-2xl md:text-3xl lg:text-4xl font-bold font-rouge-script"></div>
       
-      {/* Profile Image with Neon Glow */}
+      {/* Profile Image */}
       <div className="relative h-[50px] w-[25px] sm:h-[60px] sm:w-[280px] md:h-[70px] md:w-[310px] lg:h-[90px] lg:w-[350px]">
-        <link rel="preload" href="/images/black4.png" as="image" />
         <Image
           src="/images/black4.png"
           alt="Descriptive alt text"
@@ -18,15 +18,6 @@ function Header() {
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 60vw, 50vw"
           className="object-contain transition-all duration-300 glow-effect"
-          onMouseEnter={(e) => {
-            e.currentTarget.style.filter = 'drop-shadow(0 0 25px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 75px rgba(255, 255, 255, 0.7))';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))';
-          }}
-          style={{
-            filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))',
-          }}
         />
       </div>
 
@@ -35,7 +26,12 @@ function Header() {
         {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((label) => (
           <a
           key={label}
-          href={label === 'Home' ? '/' : label === 'Blog' ? '/blog' : label === 'About' ? '/about-me' : `/${label.toLowerCase()}`}
+          href={label === 'Home' ? '/#home' : 
+                label === 'About' ? '/#about' :
+                label === 'Projects' ? '/#projects' :
+                label === 'Blog' ? '/blog' :
+                label === 'Contact' ? '/#contact' : 
+                `/#${label.toLowerCase()}`}
           className="bg-gray-200 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
           style={{
             transition: 'all 0.3s ease',
@@ -61,7 +57,7 @@ function Header() {
         >
           {label}
         </a>
-        ))} <h1></h1>
+        ))}
       </div>
 
       {/* Mobile Menu Button */}

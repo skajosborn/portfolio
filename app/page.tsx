@@ -1,7 +1,5 @@
 'use client';
 import Image from "next/image";
-// import PortfolioInteractive from "@/app/components/computer";
-// import PictureOnWall from "@/app/components/wallPicture";
 import ProfileSidebar from "@/app/components/profileSidebar";
 import ProfileSidebarRight from '@/app/components/profileSidebarRight';
 import BlogPosts from "@/app/components/blogPost";
@@ -43,7 +41,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
-      <div className="flex flex-col lg:flex-row lg:items-start mt-12 lg:mt-24">
+      <section id="home" className="flex flex-col lg:flex-row lg:items-start mt-12 lg:mt-24">
         {/* Main Content */}
         <main className="flex-1 w-full mx-auto lg:mt-10 max-w-full px-4">
           <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-6 lg:mb-10">Portfolio</h2>
@@ -76,8 +74,8 @@ export default function Home() {
             </div>
           </div>
         </main>
-      </div>
-      <div className="mt-6 lg:mt-10 p-4">
+      </section>
+      <section id="about" className="mt-6 lg:mt-10 p-4">
         <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-8 lg:mb-12">About me</h2>
         <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
           <div className="flex flex-col lg:flex-row relative">
@@ -111,9 +109,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-10 lg:mt-20">
+      <section id="blog" className="mt-10 lg:mt-20">
         <h2 className="text-3xl lg:text-4xl text-black font-bold text-center pt-4 lg:pt-6 mb-10 lg:mb-20">My Blog</h2>
         <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
           <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
@@ -160,76 +158,80 @@ export default function Home() {
         </div>
 
         {/* Skills section */}
-        <h2 className="text-4xl text-black font-bold text-center mt-20 mb-20">Skills</h2>
-        <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
-          <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
-            <AboutMe />
-          </div>
-        </div>
-
-        {/* Project Cards Section */}
-        <h2 className="text-4xl text-black font-bold text-center mt-40 mb-10">Projects</h2>
-        <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
-          <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center px-6">
-              <ProjectCard
-                title="Movie App"
-                imageUrl="/images/hellodoctor.png"
-                githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
-                liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
-              />
-              <ProjectCard
-                title="To Do List"
-                imageUrl="/images/cattails.png"
-                githubUrl="https://github.com/yourusername/todo-app"
-                liveDemoUrl="https://todo-app-demo.com"
-              />
-              <ProjectCard
-                title="Movie App"
-                imageUrl="/images/autumnsprings.jpg"
-                githubUrl="https://github.com/yourusername/movie-app"
-                liveDemoUrl="https://movie-app-demo.com"
-              />
-              <ProjectCard
-                title="To Do List"
-                imageUrl="/images/movieapp.png"
-                githubUrl="https://github.com/yourusername/todo-app"
-                liveDemoUrl="https://todo-app-demo.com"
-              />
+        <section id="skills">
+          <h2 className="text-4xl text-black font-bold text-center mt-20 mb-20">Skills</h2>
+          <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
+            <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
+              <AboutMe />
             </div>
           </div>
-        </div>
-        <div className="flex justify-center mt-12 mb-12">
-          <button
-            className="bg-gray-100 mt-20 h-[30px] w-[120px] sm:h-[40px] sm:w-[140px] md:h-[50px] md:w-[160px] lg:h-[60px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
-            style={{
-              transition: 'all 0.3s ease',
-              boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `
-                0 0 10px rgba(255, 255, 255, 0.6), 
-                0 0 20px rgba(255, 255, 255, 0.5), 
-                0 0 30px rgba(255, 255, 255, 0.4),
-                inset 0 0 10px rgba(255, 255, 255, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.2)`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-            onClick={() => window.location.href = '/blog'}
-          >
-            See More
-          </button>
-        </div>
-      </div>
-      <div className="bg-gray-100 p-8 rounded-lg w-1/4 mx-auto my-20">
+        </section>
+
+        {/* Project Cards Section */}
+        <section id="projects">
+          <h2 className="text-4xl text-black font-bold text-center mt-40 mb-10">Projects</h2>
+          <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg p-4 lg:p-8">
+            <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center px-6">
+                <ProjectCard
+                  title="Movie App"
+                  imageUrl="/images/hellodoctor.png"
+                  githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
+                  liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
+                />
+                <ProjectCard
+                  title="To Do List"
+                  imageUrl="/images/cattails.png"
+                  githubUrl="https://github.com/yourusername/todo-app"
+                  liveDemoUrl="https://todo-app-demo.com"
+                />
+                <ProjectCard
+                  title="Movie App"
+                  imageUrl="/images/autumnsprings.jpg"
+                  githubUrl="https://github.com/yourusername/movie-app"
+                  liveDemoUrl="https://movie-app-demo.com"
+                />
+                <ProjectCard
+                  title="To Do List"
+                  imageUrl="/images/movieapp.png"
+                  githubUrl="https://github.com/yourusername/todo-app"
+                  liveDemoUrl="https://todo-app-demo.com"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center mt-12 mb-12">
+            <button
+              className="bg-gray-100 mt-20 h-[30px] w-[120px] sm:h-[40px] sm:w-[140px] md:h-[50px] md:w-[160px] lg:h-[60px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+              style={{
+                transition: 'all 0.3s ease',
+                boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = `
+                  0 0 10px rgba(255, 255, 255, 0.6), 
+                  0 0 20px rgba(255, 255, 255, 0.5), 
+                  0 0 30px rgba(255, 255, 255, 0.4),
+                  inset 0 0 10px rgba(255, 255, 255, 0.3),
+                  inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }}
+              onClick={() => window.location.href = '/blog'}
+            >
+              See More
+            </button>
+          </div>
+        </section>
+      </section>
+      <section id="bitmoji" className="bg-gray-100 p-8 rounded-lg w-1/4 mx-auto my-20">
         <div className="relative w-full bg-white h-[500px] rounded-lg">
           <Image
             src="/images/bitmoji1.png"
@@ -239,8 +241,8 @@ export default function Home() {
             className="rounded-lg shadow-lg"
           />
         </div>
-      </div>
-      <div className="text-center text-3xl font-bold text-black my-20">
+      </section>
+      <section id="contact" className="text-center text-3xl font-bold text-black my-20">
         <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">Let's Connect!</h2>
         <p className="text-lg lg:text-xl text-black mb-8">
           I'm always open to exciting projects and collaborations. If you're interested in working together or just want to say hi, feel free to reach out!
@@ -274,7 +276,7 @@ export default function Home() {
             Contact Me
           </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

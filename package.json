@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "cloudinary": "^2.5.1",
     "dotenv": "^16.4.5",
+    "email-js": "^2.0.3",
     "formidable": "^3.5.2",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.0",
