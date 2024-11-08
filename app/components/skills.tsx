@@ -89,8 +89,8 @@ function AboutMe() {
         {/* CTA Section */}
         <div className="flex justify-center">
           <a
-            href="/contact"
-            className="bg-gray-200 h-[35px] w-[100px] sm:h-[45px] sm:w-[115px] md:h-[55px] md:w-[130px] lg:h-[65px] lg:w-[160px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+            href="/about"
+            className="bg-gray-100 h-[30px] w-[100px] sm:h-[40px] sm:w-[120px] md:h-[50px] md:w-[140px] lg:h-[60px] lg:w-[160px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
@@ -142,11 +142,11 @@ function SkillCard({ skill }: SkillCardProps) {
       <div className="group perspective-1000" style={{position: 'relative'}}>
         <div className="relative w-32 h-32 text-xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
           {/* Front Side - Shows name with glass overlay */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center">
+          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center">
             {skill.name}
           </div>
           {/* Back Side - Shows icon */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
+          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
             <div style={{position: 'relative', width: '48px', height: '48px'}}>
               <Image 
                 src={skill.logo} 

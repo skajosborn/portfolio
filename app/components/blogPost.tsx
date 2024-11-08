@@ -26,7 +26,7 @@ const BlogPosts = ({ posts }: BlogPostsProps) => {
       {posts.map((post) => (
         <div
           key={post._id}
-          className="bg-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden flex flex-col h-[500px]"
+          className="bg-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden flex flex-col h-[500px]"
           onClick={() => handlePostClick(post._id)}
         >
           {post.imageUrl ? (
