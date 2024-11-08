@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const ProfileSidebar = () => {
   return (
-    <nav className="w-72 sm:w-80 mt-0 h-[900px] pt-0 md:w-96 bg-white text-gray-500 shadow-[2px_0_10px_-2px_rgba(0,0,0,0.1)]">
+    <nav className="w-72 sm:w-80 mt-0 h-[950px] pt-0 md:w-96 bg-white text-gray-500 shadow-[2px_0_10px_-2px_rgba(0,0,0,0.1)]">
       {/* Profile Image and Text */}
       <div className="w-full">
         <div className="relative w-full h-80">
@@ -17,7 +17,7 @@ const ProfileSidebar = () => {
             sizes="(max-width: 768px) 80vw, 384px"
           />
         </div>
-        <div className="p-4 text-center">
+        <div className="p-4 mt-4 text-center">
           <p className="text-gray-700 text-lg">
             When I'm not coding, you can find me mountain biking on the trails, 
             kayaking through the springs, or seeking adventure in new places. What 
@@ -26,7 +26,7 @@ const ProfileSidebar = () => {
             caves, prehistoric creeks, and beyond. If you've never made the trip here,
             start planning!
           </p>
-          <div className="relative w-[calc(100%+2rem)] h-64 mt-8 -mx-4">
+          <div className="relative w-[calc(100%+2rem)] h-72 mt-8 -mx-4">
             <Image
               src="/images/kayak.jpeg"
               alt="Florida Springs"

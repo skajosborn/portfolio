@@ -1,13 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import BlogPosts from "@/app/components/blogPost";
 
 interface BlogPost {
   _id: string;
   title: string;
   content: string;
   createdAt: string;
-  // Add other fields as needed
+  date: string; // Added missing date field
 }
 
 interface PaginatedResponse {
@@ -32,8 +32,13 @@ export default function BlogPage() {
         const response = await fetch('/api/blogs');
         const data: PaginatedResponse = await response.json();
         
-        // Ensure we're getting the posts array from the response
-        setPosts(data.posts || []);
+        // Map the response data to include the required date field
+        const postsWithDate = data.posts.map(post => ({
+          ...post,
+          date: new Date(post.createdAt).toLocaleDateString() // Convert createdAt to date string
+        }));
+        
+        setPosts(postsWithDate || []);
       } catch (err) {
         console.error('Error fetching posts:', err);
         setError('Failed to load blog posts');
@@ -44,6 +49,9 @@ export default function BlogPage() {
 
     fetchPosts();
   }, []);
+
+  const postsPerPage = 6;
+  const totalPages = posts && posts.length ? Math.ceil(posts.length / postsPerPage) : 0;
 
   if (loading) {
     return (
@@ -72,43 +80,49 @@ export default function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4">
-          <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
-        </div>
-      </div>
-
-      {/* Blog Posts Grid */}
-      <div className="max-w-7xl mx-auto p-8">
-        {posts.length === 0 ? (
-          <div className="text-center text-gray-600">
-            <h2 className="text-xl">No blog posts found</h2>
+    <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
+      <div className="mt-20">
+        <h2 className="text-4xl text-black font-bold text-center pt-6 mb-20">My Blog</h2>
+        <div className="relative w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-8">
+          <div className="text-xl text-black font-medium text-center mb-12 mt-8">
+            Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
+            and my journey transitioning from education to tech. Feel free to explore my posts below.
           </div>
-        ) : (
-          <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <Link 
-                href={`/blog/${post._id}`} 
-                key={post._id}
+          <BlogPosts posts={posts} />
+          {/* Pagination */}
+          <div className="flex justify-center gap-4 mt-12 mb-12">
+            {Array.from({length: totalPages}, (_, index) => (
+              <button
+                key={index}
+                className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+                style={{
+                  transition: 'all 0.3s ease',
+                  boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = `
+                    0 0 10px rgba(255, 255, 255, 0.6), 
+                    0 0 20px rgba(255, 255, 255, 0.5), 
+                    0 0 30px rgba(255, 255, 255, 0.4),
+                    inset 0 0 10px rgba(255, 255, 255, 0.3),
+                    inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+                }}
+                onMouseDown={(e) => {
+                  e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+                }}
+                onMouseUp={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
               >
-                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer overflow-hidden flex flex-col h-[500px]">
-                  <div className="p-6 flex-grow">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4">{post.title}</h2>
-                    <p className="text-gray-600 line-clamp-4">{post.content}</p>
-                  </div>
-                  <div className="px-6 py-4 bg-gray-50">
-                    <time className="text-sm text-gray-500">
-                      {new Date(post.createdAt).toLocaleDateString()}
-                    </time>
-                  </div>
-                </div>
-              </Link>
+                {index + 1}
+              </button>
             ))}
           </div>
-        )}
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

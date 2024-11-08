@@ -4,7 +4,7 @@ import ProjectCard from '@/app/components/projects-card';
 
 const Projects: React.FC = () => {
   return (
-    <div className="p-12 bg-gradient-to-b from-white to-gray-700 min-h-screen">
+    <div className="p-12 bg-gray-200 min-h-screen">
       <div className="max-w-4xl mx-auto text-center">
         {/* Header Section */}
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 mt-24 animate-fade-in">
@@ -21,8 +21,8 @@ const Projects: React.FC = () => {
       {/* Project Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
         <ProjectCard
-          title="Movie App"
-          imageUrl="/images/movieapp.png"
+          title="HelloDoctor Medical platform"
+          imageUrl="/images/HelloDoctor.png"
           githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
           liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
         />

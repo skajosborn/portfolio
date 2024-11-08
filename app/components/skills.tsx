@@ -60,19 +60,19 @@ function AboutMe() {
     <div className="relative min-h-screen p-1 font-poppins text-xl overflow-hidden">
       {/* <Header /> */}
 
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 py-4 lg:px-8 lg:py-6">
         
         {/* Header Section */}
       {/* Header Section */}
-        <div className="text-center mt-12 mb-20 px-4 lg:px-0">
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-600 mb-4">About Me</h1>
+        <div className="text-center mt-6 mb-10 px-4 lg:px-0">
+          {/* <h1 className="text-4xl lg:text-6xl font-bold text-gray-600 mb-4">About Me</h1>
           <p className="text-xl lg:text-2xl font-light text-gray-800 mx-auto text-justify lg:max-w-none">
             My mission is to craft unique and captivating user experiences that are not only seamlessly functional but also maintainable and efficient. I thrive on creativity and love the challenge of thinking outside the box, yet I equally value the elegance of a sleek, minimalist design. Driven by a commitment to excellence, I approach every project with a meticulous eye and don&#39;t rest until every detail meets the highest standard. I&#39;m passionate about staying on the cutting edge of technology and am a lifelong learner, currently deepening my expertise in Web3 and Smart Contracts. Feel free to reach out with any questions, ideas, or thoughts—and don&#39;t forget to visit my blog to learn more about my journey. Thank you for stopping by!
-          </p>
+          </p> */}
         </div>
         {/* Skills Section */}
         <div className="my-20">
-          <h2 className="text-4xl font-bold text-gray-700 mb-16 text-center">Skills & Expertise</h2>
+          {/* <h2 className="text-4xl font-bold text-gray-700 mb-28 text-center">Skills & Expertise</h2> */}
           <div className="flex justify-between gap-10">
             
             {/* Frontend Skills */}

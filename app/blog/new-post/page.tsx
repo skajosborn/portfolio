@@ -1,12 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Header from '@/app/components/header';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Quill without SSR
+const Editor = dynamic(() => import('@/app/components/quillEditor'), { ssr: false });
 
 function NewPost() {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState(''); // Store HTML content
   const [imageUrl, setImageUrl] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [isUploading, setIsUploading] = useState(false);
@@ -41,7 +45,7 @@ function NewPost() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!imageUrl) {
@@ -56,7 +60,7 @@ function NewPost() {
       },
       body: JSON.stringify({
         title,
-        content,
+        content, // Save HTML content
         imageUrl,
       }),
     });
@@ -94,13 +98,9 @@ function NewPost() {
 
             <div className="mb-6">
               <label className="block text-gray-700 text-lg font-medium mb-3">Content</label>
-              <textarea
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                className="w-full px-5 py-3 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
-                rows={10}
-                required
-              ></textarea>
+              <Editor
+                onTextChange={setContent}
+              />
             </div>
 
             <div className="mb-6">

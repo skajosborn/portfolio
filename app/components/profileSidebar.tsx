@@ -25,13 +25,13 @@ const ProfileSidebarRight = () => {
           {/* <p className="text-gray-900 text-lg leading-relaxed">
             I come with a strong foundation in art and design, years of experience in teaching linguistics, and a drive for perfection in everything I do. I am fully dedicated to creating high-quality, exceptional user experiences.
           </p> */}
-          <p className="text-center">I have a husband, two daughters, and a very lazy pug named Clover. When I'm not on a mission to create 
-            the tackiest Christmas card possible, I am a lover of nature and can usually be found outside (until a snake comes, then you will find me inside the next few days 😬).</p>
+          <p className="text-center pl-4 pr-4">I have a husband, two daughters, and a very lazy pug. When I'm not on a mission to create 
+            the tackiest Christmas card possible, I am a lover of nature and can usually be found outside (until a snake comes, then you will find me inside for a few days 😬).</p>
           {/* <p className="text-gray-900 text-lg leading-relaxed mt-4">
             As a full-stack developer, I will build your website from start to finish. Leave me a message so we can bring your ideas to fruition. I look forward to the working with you.
           </p> */}
-          <div className="relative w-full h-64 mt-4">
-            <Image
+         <div className="relative w-full h-72 mt-8">
+         <Image
               src="/images/family.jpg"
               alt="Florida Springs"
               fill
