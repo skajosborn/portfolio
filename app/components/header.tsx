@@ -29,7 +29,7 @@ function Header() {
           href={label === 'Home' ? '/#home' : 
                 label === 'About' ? '/#about' :
                 label === 'Projects' ? '/#projects' :
-                label === 'Blog' ? '/blog' :
+                label === 'Blog' ? '/#blog' :
                 label === 'Contact' ? '/#contact' : 
                 `/#${label.toLowerCase()}`}
           className="bg-gray-200 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"

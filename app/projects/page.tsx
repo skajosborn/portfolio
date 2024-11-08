@@ -1,3 +1,4 @@
+'use client';
 // pages/projects.tsx
 import React from 'react';
 import ProjectCard from '@/app/components/projects-card';
@@ -45,6 +46,36 @@ const Projects: React.FC = () => {
           liveDemoUrl="https://todo-app-demo.com"
         />
         {/* Add more ProjectCard components as needed */}
+      </div>
+
+      {/* Pagination */}
+      <div className="flex justify-center mt-12">
+        <button
+          className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+          style={{
+            transition: 'all 0.3s ease',
+            boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = `
+              0 0 10px rgba(255, 255, 255, 0.6), 
+              0 0 20px rgba(255, 255, 255, 0.5), 
+              0 0 30px rgba(255, 255, 255, 0.4),
+              inset 0 0 10px rgba(255, 255, 255, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+          }}
+          onMouseDown={(e) => {
+            e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+          }}
+          onMouseUp={(e) => {
+            e.currentTarget.style.transform = 'scale(1.05)';
+          }}
+        >
+          1
+        </button>
       </div>
     </div>
   );

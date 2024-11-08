@@ -127,7 +127,8 @@ export default function Home() {
               {Array.from({length: totalPages}, (_, index) => (
                 <button
                   key={index}
-                  className="bg-gray-100 h-[30px] w-[60px] sm:h-[40px] sm:w-[80px] md:h-[45px] md:w-[90px] lg:h-[50px] lg:w-[100px] text-sm sm:text-base md:text-lg lg:text-xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+                  onClick={() => window.location.href = `/blog?page=${index + 1}`}
+                  className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
                     boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
@@ -150,7 +151,7 @@ export default function Home() {
                     e.currentTarget.style.transform = 'scale(1.05)';
                   }}
                 >
-                  {index + 1}
+                  See more
                 </button>
               ))}
             </div>
@@ -174,60 +175,60 @@ export default function Home() {
             <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-lg shadow-lg p-4 lg:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center px-6">
                 <ProjectCard
-                  title="Movie App"
+                  title="HelloDoctor"
                   imageUrl="/images/hellodoctor.png"
                   githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
                   liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
                 />
                 <ProjectCard
                   title="To Do List"
-                  imageUrl="/images/cattails.png"
+                  imageUrl="/images/comingsoon.jpg"
                   githubUrl="https://github.com/yourusername/todo-app"
                   liveDemoUrl="https://todo-app-demo.com"
                 />
                 <ProjectCard
                   title="Movie App"
-                  imageUrl="/images/autumnsprings.jpg"
+                  imageUrl="/images/comingsoon.jpg"
                   githubUrl="https://github.com/yourusername/movie-app"
                   liveDemoUrl="https://movie-app-demo.com"
                 />
                 <ProjectCard
                   title="To Do List"
-                  imageUrl="/images/movieapp.png"
+                  imageUrl="/images/comingsoon.jpg"
                   githubUrl="https://github.com/yourusername/todo-app"
                   liveDemoUrl="https://todo-app-demo.com"
                 />
               </div>
+              <div className="flex justify-center mt-12">
+                <button
+                  className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+                  style={{
+                    transition: 'all 0.3s ease',
+                    boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `
+                      0 0 10px rgba(255, 255, 255, 0.6), 
+                      0 0 20px rgba(255, 255, 255, 0.5), 
+                      0 0 30px rgba(255, 255, 255, 0.4),
+                      inset 0 0 10px rgba(255, 255, 255, 0.3),
+                      inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onClick={() => window.location.href = '/projects'}
+                >
+                  See More
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-center mt-12 mb-12">
-            <button
-              className="bg-gray-100 mt-20 h-[30px] w-[120px] sm:h-[40px] sm:w-[140px] md:h-[50px] md:w-[160px] lg:h-[60px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
-              style={{
-                transition: 'all 0.3s ease',
-                boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = `
-                  0 0 10px rgba(255, 255, 255, 0.6), 
-                  0 0 20px rgba(255, 255, 255, 0.5), 
-                  0 0 30px rgba(255, 255, 255, 0.4),
-                  inset 0 0 10px rgba(255, 255, 255, 0.3),
-                  inset 0 0 20px rgba(255, 255, 255, 0.2)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }}
-              onClick={() => window.location.href = '/blog'}
-            >
-              See More
-            </button>
           </div>
         </section>
       </section>
@@ -250,7 +251,7 @@ export default function Home() {
         <div className="flex justify-center">
           <a
             href="/contact"
-            className="bg-gray-100 h-[35px] w-[100px] sm:h-[45px] sm:w-[115px] md:h-[55px] md:w-[130px] lg:h-[65px] lg:w-[160px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+            className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-sm sm:text-base md:text-lg lg:text-xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
