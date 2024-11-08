@@ -1,13 +1,16 @@
-// app/api/blogs/[id]/route.ts
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import BlogPost from '@/models/BlogPost';
 import mongoose from 'mongoose';
 
-export async function GET(request: Request, { params: { id } }: { params: { id: string } }) {
+export async function GET(request: Request) {
   await dbConnect();
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  // Extract the ID from the URL path
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
   }
 
@@ -17,10 +20,13 @@ export async function GET(request: Request, { params: { id } }: { params: { id: 
   return NextResponse.json(post);
 }
 
-export async function PUT(request: Request, { params: { id } }: { params: { id: string } }) {
+export async function PUT(request: Request) {
   await dbConnect();
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
   }
 
@@ -37,10 +43,13 @@ export async function PUT(request: Request, { params: { id } }: { params: { id: 
   return NextResponse.json(updatedPost);
 }
 
-export async function DELETE(request: Request, { params: { id } }: { params: { id: string } }) {
+export async function DELETE(request: Request) {
   await dbConnect();
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
   }
 
