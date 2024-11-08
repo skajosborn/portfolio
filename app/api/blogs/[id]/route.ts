@@ -32,7 +32,6 @@ export async function PUT(request: Request, context: { params: Params }) {
   }
 
   const { title, content } = await request.json();
-
   const updatedPost = await BlogPost.findByIdAndUpdate(
     id,
     { title, content },
