@@ -125,7 +125,7 @@ function AboutMe() {
 function SkillSection({ title, skills }: SkillSectionProps) {
   return (
     <div className="flex-1 flex flex-col items-center">
-      <h3 className="text-2xl font-semibold text-black mb-6">{title}</h3>
+      <h3 className="text-2xl font-semibold text-gray-800 mb-16">{title}</h3>
       <div className="flex flex-wrap gap-4 justify-center">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />

@@ -39,9 +39,9 @@ export default function Home() {
   // Only calculate totalPages if posts array exists and has length
   const totalPages = posts && posts.length ? Math.ceil(posts.length / postsPerPage) : 0;
   return (
-    <div className="relative min-h-screen bg-gray-200 font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen mt-20 bg-gray-200 font-poppins text-xl overflow-hidden">
       <section id="home" className="mt-6 lg:mt-10">
-        <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-8 lg:mb-12">Portfolio</h2>
+        <h2 className="text-3xl lg:text-4xl text-black pt-10 font-bold text-center mb-8 lg:mb-12">Portfolio</h2>
         <div className="relative w-full bg-gray-100 shadow-lg px-4 py-8">
           <div className="relative w-full bg-white shadow-lg p-4 lg:p-8">
             <div className="relative w-full h-[400px] lg:h-[700px]">
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="blog" className="mt-6 lg:mt-10 px-4 py-8">
+      <section id="blog" className="mt-6 lg:mt-4 px-4 py-8">
         <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-8 lg:mb-12">My Blog</h2>
         <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-8">
           <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-sm shadow-lg p-4 lg:p-8">
@@ -171,7 +171,7 @@ export default function Home() {
         </section>
 
         {/* Project Cards Section */}
-        <section id="projects" className="mt-6 lg:mt-10 px-4 py-8">
+        <section id="projects" className="mt-6 lg:mt-4 px-4 py-8">
           <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-8 lg:mb-12">Projects</h2>
           <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-8">
             <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-sm shadow-lg p-4 lg:p-8">
