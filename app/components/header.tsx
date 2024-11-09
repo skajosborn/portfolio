@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Image from 'next/image';
+
 // Header component
 function Header() {
   return (
-    <nav className="fixed top-0 w-full h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-gray-300 z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
+    <nav className="fixed top-0 w-[125%] h-[60px] sm:h-[70px] md:h-[80px] lg:h-[100px] bg-gray-300 z-50 flex items-center shadow-md px-4 sm:px-5 md:px-6 lg:px-8 transform scale-[0.8] origin-top-left">
       {/* Brand/Logo Section */}
       <div className="text-black ml-10 text-2xl mr-10 sm:text-2xl md:text-3xl lg:text-4xl font-bold font-rouge-script"></div>
       
