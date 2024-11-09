@@ -209,13 +209,13 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center px-6">
                 <ProjectCard
                   title="HelloDoctor"
-                  imageUrl="/images/hellodoctor2.png"
+                  imageUrl="/images/hellodoc4.png"
                   githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
                   liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
                 />
                 <ProjectCard
                   title="Five Star Recipes"
-                  imageUrl="/images/recipeapp.png"
+                  imageUrl="/images/recipe2.png"
                   githubUrl="https://github.com/yourusername/todo-app"
                   liveDemoUrl="https://todo-app-demo.com"
                 />
