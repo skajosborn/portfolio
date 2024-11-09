@@ -26,14 +26,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        <div
-          style={{
-            transform: 'scale(0.8)', // Adjust this scale as needed
-            transformOrigin: 'top left', // Keeps the scale anchored to the top-left corner
-          }}
-        >
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );
