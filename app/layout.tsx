@@ -29,7 +29,7 @@ export default function RootLayout({
       <head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no"
+          content="width=device-width, initial-scale=0.6, maximum-scale=1.0, user-scalable=no"
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
