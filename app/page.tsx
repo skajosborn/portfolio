@@ -105,7 +105,7 @@ export default function Home() {
                         sizes="(max-width: 768px) 300px, 300px"
                       />
                     </div>
-                    <div className="w-full lg:w-1/2 h-[400px]">
+                    <div className="w-full lg:w-1/2 aspect-video">
                       <iframe
                         width="100%"
                         height="100%"
@@ -140,11 +140,19 @@ export default function Home() {
         <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-8 lg:mb-12">My Blog</h2>
         <div className="relative w-full max-w-[1650px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-8">
           <div className="relative w-full max-w-[1600px] h-auto mx-auto bg-white rounded-sm shadow-lg p-4 lg:p-8">
+            <div className="relative w-full h-[300px] mb-8">
+              <Image
+                src="/images/beach4.jpeg"
+                alt="Blog Header"
+                fill
+                className="object-cover rounded-lg shadow-lg"
+                sizes="(max-width: 1600px) 100vw, 1600px"
+              />
+            </div>
             <div className="text-base lg:text-xl text-black font-medium text-center mb-8 lg:mb-12 mt-4 lg:mt-8">
               Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
               and my journey transitioning from education to tech. Feel free to explore my posts below.
             </div>
-         
 
             <BlogPosts posts={posts} />
             {/* Pagination */}
@@ -201,25 +209,25 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center px-6">
                 <ProjectCard
                   title="HelloDoctor"
-                  imageUrl="/images/hellodoctor.png"
+                  imageUrl="/images/hellodoctor2.png"
                   githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
                   liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
                 />
                 <ProjectCard
-                  title="To Do List"
-                  imageUrl="/images/comingsoon.jpg"
+                  title="Five Star Recipes"
+                  imageUrl="/images/recipeapp.png"
                   githubUrl="https://github.com/yourusername/todo-app"
                   liveDemoUrl="https://todo-app-demo.com"
                 />
                 <ProjectCard
                   title="Movie App"
-                  imageUrl="/images/comingsoon.jpg"
+                  imageUrl="/images/movieapp.png"
                   githubUrl="https://github.com/yourusername/movie-app"
                   liveDemoUrl="https://movie-app-demo.com"
                 />
                 <ProjectCard
-                  title="To Do List"
-                  imageUrl="/images/comingsoon.jpg"
+                  title="Central Florida Mountain Biking"
+                  imageUrl="/images/mtb.jpeg"
                   githubUrl="https://github.com/yourusername/todo-app"
                   liveDemoUrl="https://todo-app-demo.com"
                 />

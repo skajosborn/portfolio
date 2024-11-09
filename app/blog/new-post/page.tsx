@@ -20,21 +20,26 @@ function NewPost() {
     try {
       const formData = new FormData();
       formData.append('file', file);
-
+  
       const response = await fetch('/api/blogs/uploadImage', {
         method: 'POST',
         body: formData,
       });
-
+  
+      console.log('Response status:', response.status); // Check status
+      
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Upload failed with status:', response.status, errorText);
         throw new Error(`Upload failed with status: ${response.status}`);
       }
-
+  
       const data = await response.json();
+      console.log('Upload response data:', data); // Log the full response data
+  
       if (data.url) {
         setImageUrl(data.url);
+        console.log('Image URL set:', data.url);
       } else {
         console.error('Unexpected response format:', data);
       }
@@ -44,15 +49,15 @@ function NewPost() {
       setIsUploading(false);
     }
   };
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (!imageUrl) {
       console.error('No image URL available. Ensure the image is uploaded before submitting.');
       return;
     }
-
+  
     const response = await fetch('/api/blogs', {
       method: 'POST',
       headers: {
@@ -60,11 +65,11 @@ function NewPost() {
       },
       body: JSON.stringify({
         title,
-        content, // Save HTML content
+        content,
         imageUrl,
       }),
     });
-
+  
     if (response.ok) {
       setTitle('');
       setContent('');

@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
           href={liveDemoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-gray-200 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.6),0_0_20px_rgba(255,255,255,0.5),0_0_30px_rgba(255,255,255,0.4),inset_0_0_10px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(255,255,255,0.2)]"
+          className="bg-gray-400 px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md hover:shadow-[0_0_10px_rgba(255,255,255,0.6),0_0_20px_rgba(255,255,255,0.5),0_0_30px_rgba(255,255,255,0.4),inset_0_0_10px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(255,255,255,0.2)]"
           style={{
             transition: 'all 0.3s ease',
             boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
