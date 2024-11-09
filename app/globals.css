@@ -16,6 +16,13 @@
   }
 }
 
+@media (min-width: 1200px) {
+  body {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
