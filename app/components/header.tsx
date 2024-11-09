@@ -64,8 +64,10 @@ function Header() {
           </svg>
         </button>
       </nav>
-      {/* Spacer div to push content below fixed header */}
-      <div className="h-[87.5px] sm:h-[100px] md:h-[112.5px] lg:h-[150px]"></div>
+      {/* Main content container with scrolling enabled */}
+      <div className="relative mt-[70px] sm:mt-[80px] md:mt-[90px] lg:mt-[120px] overflow-y-auto">
+        {/* Content will scroll under fixed header */}
+      </div>
     </>
   );
 }
