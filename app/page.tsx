@@ -90,25 +90,48 @@ export default function Home() {
                     upon them, I fell more and more in love. I began teaching myself coding, starting with Python and moving on to MERN stack. I 
                     finally decided it was time to change my path and pursue this field in its entirety. I became a certified software developer 
                     and am currently in the process of becoming certified in web3 as well. I hold myself to the highest standards and am committed 
-                    to providing excellence in whatever I do. Please feel free to watch 'Our Story' below or click on my blog to learn more about me.
+                    to providing excellence in whatever I do. 
+                    When I'm not coding, I can be found mountain biking ont the trails, kayaking in the springs, or making my family take tacky 
+                    Christmas pictures. Please feel free to watch 'Our Story' below or click on my blog to learn more about me.
                   </div>
                   <div className="text-xl lg:text-2xl text-black font-bold text-center mt-8 mb-6">Our Story</div>
-                  <div className="w-full max-w-[760px] aspect-video mx-auto">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/BBuBQuuEiSE?si=zf1hMieahSKd6Dyc" 
-                      title="YouTube video player" 
-                      frameBorder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      referrerPolicy="strict-origin-when-cross-origin" 
-                      allowFullScreen
-                      className="mb-0"
-                    ></iframe>
+                  <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
+                    <div className="w-[300px] h-[400px] relative">
+                      <Image
+                        src="/images/mtbgirl.webp"
+                        alt="Mountain Biking"
+                        fill
+                        className="object-cover rounded-lg shadow-lg"
+                        sizes="(max-width: 768px) 300px, 300px"
+                      />
+                    </div>
+                    <div className="w-full lg:w-1/2 h-[400px]">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/BBuBQuuEiSE?si=zf1hMieahSKd6Dyc" 
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
+                        className="mb-4"
+                      ></iframe>
+                    </div>
+                    <div className="w-[300px] h-[400px] relative">
+                      <Image
+                        src="/images/springs2.webp"
+                        alt="Florida Springs"
+                        fill
+                        className="object-cover rounded-lg shadow-lg"
+                        sizes="(max-width: 768px) 300px, 300px"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </section>

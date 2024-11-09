@@ -17,18 +17,16 @@ const ProfileSidebar = () => {
             sizes="(max-width: 768px) 80vw, 384px"
           />
         </div>
-        <div className="p-4 mt-4 text-center">
-          <p className="text-gray-700 text-lg">
+        <div className="p-4 mt-2 text-center">
+          <p className="text-gray-700 text-2xl">
             When I'm not coding, you can find me mountain biking on the trails, 
-            kayaking through the springs, or seeking adventure in new places. What 
-            many don't know about Florida beyond the home of Mickey Mouse, there are
-            miles upon miles of untouched nature, crystal clear springs, underground
-            caves, prehistoric creeks, and beyond. If you've never made the trip here,
-            start planning!
+            kayaking through the springs, or seeking adventure in new places. what 
+            many don't realize about Florida is that beyond the house of Mickey Mouse
+            you'll find hundreds of miles of untouched natural forest and crystal clear springs.
           </p>
-          <div className="relative w-[calc(100%+2rem)] h-72 mt-8 -mx-4">
+          <div className="relative w-[calc(100%+2rem)] h-72 mt-4 -mx-4">
             <Image
-              src="/images/kayak.jpeg"
+              src="/images/kayak2.jpg"
               alt="Florida Springs"
               fill
               className="object-cover object-center"
