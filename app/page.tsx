@@ -59,7 +59,7 @@ export default function Home() {
       {/* Light/Dark mode button */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-4 right-5 z-50 p-2 rounded-full w-20 h-20 transition-all duration-300 bg-gray-200 hover:bg-gray-300"
+        className="fixed top-6 right-5 z-50 p-2 rounded-full w-20 h-20 transition-all duration-300 bg-gray-200 hover:bg-gray-300"
         style={{
           boxShadow: '0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(255,255,255,0.2)'
         }}
