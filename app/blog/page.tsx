@@ -8,6 +8,7 @@ interface BlogPost {
   content: string;
   createdAt: string;
   date: string;
+  imageUrl?: string; 
 }
 
 interface PaginatedResponse {
@@ -24,6 +25,7 @@ export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [darkMode, setDarkMode] = useState(false); // Add darkMode state
 
   useEffect(() => {
     async function fetchPosts() {
@@ -87,7 +89,7 @@ export default function BlogPage() {
             Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
             and my journey transitioning from education to tech. Feel free to explore my posts below.
           </div>
-          <BlogPosts posts={posts} />
+          <BlogPosts posts={posts} darkMode={darkMode} />
           {/* Pagination */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-8 sm:mt-12 mb-8 sm:mb-12">
             {Array.from({length: totalPages}, (_, index) => (

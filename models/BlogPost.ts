@@ -1,12 +1,20 @@
 // models/BlogPost.ts
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const blogPostSchema = new mongoose.Schema({
+interface IBlogPost extends Document {
+  title: string;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+  imageURL?: string;
+  // add other fields as needed
+}
+
+const BlogPostSchema = new Schema<IBlogPost>({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  // Add other fields as needed
-}, {
-  timestamps: true
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.BlogPost || mongoose.model('BlogPost', blogPostSchema);
+export default mongoose.models.BlogPost || mongoose.model<IBlogPost>('BlogPost', BlogPostSchema);
