@@ -26,11 +26,21 @@ html, body {
   width: 125%; /* Compensate for scale to maintain layout */
 }
 
-.container {
+/* .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+} */
+
+html {
+  font-size: 0.9vw; /* Adjust this to scale the overall font size */
+}
+
+.container {
+  width: 90vw; /* Adjust as necessary */
+  margin: 0 auto;
+  padding: 0;
 }
 
 img {
@@ -91,4 +101,14 @@ body {
 
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+header, footer, .main-content {
+  margin: 0;
+  padding: 0;
+}
+
+.container, .content-wrapper {
+  padding-left: 0;
+  padding-right: 0;
 }

@@ -1,7 +1,8 @@
+// RootLayout component
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from '@/app/components/header'
+import Header from '@/app/components/header';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,13 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full min-h-screen">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full min-h-screen m-0 p-0`}>
         <Header />
-        {children}
+        <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

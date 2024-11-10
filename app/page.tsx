@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
-import ProfileSidebar from "@/app/components/profileSidebar";
-import ProfileSidebarRight from '@/app/components/profileSidebarRight';
+// import ProfileSidebar from "@/app/components/profileSidebar";
+// import ProfileSidebarRight from '@/app/components/profileSidebarRight';
 import BlogPosts from "@/app/components/blogPost";
 import { useEffect, useState } from 'react';
 import ProjectCard from "@/app/components/projects-card";
@@ -39,7 +39,7 @@ export default function Home() {
   // Only calculate totalPages if posts array exists and has length
   const totalPages = posts && posts.length ? Math.ceil(posts.length / postsPerPage) : 0;
   return (
-    <div className="relative min-h-screen mt-20 bg-gray-200 font-poppins text-xl overflow-hidden">
+    <div className="relative min-h-screen mt-0 bg-gray-200 font-poppins text-xl overflow-hidden">
       <section id="home" className="mt-6 lg:mt-10">
         <h2 className="text-3xl lg:text-4xl text-black pt-10 font-bold text-center mb-8 lg:mb-12">Portfolio</h2>
         <div className="relative w-full bg-gray-100 shadow-lg px-4 py-8">
