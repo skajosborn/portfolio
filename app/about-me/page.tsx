@@ -26,11 +26,7 @@ interface SkillCardProps {
   darkMode: boolean;
 }
 
-interface AboutMeProps {
-  darkMode: boolean;
-}
-
-const AboutMe: React.FC<AboutMeProps> = ({ darkMode }) => {
+const AboutMe = () => {
   const skills: Skills = {
     frontend: [
       { name: 'JavaScript', logo: '/logos/js.svg' },
@@ -60,6 +56,8 @@ const AboutMe: React.FC<AboutMeProps> = ({ darkMode }) => {
       { name: 'Nodemon', logo: '/logos/nodemon.svg' },
     ],
   };
+
+  const [darkMode, setDarkMode] = React.useState(false);
 
   return (
     <div className={`relative min-h-screen p-12 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} font-poppins text-xl overflow-hidden`}>
