@@ -1,4 +1,3 @@
-// RootLayout component
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -21,13 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full min-h-screen">
+    <html lang="en" className="h-full">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full min-h-screen m-0 p-0`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0 flex flex-col min-h-screen`}>
         <Header />
-        <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] min-h-screen">
+        <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] flex-grow">
           {children}
         </main>
       </body>
