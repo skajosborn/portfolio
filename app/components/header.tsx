@@ -12,7 +12,7 @@ function Header() {
         <Image
           src="/images/black4.png"
           alt="Profile Image"
-          width={60} // Adjusted width
+          width={180} // Adjusted width
           height={60} // Adjusted height
           className="object-cover rounded-full mr-4"
         />
