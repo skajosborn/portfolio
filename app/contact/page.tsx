@@ -23,8 +23,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4 sm:p-8">
-      <div className="w-full max-w-3xl bg-white shadow-xl rounded-lg p-4 sm:p-10">
+    <div className="flex justify-center items-center min-h-screen h-full bg-gray-100 p-4 sm:p-8">
+      <div className="w-full max-w-4xl bg-white shadow-xl rounded-lg p-4 sm:p-10 my-20">
         <div className="w-full bg-gray-200 shadow-lg rounded-lg p-4 sm:p-8">
           {messageSent ? (
             <div className="text-center space-y-4">
