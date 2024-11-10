@@ -3,19 +3,18 @@
 import React from 'react';
 import Image from 'next/image';
 
+
 // Header component
 function Header() {
   return (
     <nav className="fixed top-0 left-0 w-full h-[70px] sm:h-[80px] md:h-[90px] lg:h-[120px] bg-gray-300 z-50 flex items-center justify-between shadow-md px-4 sm:px-5 md:px-6 lg:px-8">
       {/* Profile Image */}
       <div className="flex items-center">
-        <Image
-          src="/images/black4.png"
-          alt="Profile Image"
-          width={180} // Adjusted width
-          height={60} // Adjusted height
-          className="object-cover rounded-full mr-4"
-        />
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Rouge Script'] text-black mr-4" style={{
+          textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+        }}>
+          Sara Osborn
+        </h1>
       </div>
 
       {/* Desktop Navigation */}
