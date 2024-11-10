@@ -59,9 +59,7 @@ export default function Home() {
                 {displayText}<span className="animate-blink">|</span>
               </div>
               {/* Oval image overlaying the background */}
-              <div 
-                className="absolute top-12 lg:top-32 left-1/2 lg:left-[18%] -translate-x-1/2 w-56 h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
-              >
+              <a href="#about" className="absolute top-12 lg:top-32 left-1/2 lg:left-[18%] -translate-x-1/2 w-56 h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]">
                 <Image
                   src="/images/myface.png"
                   alt="Profile Image"
@@ -70,7 +68,7 @@ export default function Home() {
                   sizes="(max-width: 768px) 224px, 320px"
                   priority
                 />
-              </div>
+              </a>
             </div>
           </div>
         </div>
