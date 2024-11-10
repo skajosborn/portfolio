@@ -87,10 +87,10 @@ function AboutMe() {
           </div>
         </div>
         {/* CTA Section */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-20">
           <a
             href="/about"
-            className="bg-gray-100 h-[30px] w-[100px] sm:h-[40px] sm:w-[120px] md:h-[50px] md:w-[140px] lg:h-[60px] lg:w-[160px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+            className="bg-gray-100 h-[35px] w-[120px] sm:h-[45px] sm:w-[140px] md:h-[55px] md:w-[160px] lg:h-[65px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',

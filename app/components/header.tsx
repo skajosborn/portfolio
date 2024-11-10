@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-
 
 // Header component
 function Header() {
@@ -18,7 +17,7 @@ function Header() {
       </div>
 
       {/* Desktop Navigation */}
-      <div className="hidden sm:flex text-black gap-3 ml-auto">
+      <div className="hidden sm:flex text-black gap-3 ml-auto mr-20">
         {['Home', 'About', 'Projects', 'Blog', 'Contact'].map((label) => (
           <a
             key={label}
@@ -27,6 +26,12 @@ function Header() {
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.filter = 'drop-shadow(0 0 8px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.8))';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.filter = 'none';
             }}
           >
             {label}

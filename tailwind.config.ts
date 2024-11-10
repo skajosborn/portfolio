@@ -7,11 +7,24 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        light: {
+          background: '#ffffff',
+          foreground: '#171717',
+          primary: '#f3f4f6',
+          secondary: '#e5e7eb'
+        },
+        dark: {
+          background: '#0a0a0a', 
+          foreground: '#ededed',
+          primary: '#1f2937',
+          secondary: '#374151'
+        }
       },
       screens: {
         'sm': '640px',
