@@ -20,13 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full overflow-x-hidden"> {/* Add overflow-x-hidden to prevent horizontal scroll */}
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0 flex flex-col min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0 flex flex-col min-h-screen overflow-x-hidden`}>
         <Header />
-        <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] flex-grow">
+        <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] flex-grow max-w-screen overflow-x-hidden">
           {children}
         </main>
       </body>
