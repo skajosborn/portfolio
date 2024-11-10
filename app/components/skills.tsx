@@ -25,7 +25,7 @@ interface SkillCardProps {
   skill: Skill;
 }
 
-function AboutMe() {
+function Skillz() {
   const skills: Skills = {
     frontend: [
       { name: 'JavaScript', logo: '/logos/js.svg' },
@@ -162,4 +162,4 @@ function SkillCard({ skill }: SkillCardProps) {
     );
   }
 
-export default AboutMe;
+export default Skillz;

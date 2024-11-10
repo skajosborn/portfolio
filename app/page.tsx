@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import BlogPosts from "@/app/components/blogPost";
 import ProjectCard from "@/app/components/projects-card";
-import AboutMe from "@/app/components/skills";
+import Skillz from "@/app/components/skills";
+import AboutMe from "@/app/components/about-me";
+import Footer from "@/app/components/footer"
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -166,7 +168,7 @@ export default function Home() {
           <h2 className={`text-4xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-14`}>Skills</h2>
           <div className={`relative w-full max-w-[1800px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-6 py-10`}>
             <div className={`relative w-full max-w-[1750px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-6 lg:p-10`}>
-              <AboutMe />
+              <Skillz />
             </div>
           </div>
         </section>
@@ -248,6 +250,10 @@ export default function Home() {
           </div>
         </section>
       </section>
+      <section>
+        <AboutMe darkMode={darkMode} />
+      </section>
+      <Footer/>
     </div>
   );
 }
