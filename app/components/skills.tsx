@@ -89,7 +89,7 @@ function Skillz() {
         {/* CTA Section */}
         <div className="flex justify-center mt-20">
           <a
-            href="/about"
+            href="/skills"
             className="bg-gray-100 h-[35px] w-[120px] sm:h-[45px] sm:w-[140px] md:h-[55px] md:w-[160px] lg:h-[65px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',

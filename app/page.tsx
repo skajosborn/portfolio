@@ -250,8 +250,58 @@ export default function Home() {
           </div>
         </section>
       </section>
-      <section>
+      <section id="aboutme">
         <AboutMe darkMode={darkMode} />
+      </section>
+      <section id="bitmoji" className="mt-6 lg:mt-10 px-4 py-4">
+        <div className="relative w-full max-w-[300px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-2 py-2">
+          <div className="relative w-full max-w-[280px] h-auto mx-auto bg-white rounded-sm shadow-lg p-2">
+            <div className="relative w-full h-[300px]">
+              <Image
+                src="/images/bitmoji1.png"
+                alt="Bitmoji"
+                fill
+                style={{ objectFit: 'cover' }}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" className="mt-4 lg:mt-6 mb-10 px-4 py-4">
+        <h2 className="text-3xl lg:text-4xl text-black font-bold text-center mb-4 lg:mb-6">Let's Connect!</h2>
+        <p className="text-lg lg:text-xl text-black mb-8 text-center">
+          I'm always open to exciting projects and collaborations. If you're interested in working together or just want to say hi, feel free to reach out!
+        </p>
+        <div className="flex justify-center">
+          <a
+            href="/contact"
+            className="bg-gray-100 h-[35px] w-[100px] sm:h-[45px] sm:w-[120px] md:h-[55px] md:w-[140px] lg:h-[65px] lg:w-[160px] text-md sm:text-base md:text-xl lg:text-2xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-4"
+            style={{
+              transition: 'all 0.3s ease',
+              boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = `
+                0 0 10px rgba(255, 255, 255, 0.6), 
+                0 0 20px rgba(255, 255, 255, 0.5), 
+                0 0 30px rgba(255, 255, 255, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.2)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
+            }}
+            onMouseDown={(e) => {
+              e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+            }}
+            onMouseUp={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+            }}
+          >
+            Contact Me
+          </a>
+        </div>
       </section>
       <Footer/>
     </div>
