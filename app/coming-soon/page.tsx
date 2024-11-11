@@ -6,7 +6,7 @@ const ComingSoon = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
       <div className="relative w-[32rem] h-[32rem] mb-8">
         <Image
-          src="/images/staytuned.png" 
+          src="/images/staytuned2.png" 
           alt="Under Construction"
           fill
           style={{objectFit: 'contain'}}
