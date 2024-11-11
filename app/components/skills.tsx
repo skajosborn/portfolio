@@ -56,6 +56,8 @@ function Skillz() {
     ],
   };
 
+  const [darkMode, setDarkMode] = React.useState(false);
+
   return (
     <div className="relative min-h-fit p-1 font-poppins text-xl overflow-hidden">
       {/* <Header /> */}
@@ -74,23 +76,23 @@ function Skillz() {
           <div className="flex justify-between gap-10">
             
             {/* Frontend Skills */}
-            <SkillSection title="Frontend" skills={skills.frontend} />
+            <SkillSection title="Frontend" skills={skills.frontend} darkMode={darkMode} />
 
             {/* Backend Skills */}
-            <SkillSection title="Backend" skills={skills.backend} />
+            <SkillSection title="Backend" skills={skills.backend} darkMode={darkMode} />
 
             {/* Web3 Skills */}
-            <SkillSection title="Web3" skills={skills.web3} />
+            <SkillSection title="Web3" skills={skills.web3} darkMode={darkMode} />
 
             {/* Other Skills */}
-            <SkillSection title="Other" skills={skills.other} />
+            <SkillSection title="Other" skills={skills.other} darkMode={darkMode} />
           </div>
         </div>
         {/* CTA Section */}
         <div className="flex justify-center mt-20">
           <a
             href="/skills"
-            className="bg-gray-100 h-[35px] w-[120px] sm:h-[45px] sm:w-[140px] md:h-[55px] md:w-[160px] lg:h-[65px] lg:w-[180px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+            className="bg-gray-100 h-[55px] w-[160px] sm:h-[65px] sm:w-[180px] md:h-[75px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-md sm:text-xl md:text-2xl lg:text-3xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
@@ -122,10 +124,10 @@ function Skillz() {
 }
 
 // SkillSection component for each section (Frontend, Backend, etc.)
-function SkillSection({ title, skills }: SkillSectionProps) {
+function SkillSection({ title, skills, darkMode }: SkillSectionProps & { darkMode: boolean }) {
   return (
     <div className="flex-1 flex flex-col items-center">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-16">{title}</h3>
+      <h3 className={`text-2xl font-semibold mb-16 ${darkMode ? 'text-white' : 'text-gray-800'}`}>{title}</h3>
       <div className="flex flex-wrap gap-4 justify-center">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
@@ -134,8 +136,6 @@ function SkillSection({ title, skills }: SkillSectionProps) {
     </div>
   );
 }
-
-// SkillCard component for flip animation
 // SkillCard component for flip animation
 function SkillCard({ skill }: SkillCardProps) {
     return (

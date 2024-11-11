@@ -20,7 +20,7 @@ const SkillsPage = () => {
   ];
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
-      <div className="max-w-[80%] mx-auto"> {/* Changed from max-w-7xl to max-w-[90%] */}
+      <div className="max-w-[80%] mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-6 mb-12">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/2">
@@ -36,8 +36,8 @@ const SkillsPage = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Why Do I Care That You Were a Teacher?</h2>
-              <p className="text-xl font-medium text-gray-700 leading-relaxed mb-6">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">Why Do I Care That You Were a Teacher?</h2>
+              <p className="text-2xl sm:text-3xl font-medium text-gray-700 leading-relaxed mb-6">
                 Why should you care that I am well-versed in the field of education? 
                 You shouldn't, right? Before I embarked on this journey, I deeply questioned
                 whether I had anything at all to offer the field of technology. Had I 
@@ -63,7 +63,7 @@ const SkillsPage = () => {
                 willingness to give 110% of yourself to your career with no tangible compensation 
                 in return. So what do I bring to the table?
               </p>
-              <ul className="list-disc list-inside space-y-2 text-xl font-medium text-gray-700">
+              <ul className="list-disc list-inside space-y-2 text-2xl sm:text-3xl font-medium text-gray-700">
                 <li>A perseverance for Perfection</li>
                 <li>A relentless drive to accomplish the unaccomplishable</li>
                 <li>A willingness to sacrifice and give selflessly in order to achieve excellence</li>
@@ -73,24 +73,24 @@ const SkillsPage = () => {
                 <li>A Creative approach to solving most problems and the ability to think outside the box</li>
                 <li>A need to stay ahead of any new technology, programs or strategies to stay current</li>
               </ul>
-              <p className="text-xl font-semibold text-gray-700 mt-4 italic">
+              <p className="text-2xl sm:text-3xl font-semibold text-gray-700 mt-4 italic">
                 I'll be back to expand on this list as I discover more...
               </p>
             </div>
           </div>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-800">My Skills</h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 text-gray-800">My Skills</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skillGroup, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">{skillGroup.category}</h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-700">{skillGroup.category}</h2>
               <div className="space-y-2">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <div key={skillIndex} className="flex items-center space-x-2 bg-gray-50 p-2 rounded">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-600">{skill}</span>
+                    <span className="text-xl sm:text-2xl text-gray-600">{skill}</span>
                   </div>
                 ))}
               </div>
@@ -99,7 +99,7 @@ const SkillsPage = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-xl sm:text-2xl text-gray-600 mb-6">
             I'm constantly learning and adding new skills to my repertoire.
             These are some of the key technologies I work with regularly.
           </p>
