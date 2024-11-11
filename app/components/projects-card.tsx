@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl, darkMode = false }) => {
   return (
-    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-900'} p-4 sm:p-6 rounded-lg w-full max-w-[700px] mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl`}>
+    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-900'} p-4 sm:p-6 mt-16 rounded-lg w-full max-w-[700px] mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mb-16`}>
       {/* Image Section */}
       <div className="overflow-hidden rounded-lg w-full aspect-[7/4] relative">
         <Image 
@@ -24,12 +24,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
       </div>
 
       {/* Title Section */}
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mt-4 sm:mt-6 tracking-tight">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 sm:mt-6 tracking-tight">
         {title}
       </h3>
 
       {/* Description Section */}
-      <p className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl leading-relaxed px-2 sm:px-4">
+      <p className="mt-2 sm:mt-4 text-xl sm:text-2xl md:text-3xl leading-relaxed px-2 sm:px-4">
         An engaging project demonstrating modern web development techniques, best practices, and creative design.
       </p>
 
@@ -39,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
           href={githubUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          className={`${darkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-white text-black hover:bg-gray-100'} px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-mulish transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md shadow-lg hover:shadow-xl`}
+          className={`${darkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-white text-black hover:bg-gray-100'} px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl md:text-2xl font-mulish transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md shadow-lg hover:shadow-xl`}
         >
           Github
         </a>
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
           href={liveDemoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${darkMode ? 'bg-gray-600 text-white hover:bg-gray-500' : 'bg-gray-400 text-black hover:bg-gray-300'} px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg font-mulish transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md shadow-lg hover:shadow-xl`}
+          className={`${darkMode ? 'bg-gray-600 text-white hover:bg-gray-500' : 'bg-gray-400 text-black hover:bg-gray-300'} px-4 py-2 sm:px-6 sm:py-3 text-lg sm:text-xl md:text-2xl font-mulish transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md shadow-lg hover:shadow-xl`}
         >
           Live Demo
         </a>

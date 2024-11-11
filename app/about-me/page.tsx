@@ -60,26 +60,26 @@ const AboutMe = () => {
   const [darkMode, setDarkMode] = React.useState(false);
 
   return (
-    <div className={`relative min-h-screen p-12 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} font-poppins text-xl overflow-hidden`}>
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-24">
-        <div className="my-20">
-          <h2 className="text-4xl font-bold mb-16 text-center">Skills & Expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className={`relative min-h-screen p-16 sm:p-20 md:p-24 lg:p-32 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} font-poppins text-xl overflow-hidden`}>
+      <div className="max-w-7xl mx-auto px-8 py-20 lg:px-12 lg:py-32">
+        <div className="my-24 sm:my-28 md:my-32 lg:my-40">
+          <h2 className="text-4xl font-bold mb-20 text-center">Skills & Expertise</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
             <SkillSection title="Frontend" skills={skills.frontend} darkMode={darkMode} />
             <SkillSection title="Backend" skills={skills.backend} darkMode={darkMode} />
             <SkillSection title="Web3" skills={skills.web3} darkMode={darkMode} />
             <SkillSection title="Other" skills={skills.other} darkMode={darkMode} />
           </div>
         </div>
-        <div className="text-center my-20">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Let&#39;s Connect!</h2>
-          <p className="text-lg lg:text-xl mb-8">
+        <div className="text-center my-24 sm:my-28 md:my-32 lg:my-40">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-8">Let&#39;s Connect!</h2>
+          <p className="text-lg lg:text-xl mb-12 px-8">
             I&#39;m always open to exciting projects and collaborations. If you&#39;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
             <a
               href="/contact"
-              className="bg-gray-200 px-6 py-3 rounded-md shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-black"
+              className="bg-gray-200 px-8 py-4 rounded-md shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-black"
             >
               Contact Me
             </a>
@@ -92,9 +92,9 @@ const AboutMe = () => {
 
 function SkillSection({ title, skills, darkMode }: SkillSectionProps) {
   return (
-    <div className="flex flex-col items-center">
-      <h3 className={`text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{title}</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <div className="flex flex-col items-center p-6 sm:p-8">
+      <h3 className={`text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{title}</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} darkMode={darkMode} />
         ))}
@@ -106,12 +106,12 @@ function SkillSection({ title, skills, darkMode }: SkillSectionProps) {
 function SkillCard({ skill, darkMode }: SkillCardProps) {
   return (
     <div className="group perspective-1000">
-      <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 text-sm sm:text-base md:text-lg lg:text-xl font-medium transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
-        <div className={`absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-2 ${darkMode ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'} p-2 text-center`}>
+      <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 text-sm sm:text-base md:text-lg lg:text-xl font-medium transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
+        <div className={`absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-2 ${darkMode ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'} p-4 text-center`}>
           {skill.name}
         </div>
         <div className={`absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}>
-          <Image src={skill.logo} alt={skill.name} width={36} height={36} className="w-1/2 h-1/2 sm:w-2/3 sm:h-2/3" />
+          <Image src={skill.logo} alt={skill.name} width={48} height={48} className="w-2/3 h-2/3" />
         </div>
       </div>
     </div>

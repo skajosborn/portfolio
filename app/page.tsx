@@ -5,29 +5,14 @@ import BlogPosts from "@/app/components/blogPost";
 import ProjectCard from "@/app/components/projects-card";
 import Skillz from "@/app/components/skills";
 import AboutMe from "@/app/components/about-me";
-import Footer from "@/app/components/footer"
+import Footer from "@/app/components/footer";
+import { useDarkMode } from '@/app/components/darkMode';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [displayText, setDisplayText] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useDarkMode();
   const fullText = 'Welcome to\nMy Page';
-
-  // Handle dark mode with a single useEffect
-  useEffect(() => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode !== null) {
-      const isDarkMode = JSON.parse(savedDarkMode);
-      setDarkMode(isDarkMode);
-      document.body.style.backgroundColor = isDarkMode ? '#111827' : '#e5e7eb';
-    }
-  }, []);
-
-  // Save dark mode changes
-  useEffect(() => {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-    document.body.style.backgroundColor = darkMode ? '#111827' : '#e5e7eb';
-  }, [darkMode]);
 
   useEffect(() => {
     // Fetch blog posts data
@@ -58,26 +43,11 @@ export default function Home() {
 
   return (
     <div className={`relative min-h-screen mt-0 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300`}>
-      {/* Light/Dark mode button */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-8 right-8 z-50 p-3 rounded-full w-28 h-28 transition-all duration-300 bg-gray-200 hover:bg-gray-300"
-        style={{
-          boxShadow: '0 0 15px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3)'
-        }}
-      >
-        {darkMode ? (
-          <Image src="/sun.png" alt="Light mode" width={120} height={120} className="opacity-80" />
-        ) : (
-          <Image src="/moon.png" alt="Dark mode" width={120} height={120} className="opacity-80" />
-        )}
-      </button>
-
       {/* Content Sections */}
-      <section id="home" className="mt-10 lg:mt-14">
-        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-14 font-bold text-center mb-12 lg:mb-16 transition-colors duration-300`}>Portfolio</h2>
-        <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg px-8 py-12 transition-colors duration-300`}>
-          <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg p-8 lg:p-12 transition-colors duration-300`}>
+      <section id="home" className="mt-20 lg:mt-24">
+        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-20 lg:mb-24 transition-colors duration-300`}>Portfolio</h2>
+        <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg py-12`}>
+          <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg py-24`}>
             <div className="relative w-full h-[500px] lg:h-[900px]">
               <Image
                 src="/images/desk2.png"
@@ -97,13 +67,12 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      
       {/* Blog Section */}
-      <section id="blog" className="mt-10 lg:mt-8 px-8 py-12">
-        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-12 lg:mb-16`}>My Blog</h2>
-        <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12`}>
-          <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 lg:p-12`}>
-            <div className="relative w-full h-[400px] mb-12">
+      <section id="blog" className="mt-20 lg:mt-24 px-12 py-20">
+        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
+        <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
+          <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-24 lg:p-28`}>
+            <div className="relative w-full h-[400px] mb-20">
               <Image
                 src="/images/beach4.jpeg"
                 alt="Blog Header"
@@ -112,14 +81,14 @@ export default function Home() {
                 sizes="(max-width: 1950px) 100vw, 1950px"
               />
             </div>
-            <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-12 lg:mb-16 mt-8 lg:mt-12`}>
+            <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
               Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
               and my journey transitioning from education to tech. Feel free to explore my posts below.
             </div>
 
             <BlogPosts posts={posts} darkMode={darkMode} />
             
-            <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mt-12 lg:mt-16 mb-12 lg:mb-16">
+            <div className="flex flex-wrap justify-center gap-6 lg:gap-8 mt-20 lg:mt-24 mb-20 lg:mb-24">
               {Array.from({length: totalPages}, (_, index) => (
                 <button
                   key={index}
@@ -152,23 +121,22 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         {/* Skills section */}
-        <section id="skills" className="mt-10 lg:mt-14 px-8 py-12">
-          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-12 lg:mb-16`}>Skills</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} ${darkMode ? 'text-white' : 'text-black'} rounded-sm shadow-lg p-8 lg:p-12`}>
+        <section id="skills" className="mt-20 lg:mt-24 px-12 py-12">
+          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Skills</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} text-white rounded-sm shadow-lg p-24 lg:p-28`}>
               <Skillz />
             </div>
           </div>
         </section>
 
         {/* Project Cards Section */}
-        <section id="projects" className="mt-10 lg:mt-8 px-8 py-12">
-          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-12 lg:mb-16`}>Projects</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 lg:p-12`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 justify-items-center px-10">
+        <section id="projects" className="mt-12 mb-12 lg:mt-12 lg:mb-12 px-12 py-10">
+          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-24 lg:p-28`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-items-center px-12">
                 <ProjectCard
                   title="HelloDoctor"
                   imageUrl="/images/hellodoc4.png"
@@ -198,7 +166,7 @@ export default function Home() {
                   darkMode={darkMode}
                 />
               </div>
-              <div className="flex justify-center mt-16">
+              <div className="flex justify-center mt-12">
                 <button
                   className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
@@ -233,10 +201,10 @@ export default function Home() {
       <section id="aboutme">
         <AboutMe darkMode={darkMode} />
       </section>
-      <section id="bitmoji" className="mt-8 lg:mt-12 px-6 py-6">
-        <div className="relative w-full max-w-[350px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-3 py-3">
-          <div className="relative w-full max-w-[330px] h-auto mx-auto bg-white rounded-sm shadow-lg p-3">
-            <div className="relative w-full h-[350px]">
+      <section id="bitmoji" className="mt-18 lg:mt-10 px-12 py-12">
+        <div className="relative w-full max-w-[450px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-4">
+          <div className="relative w-full max-w-[430px] h-auto mx-auto bg-white rounded-sm shadow-lg p-8">
+            <div className="relative w-full h-[450px]">
               <Image
                 src="/images/bitmoji1.png"
                 alt="Bitmoji"
@@ -248,15 +216,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="contact" className="mt-6 lg:mt-8 mb-12 px-6 py-6">
-        <h2 className={`text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-6 lg:mb-8`}>Let's Connect!</h2>
-        <p className={`text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-10 text-center`}>
+      <section id="contact" className="mt-16 lg:mt-20 mb-20 px-12 py-12">
+        <h2 className={`text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let's Connect!</h2>
+        <p className={`text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
           I'm always open to exciting projects and collaborations. If you're interested in working together or just want to say hi, feel free to reach out!
         </p>
         <div className="flex justify-center">
           <a
             href="/contact"
-            className="bg-gray-100 h-[45px] w-[140px] sm:h-[55px] sm:w-[160px] md:h-[65px] md:w-[180px] lg:h-[80px] lg:w-[200px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-5"
+            className="bg-gray-100 h-[45px] w-[140px] sm:h-[55px] sm:w-[160px] md:h-[65px] md:w-[180px] lg:h-[80px] lg:w-[200px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',

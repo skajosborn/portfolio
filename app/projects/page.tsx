@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
     <div className="p-12 bg-gray-200 min-h-screen">
       <div className="max-w-4xl mx-auto text-center">
         {/* Header Section */}
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 mt-24 animate-fade-in">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-12 mt-12 animate-fade-in">
           My Projects
         </h1>
         
