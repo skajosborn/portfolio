@@ -20,13 +20,13 @@ const SkillsPage = () => {
   ];
   return (
     <div className="min-h-screen bg-gray-100 p-4 sm:p-8">
-      <div className="max-w-[90%] mx-auto"> {/* Changed from max-w-7xl to max-w-[90%] */}
+      <div className="max-w-[80%] mx-auto"> {/* Changed from max-w-7xl to max-w-[90%] */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-12">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-1/2">
               <div className="relative w-full h-[900px]">
                 <Image 
-                  src="/images/bitmoji4.png"
+                  src="/images/bitmojismaller.png"
                   alt="Skills and Development"
                   fill
                   style={{ objectFit: 'cover' }}
