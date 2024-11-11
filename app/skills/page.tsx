@@ -29,7 +29,9 @@ const SkillsPage = () => {
                   src="/images/bitmoji4.png"
                   alt="Skills and Development"
                   fill
-                  className="object-cover rounded-lg"
+                  style={{ objectFit: 'cover' }}
+                  priority
+                  className="rounded-lg"
                 />
               </div>
             </div>
