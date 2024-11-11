@@ -1,4 +1,4 @@
-// app/api/blogs/route.ts (Collection route)
+// app/api/blogs/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import BlogPost from '@/models/BlogPost';
@@ -21,16 +21,23 @@ export async function GET(request: NextRequest) {
       BlogPost.countDocuments({})
     ]);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       posts,
       pagination: {
         total,
         page,
         limit,
-        pages: Math.ceil(total / limit)
-      }
+        pages: Math.ceil(total / limit),
+      },
     });
 
+    // Set CORS headers
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    response.headers.set('Access-Control-Allow-Private-Network', 'true');
+
+    return response;
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     return NextResponse.json(
@@ -38,4 +45,15 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+export async function OPTIONS() {
+  const response = new NextResponse(null, { status: 204 });
+
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  response.headers.set('Access-Control-Allow-Private-Network', 'true');
+
+  return response;
 }
