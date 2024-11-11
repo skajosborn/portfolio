@@ -8,7 +8,7 @@ interface BlogPost {
   content: string;
   createdAt: string;
   date: string;
-  imageUrl?: string; 
+  imageURL?: string;
 }
 
 interface PaginatedResponse {
@@ -33,7 +33,9 @@ export default function BlogPage() {
         setLoading(true);
         const response = await fetch('/api/blogs');
         const data: PaginatedResponse = await response.json();
-        
+  
+        console.log('Fetched Data:', data); // Add this line
+  
         const postsWithDate = data.posts.map(post => ({
           ...post,
           date: new Date(post.createdAt).toLocaleDateString()
@@ -47,7 +49,7 @@ export default function BlogPage() {
         setLoading(false);
       }
     }
-
+  
     fetchPosts();
   }, []);
 

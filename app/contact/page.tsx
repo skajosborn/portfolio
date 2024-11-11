@@ -4,6 +4,10 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Image from 'next/image';
 
+interface EmailJSResponse {
+  text: string;
+}
+
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [messageSent, setMessageSent] = useState(false);
@@ -13,10 +17,10 @@ export default function Contact() {
 
     if (form.current) {
       emailjs.sendForm('service_0hminpb', 'template_nfojb9b', form.current, 'usPipvYC33NB7OYEF')
-        .then((result) => {
+        .then((result: EmailJSResponse) => {
           console.log(result.text);
           setMessageSent(true);
-        }, (error) => {
+        }, (error: EmailJSResponse) => {
           console.log(error.text);
         });
     }
