@@ -22,7 +22,7 @@ function Header() {
           <a
             key={label}
             href={`/#${label.toLowerCase()}`}
-            className="bg-gray-200 h-[35px] w-[90px] sm:h-[45px] sm:w-[100px] md:h-[55px] md:w-[110px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md"
+            className="bg-gray-200 h-[35px] w-[90px] sm:h-[45px] sm:w-[100px] md:h-[55px] md:w-[110px] lg:h-[60px] lg:w-[120px] text-2xl sm:text-2xl md:text-2xl lg:text-2xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
