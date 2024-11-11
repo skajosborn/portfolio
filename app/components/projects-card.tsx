@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
       </h3>
 
       {/* Description Section */}
-      <p className="mt-2 sm:mt-4 text-sm sm:text-md leading-relaxed px-2 sm:px-4">
+      <p className="mt-2 sm:mt-4 text-base sm:text-lg md:text-xl leading-relaxed px-2 sm:px-4">
         An engaging project demonstrating modern web development techniques, best practices, and creative design.
       </p>
 
