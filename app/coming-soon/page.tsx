@@ -4,7 +4,7 @@ import Image from 'next/image'
 const ComingSoon = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="relative w-[32rem] h-[32rem] mb-8">
+      <div className="relative w-[52rem] h-[52rem] mb-8">
         <Image
           src="/images/staytuned2.png" 
           alt="Under Construction"
