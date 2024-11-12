@@ -24,7 +24,7 @@ const BlogPostPage = ({ post, darkMode }: BlogPostPageProps) => {
   }
 
   return (
-    <div className={`max-w-4xl mt-20 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+    <div className={`max-w-4xl mb-10 mt-20 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
       <p className="text-gray-500 mb-4">{post.date}</p>
       {post.imageUrl && (
