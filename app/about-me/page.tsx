@@ -57,7 +57,7 @@ const AboutMe = () => {
     ],
   };
 
-  const [darkMode, setDarkMode] = React.useState(false);
+  const [darkMode ] = React.useState(false);
 
   return (
     <div className={`relative min-h-screen p-16 sm:p-20 md:p-24 lg:p-32 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} font-poppins text-xl overflow-hidden`}>
@@ -72,9 +72,9 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="text-center my-24 sm:my-28 md:my-32 lg:my-40">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-8">Let&#39;s Connect!</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-8">Let&apos;s Connect!</h2>
           <p className="text-lg lg:text-xl mb-12 px-8">
-            I&#39;m always open to exciting projects and collaborations. If you&#39;re interested in working together or just want to say hi, feel free to reach out!
+            I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
             <a

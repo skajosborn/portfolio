@@ -41,7 +41,7 @@ const SkillsPage = () => {
               <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>Why Do I Care That You Were a Teacher?</h2>
               <p className={`text-2xl sm:text-3xl font-medium leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Why should you care that I am well-versed in the field of education? 
-                You shouldn't, right? Before I embarked on this journey, I deeply questioned
+                You shouldn&apos;t, right? Before I embarked on this journey, I deeply questioned
                 whether I had anything at all to offer the field of technology. Had I 
                 really wasted so many years perfecting my craft to simply abandon it and 
                 never use it again? I accepted that fate. I appreciated the time and 
@@ -49,9 +49,9 @@ const SkillsPage = () => {
                 have to reinvent myself from scratch. And I was willing. Little did I know, 
                 I had an entire bank of assets I carried with me. In most technology careers, 
                 you are given a problem and must come up with a design to improve upon it. 
-                Right? Sometimes you'll be given a solid base to build on, and other times 
-                you'll be given a mere idea that must be created and then brought to fruition. 
-                In education, you're given at least 22 of these projects, simultaneously. 
+                Right? Sometimes you&apos;ll be given a solid base to build on, and other times 
+                you&apos;ll be given a mere idea that must be created and then brought to fruition. 
+                In education, you&apos;re given at least 22 of these projects, simultaneously. 
                 Most often you will be given around 180 days to complete all of these projects, 
                 however, you must continuously work on all of them throughout the entire duration 
                 of time. Unlike most digital tasks, many of your projects will disappear for days, 
@@ -76,7 +76,7 @@ const SkillsPage = () => {
                 <li>A need to stay ahead of any new technology, programs or strategies to stay current</li>
               </ul>
               <p className={`text-2xl sm:text-3xl font-semibold mt-4 italic ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                I'll be back to expand on this list as I discover more...
+                I&apos;ll be back to expand on this list as I discover more...
               </p>
             </div>
           </div>
@@ -102,7 +102,7 @@ const SkillsPage = () => {
 
         <div className="mt-12 text-center">
           <p className={`text-xl sm:text-2xl mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            I'm constantly learning and adding new skills to my repertoire.
+            I&apos;m constantly learning and adding new skills to my repertoire.
             These are some of the key technologies I work with regularly.
           </p>
         </div>

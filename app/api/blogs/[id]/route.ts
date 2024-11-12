@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import { ObjectId } from 'mongodb';
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  const id = url.pathname.split('/').pop();
+
+  if (!id) {
+    return NextResponse.json({ error: 'Blog ID is required' }, { status: 400 });
+  }
 
   try {
     const client = await connectDB();

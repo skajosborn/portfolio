@@ -1,5 +1,3 @@
-import { v2 as cloudinary } from 'cloudinary';
-
 export async function uploadImage(file: File): Promise<string> {
   try {
     // Create FormData

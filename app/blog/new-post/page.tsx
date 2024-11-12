@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Header from '@/app/components/header';
-import Image from 'next/image';
+// import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { BlogImage } from '@/app/components/blog-image';
 

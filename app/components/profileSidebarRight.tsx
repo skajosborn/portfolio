@@ -19,10 +19,10 @@ const ProfileSidebar = () => {
         </div>
         <div className="p-4 mt-2 text-center">
           <p className="text-gray-700 text-2xl">
-            When I'm not coding, you can find me mountain biking on the trails, 
+            When I&apos;m not coding, you can find me mountain biking on the trails, 
             kayaking through the springs, or seeking adventure in new places. what 
-            many don't realize about Florida is that beyond the house of Mickey Mouse
-            you'll find hundreds of miles of untouched natural forest and crystal clear springs.
+            many don&apos;t realize about Florida is that beyond the house of Mickey Mouse
+            you&apos;ll find hundreds of miles of untouched natural forest and crystal clear springs.
           </p>
           <div className="relative w-[calc(100%+2rem)] h-72 mt-4 -mx-4">
             <Image

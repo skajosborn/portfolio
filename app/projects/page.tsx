@@ -14,8 +14,8 @@ const Projects: React.FC = () => {
         
         {/* Intro Section */}
         <p className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed mb-8 animate-fade-in-delay">
-          Welcome to my project portfolio! Here you'll find a collection of my work that showcases my skills in web development.
-          Each project demonstrates unique technologies and approaches I've used to solve real-world problems and bring creative ideas to life.
+          Welcome to my project portfolio! Here you&apos;ll find a collection of my work that showcases my skills in web development.
+          Each project demonstrates unique technologies and approaches I&apos;ve used to solve real-world problems and bring creative ideas to life.
         </p>
       </div>
 

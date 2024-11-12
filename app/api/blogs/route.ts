@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Connect to MongoDB
     const client = await connectDB();
@@ -38,8 +38,8 @@ export async function GET(request: NextRequest) {
       }
     });
 
-  } catch (error) {
-    console.error('Error fetching blogs:', error);
+  } catch {
+    console.error('Error fetching blogs:');
     return NextResponse.json({ error: 'Failed to fetch blogs' }, { status: 500 });
   }
 }
@@ -71,8 +71,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: 'Blog post created successfully', postId: result.insertedId }, { status: 201 });
 
-  } catch (error) {
-    console.error('Error creating blog post:', error);
+  } catch {
+    console.error('Error creating blog post:');
     return NextResponse.json({ error: 'Failed to create blog post' }, { status: 500 });
   }
 }

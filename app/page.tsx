@@ -232,9 +232,9 @@ export default function Home() {
         </div>
       </section>
       <section id="contact" className="mt-16 lg:mt-20 mb-20 px-12 py-12">
-        <h2 className={`text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let's Connect!</h2>
+        <h2 className={`text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
         <p className={`text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
-          I'm always open to exciting projects and collaborations. If you're interested in working together or just want to say hi, feel free to reach out!
+          I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
         </p>
         <div className="flex justify-center">
           <a

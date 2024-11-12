@@ -1,5 +1,5 @@
 // app/layout.js or app/RootLayout.js
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import Header from '@/app/components/header';

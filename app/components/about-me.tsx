@@ -24,8 +24,8 @@ const AboutMe = ({ darkMode }: AboutMeProps) => {
                   finally decided it was time to change my path and pursue this field in its entirety. I became a certified software developer 
                   and am currently in the process of becoming certified in web3 as well. I hold myself to the highest standards and am committed 
                   to providing excellence in whatever I do. 
-                  When I'm not coding, I can be found mountain biking ont the trails, kayaking in the springs, or making my family take tacky 
-                  Christmas pictures. Please feel free to watch 'Our Story' below or click on my blog to learn more about me.
+                  When I&apos;m not coding, I can be found mountain biking ont the trails, kayaking in the springs, or making my family take tacky 
+                  Christmas pictures. Please feel free to watch OUR STORY below or click on my blog to learn more about me.
                 </div>
                 <div className={`text-4xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mt-16 mb-12`}>Our Story</div>
                 <div className="flex flex-col lg:flex-row gap-16 justify-center items-center">

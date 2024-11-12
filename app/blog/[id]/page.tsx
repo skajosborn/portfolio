@@ -1,16 +1,15 @@
-// app/blog/[id]/page.tsx
 import { notFound } from 'next/navigation';
 import BlogPostPage from '@/app/components/blogPost';
 import connectDB from '@/lib/db';
 import { ObjectId } from 'mongodb';
 
-export default async function BlogPostServerPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function BlogPostServerPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
 
   let objectId;
   try {
     objectId = new ObjectId(id);
-  } catch (error) {
+  } catch {
     return notFound();
   }
 

@@ -12,7 +12,8 @@ interface BlogPost {
   imageUrl?: string;
 }
 
-export default function BlogPostPage({ params }: { params: { id: string } }) {
+// Remove all param typing and let Next.js handle it
+export default function BlogPostPage() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,14 +21,18 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     async function fetchPost() {
-      if (!params?.id) {
-        setError('No blog ID provided');
-        setLoading(false);
-        return;
-      }
-
       try {
-        const response = await fetch(`/api/blogs/${params.id}`);
+        // Get the ID from the URL directly
+        const pathSegments = window.location.pathname.split('/');
+        const id = pathSegments[pathSegments.length - 1];
+
+        if (!id) {
+          setError('No blog ID provided');
+          setLoading(false);
+          return;
+        }
+
+        const response = await fetch(`/api/blogs/${id}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -44,7 +49,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     }
 
     fetchPost();
-  }, [params?.id]);
+  }, []);
 
   if (loading) {
     return (
@@ -99,7 +104,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         )}
         <div 
           className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }} // Ensure content is safe HTML
+          dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
       <button

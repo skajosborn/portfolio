@@ -56,7 +56,7 @@ function Skillz() {
     ],
   };
 
-  const [darkMode, setDarkMode] = React.useState(false);
+  const [darkMode] = React.useState(false);
 
   return (
     <div className="relative min-h-fit p-1 font-poppins text-xl lg:text-2xl overflow-hidden">
