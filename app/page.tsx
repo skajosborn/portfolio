@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
-import BlogPosts from "@/app/components/blogPost";
+import BlogPosts from "@/app/components/blogPosts";
 import ProjectCard from "@/app/components/projects-card";
 import Skillz from "@/app/components/skills";
 import AboutMe from "@/app/components/about-me";
@@ -44,10 +44,10 @@ export default function Home() {
   return (
     <div className={`relative min-h-screen mt-0 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300`}>
       {/* Content Sections */}
-      <section id="home" className="mt-20 lg:mt-24">
-        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-20 lg:mb-24 transition-colors duration-300`}>Portfolio</h2>
-        <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg py-12`}>
-          <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg py-24`}>
+      <section id="home" className="mt-12 lg:mt-8">
+        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>Portfolio</h2>
+        <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg py-8`}>
+          <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg py-16`}>
             <div className="relative w-full h-[500px] lg:h-[900px]">
               <Image
                 src="/images/desk2.png"
@@ -61,6 +61,21 @@ export default function Home() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl lg:text-6xl text-white font-bold font-mono whitespace-pre-line text-center">
                 {displayText}<span className="animate-blink">|</span>
               </div>
+              {/* Oval image overlaying the background */}
+              <a href="/#about">
+                <div 
+                  className="absolute top-10 lg:top-28 left-1/2 lg:left-[18%] -translate-x-1/2 w-56 h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+                >
+                  <Image
+                    src="/images/myface.png"
+                    alt="Profile Image"
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 768px) 224px, 320px"
+                    priority
+                  />
+                </div>
+              </a>
             </div>
           </div>
         </div>

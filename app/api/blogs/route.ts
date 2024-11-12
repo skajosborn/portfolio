@@ -1,59 +1,78 @@
-// app/api/blogs/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import dbConnect from '@/lib/db';
-import BlogPost from '@/models/BlogPost';
+import connectDB from '@/lib/db';
 
 export async function GET(request: NextRequest) {
   try {
-    await dbConnect();
+    // Connect to MongoDB
+    const client = await connectDB();
+    console.log('Connected to MongoDB');
+    
+    const db = client.db();
+    
+    // Fetch all blog posts
+    const blogs = await db.collection('blogs')
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+    
+    console.log('Found blogs:', blogs.length);
 
-    const searchParams = request.nextUrl.searchParams;
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '20');
-    const skip = (page - 1) * limit;
+    // Transform the posts
+    const transformedPosts = blogs.map(post => ({
+      _id: post._id.toString(),
+      title: post.title,
+      content: post.content,
+      createdAt: post.createdAt,
+      date: new Date(post.createdAt).toLocaleDateString(),
+      imageURL: post.imageUrl,
+      imageUrl: post.imageUrl
+    }));
 
-    const [posts, total] = await Promise.all([
-      BlogPost.find({})
-        .sort({ createdAt: -1 })
-        .skip(skip)
-        .limit(limit)
-        .lean(),
-      BlogPost.countDocuments({})
-    ]);
-
-    const response = NextResponse.json({
-      posts,
+    return NextResponse.json({ 
+      posts: transformedPosts,
       pagination: {
-        total,
-        page,
-        limit,
-        pages: Math.ceil(total / limit),
-      },
+        total: transformedPosts.length,
+        page: 1,
+        limit: 10,
+        pages: Math.ceil(transformedPosts.length / 10)
+      }
     });
 
-    // Set CORS headers
-    response.headers.set('Access-Control-Allow-Origin', '*');
-    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    response.headers.set('Access-Control-Allow-Private-Network', 'true');
-
-    return response;
   } catch (error) {
-    console.error("Error fetching blog posts:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    console.error('Error fetching blogs:', error);
+    return NextResponse.json({ error: 'Failed to fetch blogs' }, { status: 500 });
   }
 }
 
-export async function OPTIONS() {
-  const response = new NextResponse(null, { status: 204 });
+export async function POST(request: NextRequest) {
+  try {
+    const client = await connectDB();
+    console.log('Connected to MongoDB');
 
-  response.headers.set('Access-Control-Allow-Origin', '*');
-  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  response.headers.set('Access-Control-Allow-Private-Network', 'true');
+    const db = client.db();
+    
+    // Parse the request body
+    const { title, content, imageUrl } = await request.json();
 
-  return response;
+    // Validate input
+    if (!title || !content || !imageUrl) {
+      return NextResponse.json({ error: 'Title, content, and image URL are required.' }, { status: 400 });
+    }
+
+    // Create a new blog post
+    const result = await db.collection('blogs').insertOne({
+      title,
+      content,
+      imageUrl,
+      createdAt: new Date(),
+    });
+
+    console.log('Blog post created:', result.insertedId);
+
+    return NextResponse.json({ message: 'Blog post created successfully', postId: result.insertedId }, { status: 201 });
+
+  } catch (error) {
+    console.error('Error creating blog post:', error);
+    return NextResponse.json({ error: 'Failed to create blog post' }, { status: 500 });
+  }
 }

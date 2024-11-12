@@ -1,43 +1,38 @@
-import mongoose from 'mongoose';
-import 'dotenv/config';
+import { MongoClient } from 'mongodb';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+if (!process.env.MONGODB_URI) {
+  throw new Error('Please add your Mongo URI to .env.local');
 }
 
-// Extend the global type to include mongoose connection and promise properties
-declare global {
-  var mongoose: {
-    conn: mongoose.Connection | null;
-    promise: Promise<mongoose.Connection> | null;
-  };
+const uri = process.env.MONGODB_URI;
+let client: MongoClient;
+let clientPromise: Promise<MongoClient>;
+
+if (process.env.NODE_ENV === 'development') {
+  // In development mode, use a global variable so that the value
+  // is preserved across module reloads caused by HMR (Hot Module Replacement).
+  let globalWithMongo = global as typeof globalThis & {
+    _mongoClientPromise?: Promise<MongoClient>
+  }
+
+  if (!globalWithMongo._mongoClientPromise) {
+    client = new MongoClient(uri);
+    globalWithMongo._mongoClientPromise = client.connect();
+  }
+  clientPromise = globalWithMongo._mongoClientPromise;
+} else {
+  // In production mode, it's best to not use a global variable.
+  client = new MongoClient(uri);
+  clientPromise = client.connect();
 }
 
-// Initialize global mongoose cache if not already initialized
-global.mongoose = global.mongoose || { conn: null, promise: null };
-
-async function dbConnect() {
-  if (global.mongoose.conn) {
-    return global.mongoose.conn;
-  }
-
-  if (!global.mongoose.promise) {
-    // MONGODB_URI is guaranteed to be string at this point
-    global.mongoose.promise = mongoose.connect(MONGODB_URI as string)
-      .then((mongoose) => mongoose.connection);
-  }
-
+export default async function connectDB() {
   try {
-    global.mongoose.conn = await global.mongoose.promise;
+    const client = await clientPromise;
     console.log('Connected to MongoDB');
+    return client;
   } catch (error) {
-    console.error('Failed to connect to MongoDB', error);
-    throw new Error('Failed to connect to MongoDB');
+    console.error('Error connecting to MongoDB:', error);
+    throw error;
   }
-
-  return global.mongoose.conn;
 }
-
-export default dbConnect;

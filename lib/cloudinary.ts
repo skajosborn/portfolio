@@ -8,7 +8,7 @@ cloudinary.config({
 
 export async function uploadImage(filePath: string) {
   // Ensure cloudinary is properly configured
-  if (!process.env.CLOUDINARY_NAME ||
+  if (!process.env.CLOUDINARY_CLOUD_NAME ||
       !process.env.CLOUDINARY_API_KEY ||
       !process.env.CLOUDINARY_API_SECRET) {
     throw new Error('Cloudinary configuration is missing');

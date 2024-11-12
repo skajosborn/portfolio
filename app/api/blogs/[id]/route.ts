@@ -1,66 +1,41 @@
-import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/db';
-import BlogPost from '@/models/BlogPost';
-import mongoose from 'mongoose';
+// pages/api/blogs/[id].ts
+import { NextApiRequest, NextApiResponse } from 'next';
+import connectDB from '@/lib/db';
+import { ObjectId } from 'mongodb';
 
-export async function GET(request: Request) {
-  await dbConnect();
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const { id } = req.query;
 
-  // Extract the ID from the URL path
-  const url = new URL(request.url);
-  const id = url.pathname.split('/').pop();
-
-  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
-    return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
+  // Check for GET method
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', ['GET']);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
-  const post = await BlogPost.findById(id);
-  if (!post) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+  try {
+    const client = await connectDB();
+    const db = client.db();
+    const objectId = new ObjectId(id as string);
+
+    // Fetch the blog post
+    const post = await db.collection('blogs').findOne({ _id: objectId });
+
+    if (!post) {
+      return res.status(404).json({ error: 'Blog post not found' });
+    }
+
+    // Transform the post for response
+    const transformedPost = {
+      _id: post._id.toString(),
+      title: post.title,
+      content: post.content,
+      date: new Date(post.createdAt).toLocaleDateString(),
+      imageUrl: post.imageUrl,
+    };
+
+    res.status(200).json(transformedPost);
+  } catch (error) {
+    console.error('Error fetching blog post:', error);
+    res.status(500).json({ error: 'Failed to fetch blog post' });
   }
-
-  return NextResponse.json(post);
-}
-
-export async function PUT(request: Request) {
-  await dbConnect();
-
-  const url = new URL(request.url);
-  const id = url.pathname.split('/').pop();
-
-  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
-    return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
-  }
-
-  const { title, content } = await request.json();
-  const updatedPost = await BlogPost.findByIdAndUpdate(
-    id,
-    { title, content },
-    { new: true }
-  );
-
-  if (!updatedPost) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
-  }
-
-  return NextResponse.json(updatedPost);
-}
-
-export async function DELETE(request: Request) {
-  await dbConnect();
-
-  const url = new URL(request.url);
-  const id = url.pathname.split('/').pop();
-
-  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
-    return NextResponse.json({ error: 'Invalid post ID' }, { status: 400 });
-  }
-
-  const deletedPost = await BlogPost.findByIdAndDelete(id);
-
-  if (!deletedPost) {
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
-  }
-
-  return NextResponse.json({ message: 'Post deleted successfully' });
 }
