@@ -1,5 +1,3 @@
-// app/new-post/page.tsx
-
 'use client';
 
 import { useState } from 'react';
@@ -93,8 +91,8 @@ export default function NewPost() {
     <div className="min-h-screen bg-gray-100">
       <Header />
       <div className="mt-20 bg-gray-200 py-10">
-        <div className="max-w-4xl mx-auto p-10 bg-white rounded-xl shadow-lg">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">Create a New Post</h2>
+        <div className="max-w-6xl mx-auto p-12 bg-white rounded-xl shadow-lg">
+          <h2 className="text-5xl font-bold text-gray-800 mb-10 text-center">Create a New Post</h2>
           
           {successMessage && (
             <div className={`text-center p-4 mb-6 rounded ${
@@ -104,37 +102,39 @@ export default function NewPost() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="mb-6">
-              <label className="block text-gray-700 text-lg font-medium mb-3">Title</label>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="mb-8">
+              <label className="block text-gray-700 text-3xl font-medium mb-3">Title</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-5 py-3 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
+                className="w-full px-6 py-6 text-3xl border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                 required
               />
             </div>
 
-            <div className="mb-6">
-              <label className="block text-gray-700 text-lg font-medium mb-3">Content</label>
-              <Editor
-                onTextChange={setContent}
-              />
+            <div className="mb-8">
+              <label className="block text-gray-700 text-3xl font-medium mb-3">Content</label>
+              <div className="h-[700px]"> {/* Increased height for editor */}
+                <Editor
+                  onTextChange={setContent}
+                />
+              </div>
             </div>
 
-            <div className="mb-6">
-              <label className="block text-gray-700 text-lg font-medium mb-3">Image</label>
+            <div className="mb-8">
+              <label className="block text-gray-700 text-3xl font-semibold mb-3">Image</label>
               <div className="space-y-4">
                 <input
                   type="file"
                   accept="image/*"
                   onChange={(e) => e.target.files?.[0] && uploadImage(e.target.files[0])}
-                  className="w-full px-5 py-3 text-lg border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
+                  className="w-full px-6 py-4 text-3xl border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-black"
                 />
                 
                 {isUploading && (
-                  <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-center text-3xl justify-center p-4 bg-gray-50 rounded-lg">
                     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-teal-500 mr-2"></div>
                     <span className="text-gray-600">Uploading image...</span>
                   </div>
@@ -175,7 +175,7 @@ export default function NewPost() {
                 isUploading 
                   ? 'bg-gray-400 cursor-not-allowed' 
                   : 'bg-teal-500 hover:bg-teal-600'
-              } text-white text-lg font-medium py-4 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg disabled:opacity-50`}
+              } text-white text-4xl font-medium py-5 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg disabled:opacity-50`}
             >
               {isUploading ? 'Uploading...' : 'Add Post'}
             </button>

@@ -10,7 +10,7 @@ interface BlogPost {
 }
 
 interface BlogPostPageProps {
-  post: BlogPost; // Single post, not an array
+  post: BlogPost; // Adjusted to expect a single post object
   darkMode: boolean;
 }
 
@@ -24,9 +24,9 @@ const BlogPostPage = ({ post, darkMode }: BlogPostPageProps) => {
   }
 
   return (
-    <div className={`max-w-4xl mt-40 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+    <div className={`max-w-4xl mt-20 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-600 mb-4">{post.date}</p>
+      <p className="text-gray-500 mb-4">{post.date}</p>
       {post.imageUrl && (
         <Image
           src={post.imageUrl}
@@ -36,9 +36,10 @@ const BlogPostPage = ({ post, darkMode }: BlogPostPageProps) => {
           className="rounded-lg mb-8"
         />
       )}
-      <div className="prose max-w-none">
-        <p>{post.content}</p>
-      </div>
+      <div 
+        className="prose max-w-none"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </div>
   );
 };

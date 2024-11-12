@@ -9,7 +9,7 @@ interface BlogPost {
 }
 
 interface BlogPostsPageProps {
-  posts: BlogPost[]; // Array of posts
+  posts: BlogPost[];
   darkMode: boolean;
 }
 
@@ -23,41 +23,27 @@ const BlogPostsPage = ({ posts, darkMode }: BlogPostsPageProps) => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-8">
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
+    <div className={`max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+      {posts.map((post) => (
+        <div key={post._id} className={`rounded-lg shadow-md p-6 ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
+          <h1 className="text-xl font-semibold mb-2">{post.title}</h1>
+          <p className="text-gray-500 mb-4">{post.date}</p>
+          {post.imageUrl && (
+            <Image
+              src={post.imageUrl}
+              alt={post.title}
+              width={400}
+              height={200}
+              className="rounded-lg mb-4"
+            />
+          )}
           <div
-            key={post._id}
-            className={`p-4 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 ${
-              darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-900'
-            }`}
-          >
-            {post.imageUrl && (
-              <div className="relative w-full h-48 mb-4 bg-white">
-                <Image
-                  src={post.imageUrl}
-                  alt={post.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
-                  style={{ backgroundColor: 'transparent' }} // Ensuring transparent background for the image
-                />
-              </div>
-            )}
-            <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-            <p className="text-gray-500 mb-2 text-sm">{post.date}</p>
-            <div className="prose max-w-none text-sm mb-4">
-              <p>{post.content.length > 80 ? `${post.content.substring(0, 80)}...` : post.content}</p>
-            </div>
-            <button
-              className="text-blue-500 hover:text-blue-700 text-sm"
-              onClick={() => window.location.href = `/blog/${post._id}`}
-            >
-              Read more
-            </button>
-          </div>
-        ))}
-      </div>
+            className="prose max-w-none text-sm"
+            dangerouslySetInnerHTML={{ __html: post.content.length > 100 ? `${post.content.substring(0, 100)}...` : post.content }}
+          />
+          <a href={`/blog/${post._id}`} className="text-blue-600 hover:underline mt-4 block">Read more</a>
+        </div>
+      ))}
     </div>
   );
 };
