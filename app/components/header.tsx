@@ -27,7 +27,7 @@ function Header() {
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 15px rgba(255,255,255,0.8), 0 0 25px rgba(255,255,255,0.6), 3px 3px 8px rgba(0,0,0,0.3)';
+              e.currentTarget.style.boxShadow = '0 0 25px rgba(255,255,255,0.9), 0 0 35px rgba(255,255,255,0.7), 3px 3px 8px rgba(0,0,0,0.3)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
@@ -45,7 +45,7 @@ function Header() {
             boxShadow: '0 0 15px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3), 3px 3px 8px rgba(0,0,0,0.6)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6), 3px 3px 8px rgba(0,0,0,0.3)';
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 3px 3px 8px rgba(0,0,0,0.3)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.boxShadow = '0 0 15px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3), 3px 3px 8px rgba(0,0,0,0.6)';

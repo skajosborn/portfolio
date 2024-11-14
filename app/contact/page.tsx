@@ -30,8 +30,8 @@ export default function Contact() {
 
   return (
     <div className={`flex justify-center items-center min-h-screen h-full p-4 sm:p-8 ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
-      <div className={`w-full max-w-4xl shadow-xl rounded-lg p-4 sm:p-10 my-20 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className={`w-full shadow-lg rounded-lg p-4 sm:p-8 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+      <div className={`w-full max-w-6xl shadow-xl rounded-lg p-6 sm:p-12 my-24 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className={`w-full shadow-lg rounded-lg p-6 sm:p-10 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
           {messageSent ? (
             <div className="text-center space-y-4">
               <div className="relative w-24 h-24 sm:w-44 sm:h-44 mx-auto">
@@ -47,35 +47,35 @@ export default function Contact() {
               </div>
             </div>
           ) : (
-            <form ref={form} onSubmit={sendEmail} className="space-y-4 sm:space-y-6">
-              <h1 className={`text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 ${darkMode ? 'text-white' : 'text-black'}`}>Contact Me</h1>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form ref={form} onSubmit={sendEmail} className="space-y-4 sm:space-y-8">
+              <h1 className={`text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>Contact Me</h1>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className={`block text-sm sm:text-base font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>First Name</label>
-                  <input type="text" name="first_name" required className={`form-input w-full mt-1 px-3 py-1 sm:px-4 sm:py-2 border rounded-lg shadow-sm text-sm sm:text-base ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>First Name</label>
+                  <input type="text" name="first_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
                 <div>
-                  <label className={`block text-sm sm:text-base font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Last Name</label>
-                  <input type="text" name="last_name" required className={`form-input w-full mt-1 px-3 py-1 sm:px-4 sm:py-2 border rounded-lg shadow-sm text-sm sm:text-base ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Last Name</label>
+                  <input type="text" name="last_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className={`block text-sm sm:text-base font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email address</label>
-                  <input type="email" name="email" required className={`form-input w-full mt-1 px-3 py-1 sm:px-4 sm:py-2 border rounded-lg shadow-sm text-sm sm:text-base ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email address</label>
+                  <input type="email" name="email" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
                 <div>
-                  <label className={`block text-sm sm:text-base font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone</label>
-                  <input type="tel" name="phone" required className={`form-input w-full mt-1 px-3 py-1 sm:px-4 sm:py-2 border rounded-lg shadow-sm text-sm sm:text-base ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone</label>
+                  <input type="tel" name="phone" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
               </div>
               <div>
-                <label className={`block text-sm sm:text-base font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
-                <textarea name="message" rows={5} className={`form-textarea w-full mt-1 px-3 py-1 sm:px-4 sm:py-2 border rounded-lg shadow-sm text-sm sm:text-base ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`}></textarea>
+                <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
+                <textarea name="message" rows={6} className={`form-textarea w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`}></textarea>
               </div>
               <button 
                 type="submit" 
-                className={`w-full h-[40px] sm:h-[60px] text-lg sm:text-2xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md ${darkMode ? 'bg-gray-600 text-white' : 'bg-gray-100 text-black'}`}
+                className={`w-full h-[50px] sm:h-[70px] text-xl sm:text-3xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md ${darkMode ? 'bg-gray-600 text-white' : 'bg-gray-100 text-black'}`}
                 style={{
                   transition: 'all 0.3s ease',
                   boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
