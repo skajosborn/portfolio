@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   let objectId;
   try {
     objectId = new ObjectId(id);
-  } catch (err) {
+  } catch {
     return NextResponse.json({ error: 'Invalid blog ID' }, { status: 400 });
   }
 
