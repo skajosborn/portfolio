@@ -108,7 +108,7 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => window.location.href = `/blog?page=${index + 1}`}
-                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
+                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
                     boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
@@ -183,7 +183,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center mt-12">
                 <button
-                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
+                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
                     boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
@@ -239,7 +239,7 @@ export default function Home() {
         <div className="flex justify-center">
           <a
             href="/contact"
-            className="bg-gray-100 h-[50px] w-[160px] sm:h-[60px] sm:w-[180px] md:h-[70px] md:w-[200px] lg:h-[90px] lg:w-[220px] text-lg sm:text-xl md:text-2xl lg:text-3xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
+            className="bg-gray-100 h-[50px] w-[160px] sm:h-[60px] sm:w-[180px] md:h-[70px] md:w-[200px] lg:h-[90px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',

@@ -42,40 +42,40 @@ export default function Contact() {
                   className="object-contain"
                 />
               </div>
-              <div className={`text-green-500 text-base sm:text-xl font-semibold ${darkMode ? 'text-green-400' : 'text-green-600'}`}>
+              <div className={`text-green-500 text-xl sm:text-3xl font-semibold ${darkMode ? 'text-green-400' : 'text-green-600'}`}>
                 Thank you! Your message was sent successfully!
               </div>
             </div>
           ) : (
             <form ref={form} onSubmit={sendEmail} className="space-y-4 sm:space-y-8">
-              <h1 className={`text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>Contact Me</h1>
+              <h1 className={`text-4xl sm:text-5xl font-bold text-center mb-6 sm:mb-8 ${darkMode ? 'text-white' : 'text-black'}`}>Contact Me</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>First Name</label>
-                  <input type="text" name="first_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-xl sm:text-2xl font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>First Name</label>
+                  <input type="text" name="first_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-xl sm:text-2xl ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
                 <div>
-                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Last Name</label>
-                  <input type="text" name="last_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-xl sm:text-2xl font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Last Name</label>
+                  <input type="text" name="last_name" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-xl sm:text-2xl ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email address</label>
-                  <input type="email" name="email" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-xl sm:text-2xl font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email address</label>
+                  <input type="email" name="email" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-xl sm:text-2xl ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
                 <div>
-                  <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone</label>
-                  <input type="tel" name="phone" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
+                  <label className={`block text-xl sm:text-2xl font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone</label>
+                  <input type="tel" name="phone" required className={`form-input w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-xl sm:text-2xl ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`} />
                 </div>
               </div>
               <div>
-                <label className={`block text-base sm:text-lg font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
-                <textarea name="message" rows={6} className={`form-textarea w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-base sm:text-lg ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`}></textarea>
+                <label className={`block text-xl sm:text-2xl font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
+                <textarea name="message" rows={6} className={`form-textarea w-full mt-2 px-4 py-2 sm:px-5 sm:py-3 border rounded-lg shadow-sm text-xl sm:text-2xl ${darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-black'}`}></textarea>
               </div>
               <button 
                 type="submit" 
-                className={`w-full h-[50px] sm:h-[70px] text-xl sm:text-3xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md ${darkMode ? 'bg-gray-600 text-white' : 'bg-gray-100 text-black'}`}
+                className={`w-full h-[40px] sm:h-[100px] text-4xl sm:text-5xl font-mulish flex items-center justify-center transform hover:scale-105 rounded-md ${darkMode ? 'bg-gray-600 text-white' : 'bg-gray-100 text-black'}`}
                 style={{
                   transition: 'all 0.3s ease',
                   boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
