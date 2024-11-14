@@ -18,14 +18,14 @@ const BlogPostPage = ({ post, darkMode }: BlogPostPageProps) => {
   if (!post) {
     return (
       <div className="text-center mt-40 p-8">
-        <p className="text-red-500 text-xl">Error: Blog post data is unavailable.</p>
+        <p className="text-red-500 text-2xl">Error: Blog post data is unavailable.</p>
       </div>
     );
   }
   return (
-    <div className={`max-w-4xl mb-10 mt-20 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-500 mb-4">{post.date}</p>
+    <div className={`max-w-7xl mb-10 mt-20 mx-auto p-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+      <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+      <p className="text-gray-500 text-2xl mb-4">{post.date}</p>
       {post.imageUrl && (
         <div className="bg-white rounded-lg mb-8">
           <Image
@@ -38,7 +38,7 @@ const BlogPostPage = ({ post, darkMode }: BlogPostPageProps) => {
         </div>
       )}
       <div 
-        className="prose max-w-none"
+        className="prose prose-4xl max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>

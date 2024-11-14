@@ -24,7 +24,7 @@ export default async function BlogPostServerPage({ params }: { params: Promise<{
   const transformedPost = {
     _id: post._id.toString(),
     title: post.title,
-    content: post.content,
+    content: `<div class="text-3xl">${post.content}</div>`, // Increased text size to 3xl
     date: new Date(post.createdAt).toLocaleDateString(),
     imageUrl: post.imageUrl,
   };
