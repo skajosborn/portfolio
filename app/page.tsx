@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch blog posts data
-    fetch('http://localhost:3000/api/blogs')
+    fetch('/api/blogs')
       .then(response => response.json())
       .then(data => setPosts(data.posts || []));
 
