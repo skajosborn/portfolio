@@ -16,7 +16,7 @@ const AboutMe = ({ darkMode }: AboutMeProps) => {
             <div className="flex-1 lg:mx-8">
               <div className="h-full p-12 lg:p-16 flex flex-col justify-start">
                 <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-left`}>
-                  I was born and raised on the east coast of Long Island, NY. I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
+                  I was born and raised on the east coast of Long Island, NY where I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
                   tip of the U.S. I spent the next several years as an educator, many of those years focused on math, science and technology. 
                   I spent endless hours incorporating technology into lessons and coming up with creative ways to promote maximum learning.
                   As I veered more towards technology and found myself analyzing programs and learning platforms, brainstorming ways to improve
