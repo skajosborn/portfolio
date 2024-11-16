@@ -13,8 +13,17 @@ export default function Home() {
   const [displayText, setDisplayText] = useState('');
   const { darkMode } = useDarkMode();
   const fullText = 'Welcome to\nMy Page';
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile on mount and window resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Fetch blog posts data
     fetch('/api/blogs')
       .then(response => response.json())
@@ -35,20 +44,23 @@ export default function Home() {
       return () => clearInterval(typingInterval);
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
-  const postsPerPage = 6;
+  const postsPerPage = isMobile ? 3 : 6;
   const totalPages = posts && posts.length ? Math.ceil(posts.length / postsPerPage) : 0;
 
   return (
     <div className={`relative min-h-screen mt-0 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300`}>
       {/* Content Sections */}
       <section id="home" className="mt-12 lg:mt-8">
-        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>Portfolio</h2>
+        <h2 className={`text-5xl sm:text-5xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>Portfolio</h2>
         <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg py-8`}>
           <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg py-16`}>
-            <div className="relative w-full h-[500px] lg:h-[900px]">
+            <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[900px]">
               <Image
                 src="/images/desk2.png"
                 alt="Desk Background"
@@ -58,20 +70,20 @@ export default function Home() {
                 priority
                 sizes="100vw"
               />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl lg:text-6xl text-white font-bold font-mono whitespace-pre-line text-center">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl sm:text-4xl lg:text-6xl text-white font-bold font-mono whitespace-pre-line text-center">
                 {displayText}<span className="animate-blink">|</span>
               </div>
               {/* Oval image overlaying the background */}
               <a href="/#about">
                 <div 
-                  className="absolute top-10 lg:top-28 left-1/2 lg:left-[18%] -translate-x-1/2 w-56 h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+                  className="absolute top-5 sm:top-10 lg:top-28 left-1/2 lg:left-[18%] -translate-x-1/2 w-36 h-48 sm:w-56 sm:h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
                 >
                   <Image
                     src="/images/myface.png"
                     alt="Profile Image"
                     fill
                     className="object-cover transition-transform duration-300 hover:scale-105"
-                    sizes="(max-width: 768px) 224px, 320px"
+                    sizes="(max-width: 640px) 144px, (max-width: 768px) 224px, 320px"
                     priority
                   />
                 </div>
@@ -83,11 +95,11 @@ export default function Home() {
 
       {/* About Section */}
       {/* Blog Section */}
-      <section id="blog" className="mt-20 lg:mt-24 px-12 py-20">
-        <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
-        <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
-          <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-24 lg:p-28`}>
-            <div className="relative w-full h-[400px] mb-20">
+      <section id="blog" className="mt-20 lg:mt-24 px-4 sm:px-12 py-20">
+        <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
+        <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
+          <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
+            <div className="relative w-full h-[200px] sm:h-[400px] mb-20">
               <Image
                 src="/images/beach4.jpeg"
                 alt="Blog Header"
@@ -96,7 +108,7 @@ export default function Home() {
                 sizes="(max-width: 1950px) 100vw, 1950px"
               />
             </div>
-            <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
+            <div className={`text-2xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
               Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
               and my journey transitioning from education to tech. Feel free to explore my posts below.
             </div>
@@ -108,7 +120,7 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => window.location.href = `/blog?page=${index + 1}`}
-                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
+                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
                     boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
@@ -137,21 +149,21 @@ export default function Home() {
           </div>
         </div>
         {/* Skills section */}
-        <section id="skills" className="mt-20 lg:mt-24 px-12 py-12">
-          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Skills</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} text-white rounded-sm shadow-lg p-24 lg:p-28`}>
+        <section id="skills" className="mt-20 lg:mt-24 px-4 sm:px-12 py-12">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Skills</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} text-white rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
               <Skillz />
             </div>
           </div>
         </section>
 
         {/* Project Cards Section */}
-        <section id="projects" className="mt-12 mb-12 lg:mt-12 lg:mb-12 px-12 py-10">
-          <h2 className={`text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-24`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-24 lg:p-28`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 justify-items-center px-12">
+        <section id="projects" className="mt-12 mb-12 lg:mt-12 lg:mb-12 px-4 sm:px-12 py-10">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
                 <ProjectCard
                   title="HelloDoctor"
                   imageUrl="/images/hellodoc4.png"
@@ -183,7 +195,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center mt-12">
                 <button
-                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
+                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
                     boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
@@ -216,10 +228,10 @@ export default function Home() {
       <section id="aboutme">
         <AboutMe darkMode={darkMode} />
       </section>
-      <section id="bitmoji" className="mt-18 lg:mt-10 px-12 py-12">
+      <section id="bitmoji" className="mt-18 lg:mt-10 px-4 sm:px-12 py-12">
         <div className="relative w-full max-w-[450px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-4">
           <div className="relative w-full max-w-[430px] h-auto mx-auto bg-white rounded-sm shadow-lg p-8">
-            <div className="relative w-full h-[450px]">
+            <div className="relative w-full h-[300px] sm:h-[450px]">
               <Image
                 src="/images/bitmoji1.png"
                 alt="Bitmoji"
@@ -231,15 +243,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="contact" className="mt-16 lg:mt-20 mb-20 px-12 py-12">
-        <h2 className={`text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
-        <p className={`text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
+      <section id="contact" className="mt-16 lg:mt-20 mb-20 px-4 sm:px-12 py-12">
+        <h2 className={`text-4xl sm:text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
+        <p className={`text-2xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
           I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
         </p>
         <div className="flex justify-center">
           <a
             href="/contact"
-            className="bg-gray-100 h-[50px] w-[160px] sm:h-[60px] sm:w-[180px] md:h-[70px] md:w-[200px] lg:h-[90px] lg:w-[220px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
+            className="bg-gray-100 h-[40px] w-[140px] sm:h-[60px] sm:w-[180px] md:h-[70px] md:w-[200px] lg:h-[90px] lg:w-[220px] text-2xl sm:text-3xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
