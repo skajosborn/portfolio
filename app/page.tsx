@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div className={`relative min-h-screen mt-0 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300`}>
       {/* Content Sections */}
-      <section id="home" className="mt-12 lg:mt-8">
+      <section id="home" className="pt-16 lg:pt-20">
         <h2 className={`text-5xl sm:text-5xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-16 font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>Portfolio</h2>
         <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-lg py-8`}>
           <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-lg py-16`}>
