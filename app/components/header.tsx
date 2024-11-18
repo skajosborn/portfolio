@@ -40,7 +40,11 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
             onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
             }}
-            onClick={() => setIsMenuOpen && setIsMenuOpen(false)}
+            onClick={() => {
+              if (setIsMenuOpen) {
+                setIsMenuOpen(false);
+              }
+            }}
           >
             {item}
           </Link>
@@ -58,7 +62,9 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
         <Button
           onClick={() => {
             toggleDarkMode();
-            setIsMenuOpen && setIsMenuOpen(false);
+            if (setIsMenuOpen) {
+              setIsMenuOpen(false);
+            }
           }}
           className="p-5 rounded-full transition-all duration-300 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-0"
           style={{
@@ -87,8 +93,11 @@ function Header() {
   const [openNav, setOpenNav] = React.useState(false);
   const menuItems = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
 
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
+  const handleWindowResize = () => {
+    if (window.innerWidth >= 960) {
+      setOpenNav(false);
+    }
+  };
 
   React.useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
