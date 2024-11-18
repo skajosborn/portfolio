@@ -42,6 +42,9 @@ const config: Config = {
         'gwendolyn': '"Gwendolyn", cursive',
         'carattere': '"Carattere", cursive',
         'rouge-script': '"Rouge Script", cursive',
+        'poppins': ['Poppins', 'sans-serif'],
+        'outfit': ['Outfit', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       perspective: {
         '1000': '1000px',
