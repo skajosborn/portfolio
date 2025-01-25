@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useDarkMode } from '@/app/components/darkMode';
 import { Navbar, Collapse, Typography, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -16,7 +16,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
   setIsMenuOpen?: (open: boolean) => void 
 }) {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-2 lg:flex-row lg:items-center lg:gap-6">
       {menuItems.map((item) => (
         <Typography
           as="li"
@@ -101,7 +101,7 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-50"
+      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-[9999] !transform-none"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}

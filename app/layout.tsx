@@ -27,14 +27,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0 flex flex-col min-h-screen`}>
-        <div className="overflow-x-hidden w-full">
-          <DarkModeProvider>
-            <Header />
-            <main className="pt-[70px] sm:pt-[80px] md:pt-[90px] lg:pt-[120px] flex-grow">
-              {children}
-            </main>
-          </DarkModeProvider>
-        </div>
+        <DarkModeProvider>
+          <Header />
+          <main className="pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] flex-grow">
+            {children}
+          </main>
+        </DarkModeProvider>
       </body>
     </html>
   );
