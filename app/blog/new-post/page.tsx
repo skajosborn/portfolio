@@ -90,7 +90,7 @@ export default function NewPost() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
-      <div className="mt-20 bg-gray-200 py-10">
+      <div className="mt-20 bg-white py-10">
         <div className="max-w-6xl mx-auto p-12 bg-white rounded-xl shadow-lg">
           <h2 className="text-5xl font-bold text-gray-800 mb-10 text-center">Create a New Post</h2>
           

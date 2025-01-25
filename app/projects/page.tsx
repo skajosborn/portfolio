@@ -21,6 +21,12 @@ const Projects: React.FC = () => {
 
       {/* Project Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
+      <ProjectCard
+          title="NFT Marketplace Dapp"
+          imageUrl="/images/nftmarketplace.png"
+          githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
+          liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+        />
         <ProjectCard
           title="HelloDoctor Medical platform"
           imageUrl="/images/HelloDoctor.png"

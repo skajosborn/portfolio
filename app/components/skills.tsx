@@ -30,11 +30,15 @@ function Skillz() {
     frontend: [
       { name: 'JavaScript', logo: '/logos/js.svg' },
       { name: 'React', logo: '/logos/reactjs.svg' },
+      { name: 'Tailwind', logo: '/logos/tailwind.svg' },
       { name: 'Next.js', logo: '/logos/nextjs.svg' },
       { name: 'HTML5', logo: '/logos/html.svg' },
       { name: 'CSS', logo: '/logos/css.svg' },
     ],
     backend: [
+      { name: 'Python', logo: '/logos/python.svg' },
+      { name: 'Next.js', logo: '/logos/nextjs.svg' },
+      { name: 'Golang', logo: '/logos/golang.jpeg' },
       { name: 'Node.js', logo: '/logos/nodejs.svg' },
       { name: 'Express', logo: '/logos/express.svg' },
       { name: 'MongoDB', logo: '/logos/mongodb.svg' },
@@ -46,12 +50,15 @@ function Skillz() {
       { name: 'Solidity', logo: '/logos/solidityicon.png' },
       { name: 'Ethereum', logo: '/logos/ethereum.png' },
       { name: 'Blockchain', logo: '/logos/block.png'},
+      { name: 'Hardhat', logo: '/logos/hardhat.avif'},
+      { name: 'Alchemy', logo: '/logos/alchemy.jpg' },
+      { name: 'Cosmos', logo: '/logos/cosmoss.jpg' },
+      { name: 'Polygon', logo: '/logos/polygon.webp' },
     ],
     other: [
       { name: 'Cloudinary', logo: '/logos/cloudinary.svg' },
       { name: 'AWS EC2', logo: '/logos/aws-ec2.svg' },
       { name: 'Figma', logo: '/logos/figma.svg' },
-      { name: 'Python', logo: '/logos/python.svg' },
       { name: 'Nodemon', logo: '/logos/nodemon.svg' },
     ],
   };

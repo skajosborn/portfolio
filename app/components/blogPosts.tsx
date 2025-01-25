@@ -25,7 +25,7 @@ const BlogPostsPage = ({ posts, darkMode }: BlogPostsPageProps) => {
   return (
     <div className={`max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-12 p-12 ${darkMode ? 'text-white' : 'text-black'}`}>
       {posts.map((post) => (
-        <div key={post._id} className={`rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
+        <a key={post._id} href={`/blog/${post._id}`} className={`rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 ${darkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
           <h1 className="text-3xl font-semibold mb-4">{post.title}</h1>
           <p className="text-gray-500 mb-6 text-xl">{post.date}</p>
           {post.imageUrl && (
@@ -43,8 +43,7 @@ const BlogPostsPage = ({ posts, darkMode }: BlogPostsPageProps) => {
             className="prose max-w-none text-lg mb-6"
             dangerouslySetInnerHTML={{ __html: post.content.length > 200 ? `${post.content.substring(0, 200)}...` : post.content }}
           />
-          <a href={`/blog/${post._id}`} className="text-blue-600 hover:underline mt-6 block text-xl font-medium">Read more →</a>
-        </div>
+        </a>
       ))}
     </div>
   );
