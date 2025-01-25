@@ -1,7 +1,6 @@
-import type { Config } from "tailwindcss";
-import withMT from "@material-tailwind/react/utils/withMT";
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-const config: Config = {
+module.exports = withMT({
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,11 +21,9 @@ const config: Config = {
                   display: "block",
                   position: "fixed",
                   width: "100vw",
-                  maxWidth: "100vw",
+                  maxWidth: "100%",
                   inset: "0px",
                   zIndex: "9999",
-                  padding: "0",
-                  margin: "0",
                 }
               }
             }
@@ -39,6 +36,4 @@ const config: Config = {
     }
   },
   plugins: [],
-};
-
-export default withMT(config);
+}); 

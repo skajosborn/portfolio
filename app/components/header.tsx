@@ -7,6 +7,7 @@ import { Navbar, Collapse, Typography, IconButton } from "@material-tailwind/rea
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: { 
   menuItems: string[], 
@@ -29,7 +30,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
         >
           <Link 
             href={`/#${item.toLowerCase()}`}
-            className="bg-gray-200 h-[60px] w-[145px] sm:h-[70px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[90px] lg:w-[205px] text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-inter font-light flex items-center justify-center transform hover:scale-105 rounded-md text-black"
+            className="bg-gray-200 h-[60px] w-[145px] sm:h-[70px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[90px] lg:w-[205px] text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-inter font-light flex items-center justify-center transform hover:scale-105 rounded-2xl text-black"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
@@ -50,38 +51,30 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
           </Link>
         </Typography>
       ))}
-      <Typography 
-        as="li" 
-        variant="small" 
-        color="blue-gray" 
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
         className="p-1"
         placeholder=""
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
       >
         <Button
-          onClick={() => {
-            toggleDarkMode();
-            if (setIsMenuOpen) {
-              setIsMenuOpen(false);
-            }
-          }}
-          className="p-5 rounded-full transition-all duration-300 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-0"
+          onClick={toggleDarkMode}
+          className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[80px] lg:h-[90px] lg:w-[90px] rounded-full bg-gray-200 flex items-center justify-center transform hover:scale-105"
           style={{
-            boxShadow: '0 0 15px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3), 3px 3px 8px rgba(0,0,0,0.6)'
+            transition: 'all 0.3s ease',
+            boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
           }}
           onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.currentTarget.style.boxShadow = '0 0 30px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.7), 3px 3px 8px rgba(0,0,0,0.3)';
+            e.currentTarget.style.boxShadow = '0 0 25px rgba(255,255,255,0.9), 0 0 35px rgba(255,255,255,0.7), 3px 3px 8px rgba(0,0,0,0.3)';
           }}
           onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.currentTarget.style.boxShadow = '0 0 15px rgba(255,255,255,0.5), 0 0 25px rgba(255,255,255,0.3), 3px 3px 8px rgba(0,0,0,0.6)';
+            e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
           }}
         >
-          {darkMode ? (
-            <Image src="/sun.png" alt="Light mode" width={50} height={50} className="opacity-80" />
-          ) : (
-            <Image src="/moon.png" alt="Dark mode" width={50} height={50} className="opacity-80" />
-          )}
+          {darkMode ? <SunIcon className="h-8 w-8" /> : <MoonIcon className="h-8 w-8" />}
         </Button>
       </Typography>
     </ul>
@@ -108,52 +101,54 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-50"
+      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-50"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="h1"
-          variant="h6"
-          className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14"
-          style={{
-            textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
-          }}
-          placeholder=""
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
-          Sara Osborn
-        </Typography>
-        <div className="hidden lg:block">
-          <NavList menuItems={menuItems} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <div className="max-w-[2000px] mx-auto w-full px-4">
+        <div className="flex items-center justify-between text-blue-gray-900">
+          <Typography
+            as="h1"
+            variant="h6"
+            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14"
+            style={{
+              textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+            }}
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
+          >
+            Sara Osborn
+          </Typography>
+          <div className="hidden lg:block">
+            <NavList menuItems={menuItems} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          </div>
+          <IconButton
+            variant="text"
+            className="ml-auto h-6 w-6 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            ripple={false}
+            onClick={() => setOpenNav(!openNav)}
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
+          >
+            {openNav ? (
+              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+            ) : (
+              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+            )}
+          </IconButton>
         </div>
-        <IconButton
-          variant="text"
-          className="ml-auto h-6 w-6 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-          placeholder=""
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
-          {openNav ? (
-            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-          ) : (
-            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-          )}
-        </IconButton>
+        <Collapse open={openNav}>
+          <NavList 
+            menuItems={menuItems} 
+            darkMode={darkMode} 
+            toggleDarkMode={toggleDarkMode}
+            setIsMenuOpen={setOpenNav}
+          />
+        </Collapse>
       </div>
-      <Collapse open={openNav}>
-        <NavList 
-          menuItems={menuItems} 
-          darkMode={darkMode} 
-          toggleDarkMode={toggleDarkMode}
-          setIsMenuOpen={setOpenNav}
-        />
-      </Collapse>
     </Navbar>
   );
 }

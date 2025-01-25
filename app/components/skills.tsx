@@ -145,28 +145,34 @@ function SkillSection({ title, skills, darkMode }: SkillSectionProps & { darkMod
 }
 // SkillCard component for flip animation
 function SkillCard({ skill }: SkillCardProps) {
-    return (
-      <div className="group perspective-1000 mb-8" style={{position: 'relative'}}>
-        <div className="relative w-48 h-48 text-2xl lg:text-3xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
-          {/* Front Side - Shows name with glass overlay */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center p-4 text-center">
-            {skill.name}
-          </div>
-          {/* Back Side - Shows icon */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
-            <div style={{position: 'relative', width: '80px', height: '80px'}}>
-              <Image 
-                src={skill.logo} 
-                alt={skill.name} 
-                fill
-                sizes="80px"
-                style={{objectFit: 'contain'}}
-              />
-            </div>
+  return (
+    <div className="group perspective-1000 mb-8" style={{position: 'relative'}}>
+      <div className="relative w-48 h-48 text-2xl lg:text-3xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
+        {/* Front Side - Shows name with glass overlay */}
+        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center p-4 text-center"
+          style={{
+            transform: 'translateY(4px) scale(1.05)',
+            backgroundPosition: 'center 60%',
+            backgroundSize: '116%'
+          }}
+        >
+          {skill.name}
+        </div>
+        {/* Back Side - Shows icon */}
+        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
+          <div style={{position: 'relative', width: '80px', height: '80px'}}>
+            <Image 
+              src={skill.logo} 
+              alt={skill.name} 
+              fill
+              sizes="80px"
+              style={{objectFit: 'contain'}}
+            />
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default Skillz;
