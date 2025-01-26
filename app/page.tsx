@@ -168,9 +168,10 @@ export default function Home() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
                     <ProjectCard
                       title="NFT Marketplace Dapp"
-                      imageUrl="/images/nftmarketplace.png"
+                      imageUrl="/images/nftmarketplace2.png"
                       githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
                       liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+                      description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
                       darkMode={darkMode}
                     />
                     <ProjectCard
@@ -178,6 +179,7 @@ export default function Home() {
                       imageUrl="/images/hellodoc4.png"
                       githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
                       liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
+                      description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
                       darkMode={darkMode}
                     />
                     <ProjectCard
@@ -185,6 +187,7 @@ export default function Home() {
                       imageUrl="/images/recipe2.png"
                       githubUrl="https://github.com/yourusername/todo-app"
                       liveDemoUrl="/coming-soon"
+                      description="A recipe sharing platform with rating system and ingredient-based search functionality."
                       darkMode={darkMode}
                     />
                     <ProjectCard
@@ -192,6 +195,7 @@ export default function Home() {
                       imageUrl="/images/movieapp.png"
                       githubUrl="https://github.com/yourusername/movie-app"
                       liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
+                      description="A clone of a popular movie app with up-to-date movie browsing and search functionality."
                       darkMode={darkMode}
                     />
                     <ProjectCard
@@ -199,6 +203,7 @@ export default function Home() {
                       imageUrl="/images/mtb.jpeg"
                       githubUrl="https://github.com/yourusername/todo-app"
                       liveDemoUrl="/coming-soon"
+                      description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
                       darkMode={darkMode}
                     />
                   </div>

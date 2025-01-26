@@ -23,33 +23,38 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
       <ProjectCard
           title="NFT Marketplace Dapp"
-          imageUrl="/images/nftmarketplace.png"
+          imageUrl="/images/nftmarketplace2.png"
           githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
           liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+          description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
         />
         <ProjectCard
           title="HelloDoctor Medical platform"
           imageUrl="/images/HelloDoctor.png"
           githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
           liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
+          description="A medical platform for doctors and patients to connect and manage appointments."
         />
         <ProjectCard
           title="To Do List"
           imageUrl="/images/portfolio.png"
           githubUrl="https://github.com/yourusername/todo-app"
           liveDemoUrl="https://todo-app-demo.com"
+          description="A simple to-do list application to manage your tasks."
         />
         <ProjectCard
           title="Movie App"
           imageUrl="/images/mybenches.jpg"
           githubUrl="https://github.com/yourusername/movie-app"
           liveDemoUrl="https://movie-app-demo.com"
+          description="An application to browse and watch movies."
         />
         <ProjectCard
           title="To Do List"
           imageUrl="/images/movieapp.png"
           githubUrl="https://github.com/yourusername/todo-app"
           liveDemoUrl="https://todo-app-demo.com"
+          description="Another to-do list application with a different design."
         />
         {/* Add more ProjectCard components as needed */}
       </div>

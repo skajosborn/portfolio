@@ -6,10 +6,11 @@ interface ProjectCardProps {
   imageUrl: string;
   githubUrl: string;
   liveDemoUrl: string;
+  description?: string;
   darkMode?: boolean; // Add darkMode as an optional prop
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl, darkMode = false }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl, description, darkMode = false }) => {
   return (
     <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-900'} p-4 sm:p-6 mt-16 rounded-lg w-full max-w-[700px] mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mb-16`}>
       {/* Image Section wrapped in anchor tag that opens in same tab */}
@@ -32,9 +33,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
       </h3>
 
       {/* Description Section */}
-      <p className="mt-2 sm:mt-4 text-xl sm:text-2xl md:text-3xl leading-relaxed px-2 sm:px-4">
-        An engaging project demonstrating modern web development techniques, best practices, and creative design.
-      </p>
+      {description && (
+        <p className="mt-2 sm:mt-4 text-xl sm:text-2xl md:text-3xl leading-relaxed px-2 sm:px-4">
+          {description}
+        </p>
+      )}
 
       {/* Buttons */}
       <div className="flex justify-center gap-3 sm:gap-4 mt-4 sm:mt-8">
