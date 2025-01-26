@@ -134,7 +134,7 @@ function Skillz() {
 function SkillSection({ title, skills, darkMode }: SkillSectionProps & { darkMode: boolean }) {
   return (
     <div className="flex-1 flex flex-col items-center">
-      <h3 className={`text-3xl lg:text-4xl font-semibold mb-16 ${darkMode ? 'text-white' : 'text-gray-800'}`}>{title}</h3>
+      <h3 className={`text-4xl lg:text-5xl font-semibold mb-16 ${darkMode ? 'text-white' : 'text-gray-900'}`}>{title}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
         {skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />

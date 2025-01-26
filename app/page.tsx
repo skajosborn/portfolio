@@ -161,7 +161,7 @@ export default function Home() {
             </section>
 
             {/* Project Cards Section */}
-            <section id="projects" className="mt-12 mb-12 lg:mt-12 lg:mb-12 px-4 sm:px-12 py-10">
+            <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-4 sm:px-12 py-10">
               <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
               <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
                 <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>

@@ -39,7 +39,7 @@ export function DarkModeProvider({ children }: DarkModeProviderProps) {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className={darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200 text-black'}>
+      <div className={darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}>
         {children}
       </div>
     </DarkModeContext.Provider>
