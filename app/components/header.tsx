@@ -16,7 +16,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
   setIsMenuOpen?: (open: boolean) => void 
 }) {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-2 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-2 lg:flex-row lg:items-center lg:gap-6 w-full justify-between">
       {menuItems.map((item) => (
         <Typography
           as="li"
@@ -101,12 +101,12 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-[9999] !transform-none"
+      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-[9999] !transform-none px-0"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="max-w-[2000px] mx-auto w-full px-4">
+      <div className="w-full px-2 sm:px-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="h1"
