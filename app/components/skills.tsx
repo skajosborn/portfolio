@@ -147,7 +147,7 @@ function SkillSection({ title, skills, darkMode }: SkillSectionProps & { darkMod
 function SkillCard({ skill }: SkillCardProps) {
   return (
     <div className="group perspective-1000 mb-8" style={{position: 'relative'}}>
-      <div className="relative w-48 h-48 text-2xl lg:text-3xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
         {/* Front Side - Shows name with glass overlay */}
         <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center p-4 text-center"
           style={{
@@ -160,12 +160,12 @@ function SkillCard({ skill }: SkillCardProps) {
         </div>
         {/* Back Side - Shows icon */}
         <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg rotate-y-180 backface-hidden border-2 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-black">
-          <div style={{position: 'relative', width: '80px', height: '80px'}}>
+          <div style={{position: 'relative', width: '50%', height: '50%'}}>
             <Image 
               src={skill.logo} 
               alt={skill.name} 
               fill
-              sizes="80px"
+              sizes="(max-width: 640px) 40px, (max-width: 768px) 60px, 80px"
               style={{objectFit: 'contain'}}
             />
           </div>

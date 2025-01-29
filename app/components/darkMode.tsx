@@ -32,7 +32,7 @@ export function DarkModeProvider({ children }: DarkModeProviderProps) {
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
-    document.body.style.backgroundColor = darkMode ? '#111827' : '#e5e7eb';
+    document.body.style.backgroundColor = darkMode ? '#4b4b4b' : '#e5e7eb';
   }, [darkMode]);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);

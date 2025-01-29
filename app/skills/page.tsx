@@ -91,8 +91,8 @@ const SkillsPage = () => {
               <div className="space-y-2">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <div key={skillIndex} className={`flex items-center space-x-2 p-2 rounded ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className={`text-xl sm:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{skill}</span>
+                    <div className="w-1 h-1 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
+                    <span className={`text-lg sm:text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{skill}</span>
                   </div>
                 ))}
               </div>

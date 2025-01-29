@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl, description, darkMode = false }) => {
   return (
-    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-900'} p-4 sm:p-6 mt-16 rounded-lg w-full max-w-[700px] mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl mb-16`}>
+    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-900'} p-4 sm:p-6 rounded-lg w-full max-w-[700px] mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl relative min-h-[500px]`}>
       {/* Image Section wrapped in anchor tag that opens in same tab */}
       <a 
         href={liveDemoUrl}
@@ -34,13 +34,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
 
       {/* Description Section */}
       {description && (
-        <p className="mt-2 sm:mt-4 text-xl sm:text-2xl md:text-3xl leading-relaxed px-2 sm:px-4">
+        <p className="mt-2 sm:mt-4 text-xl sm:text-2xl md:text-3xl leading-relaxed px-2 sm:px-4 mb-20">
           {description}
         </p>
       )}
 
-      {/* Buttons */}
-      <div className="flex justify-center gap-3 sm:gap-4 mt-4 sm:mt-8">
+      {/* Buttons - Absolutely positioned at bottom */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center">
         <a 
           href={githubUrl} 
           target="_blank" 

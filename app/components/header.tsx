@@ -101,7 +101,7 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 shadow-md z-[9999] !transform-none px-0"
+      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
@@ -111,7 +111,7 @@ function Header() {
           <Typography
             as="h1"
             variant="h6"
-            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14"
+            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16"
             style={{
               textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
             }}
@@ -121,7 +121,7 @@ function Header() {
           >
             Sara Osborn
           </Typography>
-          <div className="hidden lg:block">
+          <div className="hidden lg:block pr-4 sm:pr-8 md:pr-12 lg:pr-16">
             <NavList menuItems={menuItems} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           </div>
           <IconButton
