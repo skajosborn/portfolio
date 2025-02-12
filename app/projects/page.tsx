@@ -1,92 +1,78 @@
 'use client';
-// pages/projects.tsx
 import React from 'react';
 import ProjectCard from '@/app/components/projects-card';
+import { useDarkMode } from '@/app/components/darkMode';
 
 const Projects: React.FC = () => {
+  const { darkMode } = useDarkMode();
+
   return (
-    <div className="p-12 bg-gray-200 min-h-screen">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Header Section */}
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-12 mt-12 animate-fade-in">
-          My Projects
-        </h1>
-        
-        {/* Intro Section */}
-        <p className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed mb-8 animate-fade-in-delay">
-          Welcome to my project portfolio! Here you&apos;ll find a collection of my work that showcases my skills in web development.
-          Each project demonstrates unique technologies and approaches I&apos;ve used to solve real-world problems and bring creative ideas to life.
-        </p>
-      </div>
-
-      {/* Project Cards Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 justify-items-center px-6">
-      <ProjectCard
-          title="NFT Marketplace Dapp"
-          imageUrl="/images/nftmarketplace2.png"
-          githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
-          liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
-          description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
-        />
-        <ProjectCard
-          title="HelloDoctor Medical platform"
-          imageUrl="/images/HelloDoctor.png"
-          githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
-          liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
-          description="A medical platform for doctors and patients to connect and manage appointments."
-        />
-        <ProjectCard
-          title="To Do List"
-          imageUrl="/images/portfolio.png"
-          githubUrl="https://github.com/yourusername/todo-app"
-          liveDemoUrl="https://todo-app-demo.com"
-          description="A simple to-do list application to manage your tasks."
-        />
-        <ProjectCard
-          title="Movie App"
-          imageUrl="/images/mybenches.jpg"
-          githubUrl="https://github.com/yourusername/movie-app"
-          liveDemoUrl="https://movie-app-demo.com"
-          description="An application to browse and watch movies."
-        />
-        <ProjectCard
-          title="To Do List"
-          imageUrl="/images/movieapp.png"
-          githubUrl="https://github.com/yourusername/todo-app"
-          liveDemoUrl="https://todo-app-demo.com"
-          description="Another to-do list application with a different design."
-        />
-        {/* Add more ProjectCard components as needed */}
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center mt-12">
-        <button
-          className="bg-gray-100 h-[30px] w-[80px] sm:h-[40px] sm:w-[90px] md:h-[50px] md:w-[100px] lg:h-[60px] lg:w-[120px] text-md sm:text-lg md:text-xl lg:text-2xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
-          style={{
-            transition: 'all 0.3s ease',
-            boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = `
-              0 0 10px rgba(255, 255, 255, 0.6), 
-              0 0 20px rgba(255, 255, 255, 0.5), 
-              0 0 30px rgba(255, 255, 255, 0.4),
-              inset 0 0 10px rgba(255, 255, 255, 0.3),
-              inset 0 0 20px rgba(255, 255, 255, 0.2)`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
-          }}
-          onMouseDown={(e) => {
-            e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-          }}
-          onMouseUp={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-          }}
-        >
-          1
-        </button>
+    <div style={{ paddingTop: 'var(--navbar-height)' }}>
+      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300 mt-0`}>
+        <section id="projects" className="mt-8 lg:mt-8 px-8 py-8">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-16 lg:mb-24`}>Projects</h2>
+          
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-12 lg:p-20`}>
+              <div className="flex flex-col lg:flex-row relative">
+                <div className="flex-1 lg:mx-8">
+                  <div className="h-full p-12 lg:p-16 flex flex-col justify-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+                      <ProjectCard
+                        title="NFT Marketplace Dapp"
+                        imageUrl="/images/nftmarketplace2.png"
+                        githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
+                        liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+                        description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
+                        darkMode={darkMode}
+                      />
+                      <ProjectCard
+                        title="ERC20 Data Analytics Dashboard"
+                        imageUrl="/images/dataAnalyticsDash.png"
+                        githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-5.5/module-5/blockchain-dashboard"
+                        liveDemoUrl="https://metana-solidity-sara-osborns-projects.vercel.app/"
+                        description="A dashboard for analyzing ERC20 token data, featuring the USDC token."
+                        darkMode={darkMode}
+                      />
+                      <ProjectCard
+                        title="HelloDoctor"
+                        imageUrl="/images/hellodoc4.png"
+                        githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
+                        liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
+                        description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
+                        darkMode={darkMode}
+                      />
+                      <ProjectCard
+                        title="Five Star Recipes"
+                        imageUrl="/images/recipe2.png"
+                        githubUrl="https://github.com/yourusername/todo-app"
+                        liveDemoUrl="/coming-soon"
+                        description="A recipe sharing platform with rating system and ingredient-based search functionality."
+                        darkMode={darkMode}
+                      />
+                      <ProjectCard
+                        title="Movie App"
+                        imageUrl="/images/movieapp.png"
+                        githubUrl="https://github.com/yourusername/movie-app"
+                        liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
+                        description="A clone of a popular movie app with up-to-date movie browsing and search functionality."
+                        darkMode={darkMode}
+                      />
+                      <ProjectCard
+                        title="Central Florida Mountain Biking"
+                        imageUrl="/images/mtb.jpeg"
+                        githubUrl="https://github.com/yourusername/todo-app"
+                        liveDemoUrl="/coming-soon"
+                        description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
+                        darkMode={darkMode}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

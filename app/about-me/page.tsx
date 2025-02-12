@@ -74,7 +74,7 @@ const AboutMe = () => {
         <div className="text-center my-24 sm:my-28 md:my-32 lg:my-40">
           <h2 className="text-3xl lg:text-4xl font-bold mb-8">Let&apos;s Connect!</h2>
           <p className="text-lg lg:text-xl mb-12 px-8">
-            I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
+            I&apos;m always open to new challenges and projects. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
             <a

@@ -1,12 +1,15 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
-import BlogPosts from "@/app/components/blogPosts";
-import ProjectCard from "@/app/components/projects-card";
-import Skillz from "@/app/components/skills";
-import AboutMe from "@/app/components/about-me";
-import Footer from "@/app/components/footer";
+import dynamic from 'next/dynamic';
 import { useDarkMode } from '@/app/components/darkMode';
+
+// Dynamically import client components
+const BlogPosts = dynamic(() => import('@/app/components/blogPosts'), { ssr: false });
+const ProjectCard = dynamic(() => import('@/app/components/projects-card'), { ssr: false });
+const Skillz = dynamic(() => import('@/app/components/skills'), { ssr: false });
+const AboutMe = dynamic(() => import('@/app/components/about-me'), { ssr: false });
+const Footer = dynamic(() => import('@/app/components/footer'), { ssr: false });
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -55,7 +58,7 @@ export default function Home() {
 
   return (
     <div style={{ paddingTop: 'var(--navbar-height)' }}>
-      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300 mt-0`}>
+      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300 mt-0 px-2 sm:px-4`}>
         <h2 className={`text-5xl sm:text-5xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[160px] md:pt-[180px] lg:pt-[200px] font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>My Portfolio</h2>
         {/* Content Sections */}
         <section id="home" className="pt-0">
@@ -96,10 +99,10 @@ export default function Home() {
 
         {/* About Section */}
         {/* Blog Section */}
-        <section id="blog" className="mt-20 lg:mt-24 px-4 sm:px-12 py-0">
+        <section id="blog" className="mt-20 lg:mt-24 px-8 py-8">
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-12 lg:p-20`}>
               <div className="relative w-full h-[200px] sm:h-[400px] mb-20">
                 <Image
                   src="/images/beach4.jpeg"
@@ -149,94 +152,103 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Skills section */}
-          <section id="skills" className="mt-20 lg:mt-24 px-4 sm:px-12 py-12">
-            <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Skills</h2>
-            <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
-              <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} text-white rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
-                <Skillz />
-              </div>
-            </div>
-          </section>
+        </section>
 
-          {/* Project Cards Section */}
-          <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-4 sm:px-12 py-10">
-            <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
-            <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
-              <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
-                  <ProjectCard
-                    title="NFT Marketplace Dapp"
-                    imageUrl="/images/nftmarketplace2.png"
-                    githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
-                    liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
-                    description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
-                    darkMode={darkMode}
-                  />
-                  <ProjectCard
-                    title="HelloDoctor"
-                    imageUrl="/images/hellodoc4.png"
-                    githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
-                    liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
-                    description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
-                    darkMode={darkMode}
-                  />
-                  <ProjectCard
-                    title="Five Star Recipes"
-                    imageUrl="/images/recipe2.png"
-                    githubUrl="https://github.com/yourusername/todo-app"
-                    liveDemoUrl="/coming-soon"
-                    description="A recipe sharing platform with rating system and ingredient-based search functionality."
-                    darkMode={darkMode}
-                  />
-                  <ProjectCard
-                    title="Movie App"
-                    imageUrl="/images/movieapp.png"
-                    githubUrl="https://github.com/yourusername/movie-app"
-                    liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
-                    description="A clone of a popular movie app with up-to-date movie browsing and search functionality."
-                    darkMode={darkMode}
-                  />
-                  <ProjectCard
-                    title="Central Florida Mountain Biking"
-                    imageUrl="/images/mtb.jpeg"
-                    githubUrl="https://github.com/yourusername/todo-app"
-                    liveDemoUrl="/coming-soon"
-                    description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
-                    darkMode={darkMode}
-                  />
-                </div>
-                <div className="flex justify-center mt-12">
-                  <button
-                    className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
-                    style={{
-                      transition: 'all 0.3s ease',
-                      boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 15px rgba(255, 255, 255, 0.6),
-                         0 0 25px rgba(255, 255, 255, 0.5),
-                         0 0 35px rgba(255, 255, 255, 0.4),
-                         inset 0 0 15px rgba(255, 255, 255, 0.3),
-                         inset 0 0 25px rgba(255, 255, 255, 0.2)`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)';
-                    }}
-                    onMouseDown={(e) => {
-                      e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-                    }}
-                    onMouseUp={(e) => {
-                      e.currentTarget.style.transform = 'scale(1.05)';
-                    }}
-                    onClick={() => window.location.href = '/projects'}
-                  >
-                    See More
-                  </button>
-                </div>
+        {/* Skills section */}
+        <section id="skills" className="mt-20 lg:mt-24 px-8 py-8">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Skills</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-12 lg:p-20`}>
+              <Skillz />
+            </div>
+          </div>
+        </section>
+
+        {/* Project Cards Section */}
+        <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-8 py-8">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-12 lg:p-20`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
+                <ProjectCard
+                  title="NFT Marketplace Dapp"
+                  imageUrl="/images/nftmarketplace2.png"
+                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
+                  liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+                  description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
+                  darkMode={darkMode}
+                />
+                 <ProjectCard
+                  title="ERC20 Data Analytics Dashboard"
+                  imageUrl="/images/dataAnalyticsDash.png"
+                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-5.5/module-5/blockchain-dashboard"
+                  liveDemoUrl="https://metana-solidity-sara-osborns-projects.vercel.app/"
+                  description="A dashboard for analyzing ERC20 token data, featuring the USDC token."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="HelloDoctor"
+                  imageUrl="/images/hellodoc4.png"
+                  githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
+                  liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
+                  description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="Five Star Recipes"
+                  imageUrl="/images/recipe2.png"
+                  githubUrl="https://github.com/yourusername/todo-app"
+                  liveDemoUrl="/coming-soon"
+                  description="A recipe sharing platform with rating system and ingredient-based search functionality."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="Movie App"
+                  imageUrl="/images/movieapp.png"
+                  githubUrl="https://github.com/yourusername/movie-app"
+                  liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
+                  description="A clone of a popular movie app with up-to-date movie browsing and search functionality."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="Central Florida Mountain Biking"
+                  imageUrl="/images/mtb.jpeg"
+                  githubUrl="https://github.com/yourusername/todo-app"
+                  liveDemoUrl="/coming-soon"
+                  description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
+                  darkMode={darkMode}
+                />
+              </div>
+              <div className="flex justify-center mt-12">
+                <button
+                  className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
+                  style={{
+                    transition: 'all 0.3s ease',
+                    boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `0 0 15px rgba(255, 255, 255, 0.6),
+                       0 0 25px rgba(255, 255, 255, 0.5),
+                       0 0 35px rgba(255, 255, 255, 0.4),
+                       inset 0 0 15px rgba(255, 255, 255, 0.3),
+                       inset 0 0 25px rgba(255, 255, 255, 0.2)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onClick={() => window.location.href = '/projects'}
+                >
+                  See More
+                </button>
               </div>
             </div>
-          </section>
+          </div>
         </section>
         <section id="aboutme">
           <AboutMe darkMode={darkMode} />
@@ -252,6 +264,7 @@ export default function Home() {
                     fill
                     style={{ objectFit: 'cover' }}
                     className="rounded-lg shadow-lg"
+                    sizes="(max-width: 430px) 100vw, 430px"
                   />
                 </div>
               </div>
@@ -293,7 +306,7 @@ export default function Home() {
             </a>
           </div>
         </section>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
