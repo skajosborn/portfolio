@@ -165,11 +165,19 @@ export default function Home() {
         </section>
 
         {/* Project Cards Section */}
-        <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-8 py-8">
+        <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-4 sm:px-12 py-10">
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-12 lg:p-20`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
+                <ProjectCard
+                  title="DEFi Real Estate App"
+                  imageUrl="/images/DEFi.png"
+                  githubUrl="https://github.com/skajosborn/for_girish.git/DEFi_Real_Estate"
+                  liveDemoUrl="https://defirealestate.vercel.app/"
+                  description="A Real Estate Platform for buying and selling properties, built with React, Express,and Node.js."
+                  darkMode={darkMode}
+                />
                 <ProjectCard
                   title="NFT Marketplace Dapp"
                   imageUrl="/images/nftmarketplace2.png"

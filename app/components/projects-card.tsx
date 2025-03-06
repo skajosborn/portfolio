@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, liveDemoUrl, description, darkMode = false }) => {
   return (
-    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-400 text-gray-100'} p-4 sm:p-6 rounded-lg w-full mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl relative min-h-[600px]`}>
+    <div className={`${darkMode ? 'bg-gray-800 text-gray-100' : 'bg-gray-200 text-gray-800'} p-4 sm:p-6 rounded-lg w-full mx-auto text-center transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl relative min-h-[600px]`}>
       {/* Image Section wrapped in anchor tag that opens in same tab */}
       <a 
         href={liveDemoUrl}

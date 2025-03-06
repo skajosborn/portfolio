@@ -106,12 +106,12 @@ function Header() {
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full px-2 sm:px-4">
+      <div className="w-full px-8 sm:px-4 sm:py-12">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="h1"
             variant="h6"
-            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16"
+            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16 pt-4 sm:pt-6 md:pt-8 lg:pt-10"
             style={{
               textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
             }}
@@ -126,7 +126,7 @@ function Header() {
           </div>
           <IconButton
             variant="text"
-            className="ml-auto h-6 w-6 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            className="ml-auto h-16 w-16 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
             ripple={false}
             onClick={() => setOpenNav(!openNav)}
             placeholder=""
@@ -134,9 +134,9 @@ function Header() {
             onPointerLeaveCapture={() => {}}
           >
             {openNav ? (
-              <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+              <XMarkIcon className="h-14 w-14" strokeWidth={2} />
             ) : (
-              <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+              <Bars3Icon className="h-14 w-14" strokeWidth={2} />
             )}
           </IconButton>
         </div>

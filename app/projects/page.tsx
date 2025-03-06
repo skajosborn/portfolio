@@ -22,6 +22,14 @@ const Projects: React.FC = () => {
                 <div className="flex-1 lg:mx-8">
                   <div className="h-full p-12 lg:p-16 flex flex-col justify-start">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
+                    <ProjectCard
+                        title="DEFi Real Estate App"
+                        imageUrl="/images/DEFi.png"
+                        githubUrl="https://defirealestate.vercel.app/"
+                        liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+                        description="A Real Estate Platform for buying and selling properties, built with React, Express,and Node.js."
+                        darkMode={darkMode}
+                      />
                       <ProjectCard
                         title="NFT Marketplace Dapp"
                         imageUrl="/images/nftmarketplace2.png"
