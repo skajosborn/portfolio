@@ -23,7 +23,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl, githubUrl, l
           alt={`${title} screenshot`} 
           fill
           style={{ objectFit: 'cover' }}
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="rounded-md shadow-lg transition-transform duration-300 hover:scale-105"
+          priority={true}
         />
       </a>
 

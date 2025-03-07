@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-16 lg:mb-24`}>Projects</h2>
           
           <div className={`text-2xl lg:text-3xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} text-center max-w-6xl mx-auto mb-16`}>
-            Welcome to my portfolio! Below you'll find a collection of projects that showcase my skills in web development, blockchain technology, and full-stack applications. Each project represents my commitment to creating innovative solutions while continuously learning and growing as a developer.
+            Welcome to my portfolio! Below you&apos;ll find a collection of projects that showcase my skills in web development, blockchain technology, and full-stack applications. Each project represents my commitment to creating innovative solutions while continuously learning and growing as a developer.
           </div>
 
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>

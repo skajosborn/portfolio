@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Header from '@/app/components/header';
 import { DarkModeProvider } from '@/app/components/darkMode';
+import { Inter } from 'next/font/google';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -16,6 +17,8 @@ const geistMono = localFont({
   weight: '100 900',
 });
 
+const inter = Inter({ subsets: ['latin'] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +29,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0 flex flex-col min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.className} antialiased m-0 p-0 flex flex-col min-h-screen`}>
         <DarkModeProvider>
           <Header />
           <main className="pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] flex-grow">

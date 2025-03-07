@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { useDarkMode } from '@/app/components/darkMode';
+import { useRouter } from 'next/navigation';
 
 // Dynamically import client components
 const BlogPosts = dynamic(() => import('@/app/components/blogPosts'), { ssr: false });
@@ -17,6 +18,7 @@ export default function Home() {
   const { darkMode } = useDarkMode();
   const fullText = 'Welcome to\nMy Page';
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     // Check if mobile on mount and window resize
@@ -67,12 +69,12 @@ export default function Home() {
               <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[900px]">
                 <Image
                   src="/images/desk2.png"
-                  alt="Desk Background"
+                  alt="Desk"
                   fill
-                  className="object-cover shadow-lg w-full"
-                  quality={100}
-                  priority
                   sizes="100vw"
+                  priority={true}
+                  className="object-cover shadow-lg w-full"
+                  quality={75}
                 />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl sm:text-4xl lg:text-6xl text-white font-bold font-mono whitespace-pre-line text-center">
                   {displayText}<span className="animate-blink">|</span>
@@ -88,7 +90,8 @@ export default function Home() {
                       fill
                       className="object-cover transition-transform duration-300 hover:scale-105"
                       sizes="(max-width: 640px) 144px, (max-width: 768px) 224px, 320px"
-                      priority
+                      quality={75}
+                      loading="eager"
                     />
                   </div>
                 </a>
@@ -229,6 +232,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center mt-12">
                 <button
+                  onClick={() => router.push('/projects')}
                   className="bg-gray-100 h-[45px] w-[160px] sm:h-[55px] sm:w-[180px] md:h-[65px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl font-mulish text-black transition-all duration-300 flex items-center justify-center transform hover:scale-105 rounded-md"
                   style={{
                     transition: 'all 0.3s ease',
@@ -244,13 +248,6 @@ export default function Home() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow = '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)';
                   }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'scale(0.95) translateY(2px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                  }}
-                  onClick={() => window.location.href = '/projects'}
                 >
                   See More
                 </button>

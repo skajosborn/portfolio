@@ -16,7 +16,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
   setIsMenuOpen?: (open: boolean) => void 
 }) {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-2 lg:flex-row lg:items-center lg:gap-6 w-full justify-between">
+    <ul className="my-1 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 w-full justify-between">
       {menuItems.map((item) => (
         <Typography
           as="li"
@@ -61,7 +61,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
         onPointerLeaveCapture={() => {}}
       >
         <Button
-          onClick={toggleDarkMode}
+          onPress={toggleDarkMode}
           className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[80px] lg:h-[90px] lg:w-[90px] rounded-full bg-gray-200 flex items-center justify-center transform hover:scale-105"
           style={{
             transition: 'all 0.3s ease',
@@ -101,17 +101,17 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full max-w-full pt-4 pb-12 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
+      className="fixed top-0 left-0 w-full max-w-full pt-1 pb-8 h-[80px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full px-8 sm:px-4 sm:py-12">
+      <div className="w-full px-8 sm:px-4 sm:py-6">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="h1"
             variant="h6"
-            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16 pt-4 sm:pt-6 md:pt-8 lg:pt-10"
+            className="text-4xl sm:text-5xl font-inter font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16 pt-1 sm:pt-2 md:pt-3 lg:pt-4"
             style={{
               textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
             }}
