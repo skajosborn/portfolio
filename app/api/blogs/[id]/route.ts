@@ -55,7 +55,8 @@ export async function GET(request: NextRequest) {
 // Handle OPTIONS method for CORS preflight
 export async function OPTIONS() {
   const headers = new Headers();
-  headers.set('Access-Control-Allow-Origin', 'https://portfolio-yck1.vercel.app/'); // Adjust for your domain
+  headers.set('Access-Control-Allow-Origin', 'https://portfolio-yck1.vercel.app/'); 
+  headers.set('Access-Control-Allow-Origin', 'https://portfolio-seven-beta-63.vercel.app/'); 
   headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
   headers.set('Access-Control-Allow-Headers', 'Content-Type');
 

@@ -99,7 +99,7 @@ function Skillz() {
         <div className="flex justify-center mt-20">
           <a
             href="/skills"
-            className="bg-gray-100 h-[55px] w-[160px] sm:h-[65px] sm:w-[180px] md:h-[75px] md:w-[200px] lg:h-[85px] lg:w-[220px] text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-mulish transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md"
+            className="bg-gray-100 h-[40px] w-[100px] sm:h-[60px] sm:w-[100px] md:h-[70px] md:w-[130px] lg:h-[90px] lg:w-[200px] text-2xl sm:text-4xl md:text-2xl lg:text-2xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
             style={{
               transition: 'all 0.3s ease',
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)',
