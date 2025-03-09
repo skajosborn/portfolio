@@ -61,7 +61,7 @@ export default function Home() {
   return (
     <div style={{ paddingTop: 'var(--navbar-height)' }}>
       <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-poppins text-4xl overflow-hidden transition-colors duration-300 mt-0 px-2 sm:px-4`}>
-        <h2 className={`text-5xl sm:text-5xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[160px] md:pt-[180px] lg:pt-[200px] font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>My Portfolio</h2>
+        <h2 className={`text-5xl sm:text-5xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[100px] md:pt-[120px] lg:pt-[200px] font-bold text-center mb-16 lg:mb-20 transition-colors duration-300`}>My Portfolio</h2>
         {/* Content Sections */}
         <section id="home" className="pt-0">
           <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-md py-8 shadow-black/30`}>
@@ -115,7 +115,7 @@ export default function Home() {
                   sizes="(max-width: 1950px) 100vw, 1950px"
                 />
               </div>
-              <div className={`text-2xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
+              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
                 Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
                 and my journey transitioning from education to tech. Feel free to explore my posts below.
               </div>
@@ -278,7 +278,7 @@ export default function Home() {
         </section>
         <section id="contact" className="mt-12 lg:mt-15 mb-20 px-4 sm:px-12 py-12">
           <h2 className={`text-4xl sm:text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
-          <p className={`text-2xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
+          <p className={`text-4xl sm:text-4xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
             I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           <div className="flex justify-center">
