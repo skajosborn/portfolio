@@ -18,12 +18,12 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
   setIsMenuOpen?: (open: boolean) => void 
 }) {
   return (
-    <ul className="my-1 flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-3 w-full justify-between">
+    <ul className="my-1 flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-2 w-full justify-between">
       {menuItems.map((item) => (
         <li key={item} className="p-1">
           <Link 
             href={`/#${item.toLowerCase()}`}
-            className="bg-gray-200 h-[60px] w-[145px] sm:h-[70px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[100px] lg:w-[215px] text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-light flex items-center justify-center transform hover:scale-105 rounded-lg text-black transition-all duration-300 ease-in-out shadow-lg"
+            className="bg-gray-200 h-[60px] w-[145px] sm:h-[80px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[100px] xl:h-[110px] lg:w-[215px] text-2xl sm:text-4xl md:text-3xl lg:text-5xl xl:text-3xl font-light flex items-center justify-center transform hover:scale-105 rounded-md text-black transition-all duration-300 ease-in-out shadow-lg"
             onClick={() => setIsMenuOpen && setIsMenuOpen(false)}
             style={{
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
@@ -91,13 +91,13 @@ function Header() {
 
   return (
     <Navbar
-      className="fixed top-0 left-0 w-full max-w-full h-[60px] sm:h-[10px] md:h-[60px] lg:h-[160px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-2"
+      className="fixed top-0 left-0 w-full max-w-full h-[60px] sm:h-[80px] md:h-[80px] lg:h-[140px] xl:h-[180px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-2"
       title="Your Navbar Title"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full flex items-center justify-between px-8 sm:px-4 py-2">
+      <div className="w-full flex items-center justify-between px-7 sm:px-4 py-2">
         <DynamicTypography
           as="h1"
           variant="h6"
