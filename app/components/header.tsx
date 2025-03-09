@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useDarkMode } from '@/app/components/darkMode';
-import { Navbar, Collapse, Typography, IconButton } from "@material-tailwind/react";
+import { Navbar, Collapse, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Button } from '@nextui-org/button';
 
