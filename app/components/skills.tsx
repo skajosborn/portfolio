@@ -150,7 +150,7 @@ function SkillCard({ skill }: SkillCardProps) {
     <div className="group perspective-1000 mb-8" style={{position: 'relative'}}>
       <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-black transition-transform duration-500 transform-style-3d group-hover:rotate-y-180">
         {/* Front Side - Shows name with glass overlay */}
-        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline-2 outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center p-4 text-center"
+        <div className="absolute inset-0 flex items-center justify-center rounded-full shadow-lg backface-hidden border-4 border-black outline outline- outline-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:border-black bg-[url('/images/clear3.png')] bg-gray-500 bg-cover bg-center p-4 text-center"
           style={{
             transform: 'translateY(4px) scale(1.05)',
             backgroundPosition: 'center 60%',
