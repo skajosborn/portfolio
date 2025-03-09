@@ -53,7 +53,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
       <li>
         <Button
           onPress={toggleDarkMode}
-          className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[100px] lg:h-[100px] lg:w-90px] rounded-full bg-gray-200 flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
+          className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[100px] lg:h-[100px] lg:w-90px] rounded-full bg-gray-200 text-black flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
           style={{
             boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
           }}
@@ -91,51 +91,49 @@ function Header() {
 
   return (
     <Navbar
-      className="fixed top-0 left-0 w-full max-w-full sm:pt-20 sm:pb-0 pb-2 h-[60px] sm:h-[100px] md:h-[120px] lg:h-[160px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-4"
+      className="fixed top-0 left-0 w-full max-w-full h-[60px] sm:h-[10px] md:h-[60px] lg:h-[160px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-2"
       title="Your Navbar Title"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full px-8 sm:px-4 sm:py-6 md:py-4 lg:py-4">
-        <div className="flex items-center justify-between text-blue-gray-900">
-          <DynamicTypography
-            as="h1"
-            variant="h6"
-            className="text-4xl sm:text-5xl font-light text-black mr-4 sm:mr-14 pl-4 sm:pl-8 md:pl-12 lg:pl-16 pt-1 sm:pt-2 md:pt-3 lg:pt-4"
-            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}
-            color="inherit"
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
-            Sara Osborn
-          </DynamicTypography>
+      <div className="w-full flex items-center justify-between px-8 sm:px-4 py-2">
+        <DynamicTypography
+          as="h1"
+          variant="h6"
+          className="text-4xl sm:text-5xl font-light text-black mr-4 sm:mr-14"
+          style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}
+          color="inherit"
+          placeholder=""
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        >
+          Sara Osborn
+        </DynamicTypography>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:block pr-4 sm:pr-8 md:pr-12 lg:pr-16">
-            <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <IconButton
-            variant="text"
-            className="ml-auto h-20 w-20 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
-            {openNav ? <XMarkIcon className="h-14 w-14" strokeWidth={2} /> : <Bars3Icon className="h-14 w-14" strokeWidth={2} />}
-          </IconButton>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:block">
+          <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
 
-        {/* Mobile Navigation */}
-        <Collapse open={openNav}>
-          <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} setIsMenuOpen={setOpenNav} />
-        </Collapse>
+        {/* Mobile Menu Button */}
+        <IconButton
+          variant="text"
+          className="ml-auto h-16 w-16 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          ripple={false}
+          onClick={() => setOpenNav(!openNav)}
+          placeholder=""
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        >
+          {openNav ? <XMarkIcon className="h-14 w-14" strokeWidth={2} /> : <Bars3Icon className="h-14 w-14" strokeWidth={2} />}
+        </IconButton>
       </div>
+
+      {/* Mobile Navigation */}
+      <Collapse open={openNav}>
+        <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} setIsMenuOpen={setOpenNav} />
+      </Collapse>
     </Navbar>
   );
 }
