@@ -284,7 +284,7 @@ export default function Home() {
           <div className="flex justify-center">
             <a
               href="/contact"
-              className="bg-gray-100 h-[40px] w-[100px] sm:h-[60px] sm:w-[100px] md:h-[70px] md:w-[130px] lg:h-[90px] lg:w-[200px] text-2xl sm:text-2xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
+              className="bg-gray-100 h-[40px] w-[100px] sm:h-[60px] sm:w-[100px] md:h-[70px] md:w-[130px] lg:h-[90px] lg:w-[200px] text-2xl sm:text-2xl lg:text-xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
               style={{
                 transition: 'all 0.3s ease',
                 boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',

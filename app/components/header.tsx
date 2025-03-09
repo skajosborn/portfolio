@@ -18,12 +18,12 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
   setIsMenuOpen?: (open: boolean) => void 
 }) {
   return (
-    <ul className="my-1 flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-6 w-full justify-between">
+    <ul className="my-1 flex flex-col gap-2 lg:flex-row lg:items-center lg:gap-3 w-full justify-between">
       {menuItems.map((item) => (
         <li key={item} className="p-1">
           <Link 
             href={`/#${item.toLowerCase()}`}
-            className="bg-gray-200 h-[60px] w-[145px] sm:h-[70px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[90px] lg:w-[205px] text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-light flex items-center justify-center transform hover:scale-105 rounded-lg text-black transition-all duration-300 ease-in-out shadow-lg"
+            className="bg-gray-200 h-[60px] w-[145px] sm:h-[70px] sm:w-[165px] md:h-[80px] md:w-[185px] lg:h-[100px] lg:w-[215px] text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-light flex items-center justify-center transform hover:scale-105 rounded-lg text-black transition-all duration-300 ease-in-out shadow-lg"
             onClick={() => setIsMenuOpen && setIsMenuOpen(false)}
             style={{
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
@@ -53,7 +53,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
       <li>
         <Button
           onPress={toggleDarkMode}
-          className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[80px] lg:h-[90px] lg:w-[90px] rounded-full bg-gray-200 flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
+          className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-[80px] md:w-[100px] lg:h-[100px] lg:w-90px] rounded-full bg-gray-200 flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
           style={{
             boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
           }}
@@ -91,13 +91,13 @@ function Header() {
 
   return (
     <Navbar
-      className="fixed top-0 left-0 w-full max-w-full pt-1 sm:pb-0 sm:pt-10 md:pt-20 mb:pb-0 lg:pt-0 lg:pb-0 h-[60px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
+      className="fixed top-0 left-0 w-full max-w-full sm:pt-20 sm:pb-0 pb-2 h-[60px] sm:h-[100px] md:h-[120px] lg:h-[160px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-4"
       title="Your Navbar Title"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full px-8 sm:px-4 sm:py-20 md:py-4 lg:py-4">
+      <div className="w-full px-8 sm:px-4 sm:py-6 md:py-4 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <DynamicTypography
             as="h1"
@@ -120,7 +120,7 @@ function Header() {
           {/* Mobile Menu Button */}
           <IconButton
             variant="text"
-            className="ml-auto h-16 w-16 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            className="ml-auto h-20 w-20 text-black hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
             ripple={false}
             onClick={() => setOpenNav(!openNav)}
             placeholder=""
