@@ -91,7 +91,7 @@ function Header() {
 
   return (
     <Navbar
-      className="fixed top-0 left-0 w-full max-w-full pt-1 sm:pb-2 sm:pt-20 h-[60px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
+      className="fixed top-0 left-0 w-full max-w-full pt-1 sm:pb-0 sm:pt-10 md:pt-20 mb:pb-0 lg:pt-0 lg:pb-0 h-[60px] sm:h-[100px] md:h-[120px] lg:h-[140px] bg-gray-300 z-[9999] !transform-none px-0 rounded-none border-none"
       title="Your Navbar Title"
       placeholder=""
       onPointerEnterCapture={() => {}}
