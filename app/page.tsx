@@ -82,7 +82,7 @@ export default function Home() {
                 {/* Oval image overlaying the background */}
                 <a href="/#about">
                   <div 
-                    className="absolute top-5 sm:top-10 lg:top-28 left-1/2 lg:left-[18%] -translate-x-1/2 w-36 h-48 sm:w-56 sm:h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[10%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
+                    className="absolute top-5 sm:top-10 lg:top-28 left-1/2 lg:left-[18%] -translate-x-1/2 w-36 h-48 sm:w-56 sm:h-72 lg:w-80 lg:h-96 border-4 bg-white border-white overflow-hidden rounded-[50%] shadow-xl cursor-pointer transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6),0_0_40px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)]"
                   >
                     <Image
                       src="/images/myface.png"
