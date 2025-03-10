@@ -92,7 +92,7 @@ function Skillz() {
             <SkillSection title="Web3" skills={skills.web3} darkMode={darkMode} />
 
             {/* Other Skills */}
-            <SkillSection title="Other" skills={skills.other} darkMode={darkMode} />
+            <SkillSection title="Other" skills={skills.other} darkMode={darkMode} />j
           </div>
         </div>
         {/* CTA Section */}
