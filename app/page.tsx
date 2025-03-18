@@ -197,6 +197,14 @@ export default function Home() {
                   description="A dashboard for analyzing ERC20 token data, featuring the USDC token."
                   darkMode={darkMode}
                 />
+                 <ProjectCard
+                  title="My Blockchain Blog"
+                  imageUrl="/images/my-blog.png"
+                  githubUrl="https://github.com/skajosborn/challenges_blog.git"
+                  liveDemoUrl="https://my-blog-xi-liart.vercel.app/"
+                  description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
+                  darkMode={darkMode}
+                />
                 <ProjectCard
                   title="HelloDoctor"
                   imageUrl="/images/hellodoc4.png"
