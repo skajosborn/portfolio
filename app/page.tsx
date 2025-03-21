@@ -107,7 +107,7 @@ export default function Home() {
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
             <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}>
               <div className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-8 lg:mb-10 leading-relaxed`}>
-                Welcome to my portfolio! I'm a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I'm passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
+                Welcome to my portfolio! I&apos;m a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I&apos;m passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
               </div>
             </div>
           </div>
