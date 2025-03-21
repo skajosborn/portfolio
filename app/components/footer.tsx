@@ -3,8 +3,16 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-4">
+    <footer 
+      className="bg-gray-800 text-white py-8 relative mt-0"
+      style={{ 
+        width: '150vw',
+        marginLeft: '-12.5vw',
+        transform: 'scale(1.25)',
+        transformOrigin: 'left top'
+      }}
+    >
+      <div className="max-w-[80%] mx-auto px-8 pr-20">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-2xl">&copy; 2024 Sara Osborn All rights reserved.</p>
