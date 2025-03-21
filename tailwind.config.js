@@ -32,7 +32,12 @@ module.exports = withMT({
       },
       maxWidth: {
         'screen-2xl': '100%'
-      }
+      },
+      fontFamily: {
+        'playfair': ['var(--font-playfair)', 'serif'],
+        'cormorant': ['var(--font-cormorant)', 'serif'],
+        'lora': ['var(--font-lora)', 'serif'],
+      },
     }
   },
   plugins: [],

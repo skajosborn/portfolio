@@ -101,7 +101,92 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        {/* Blog Section */}
+        
+        {/* Welcome Section - Updated with light font weight */}
+        <section id="welcome" className="mt-16 lg:mt-20 px-4 sm:px-12 py-8">
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}>
+              <div className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-8 lg:mb-10 leading-relaxed`}>
+                Welcome to my portfolio! I'm a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I'm passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Project Cards Section */}
+        <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-4 sm:px-12 py-10">
+          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
+          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
+                <ProjectCard
+                  title="DEFi Real Estate App"
+                  imageUrl="/images/DEFi.png"
+                  githubUrl="https://github.com/skajosborn/for_girish.git/DEFi_Real_Estate"
+                  liveDemoUrl="https://defirealestate.vercel.app/"
+                  description="A Real Estate Platform for buying and selling properties, built with React, Express,and Node.js."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="NFT Marketplace Dapp"
+                  imageUrl="/images/nftmarketplace2.png"
+                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
+                  liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
+                  description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
+                  darkMode={darkMode}
+                />
+                 <ProjectCard
+                  title="ERC20 Data Analytics Dashboard"
+                  imageUrl="/images/dataAnalyticsDash.png"
+                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-5.5/module-5/blockchain-dashboard"
+                  liveDemoUrl="https://metana-solidity-sara-osborns-projects.vercel.app/"
+                  description="A dashboard for analyzing ERC20 token data, featuring the USDC token."
+                  darkMode={darkMode}
+                />
+                 <ProjectCard
+                  title="My Blockchain Blog"
+                  imageUrl="/images/my-blog.png"
+                  githubUrl="https://github.com/skajosborn/challenges_blog.git"
+                  liveDemoUrl="https://my-blog-xi-liart.vercel.app/"
+                  description="A personal blog documenting my blockchain journey for anyone interested in joining the field or just learning more."
+                  darkMode={darkMode}
+                />
+                <ProjectCard
+                  title="Central Florida Mountain Biking"
+                  imageUrl="/images/mtb.jpeg"
+                  githubUrl="https://github.com/yourusername/todo-app"
+                  liveDemoUrl="/coming-soon"
+                  description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
+                  darkMode={darkMode}
+                />
+              </div>
+              <div className="flex justify-center mt-40">
+                <button
+                  onClick={() => router.push('/projects')}
+                  className="bg-gray-100 h-[40px] w-[100px] sm:h-[60px] sm:w-[100px] md:h-[70px] md:w-[130px] lg:h-[90px] lg:w-[200px] text-2xl sm:text-4xl md:text-2xl lg:text-2xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
+                  style={{
+                    transition: 'all 0.3s ease',
+                    boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `0 0 15px rgba(255, 255, 255, 0.6),
+                       0 0 25px rgba(255, 255, 255, 0.5),
+                       0 0 35px rgba(255, 255, 255, 0.4),
+                       inset 0 0 15px rgba(255, 255, 255, 0.3),
+                       inset 0 0 25px rgba(255, 255, 255, 0.2)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)';
+                  }}
+                >
+                  See More
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Blog Section - Update paragraph font to light */}
         <section id="blog" className="mt-20 lg:mt-24 px-8 py-8">
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
@@ -115,7 +200,7 @@ export default function Home() {
                   sizes="(max-width: 1950px) 100vw, 1950px"
                 />
               </div>
-              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-medium text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
+              <div className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-20 lg:mb-24 mt-16 lg:mt-20 leading-relaxed`}>
                 Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
                 and my journey transitioning from education to tech. Feel free to explore my posts below.
               </div>
@@ -167,102 +252,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Project Cards Section */}
-        <section id="projects" className="mt-12 mb-0 lg:mt-12 lg:mb-0 px-4 sm:px-12 py-10">
-          <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>Projects</h2>
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-24`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-24 lg:p-28`}>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 justify-items-center px-4 sm:px-12">
-                <ProjectCard
-                  title="DEFi Real Estate App"
-                  imageUrl="/images/DEFi.png"
-                  githubUrl="https://github.com/skajosborn/for_girish.git/DEFi_Real_Estate"
-                  liveDemoUrl="https://defirealestate.vercel.app/"
-                  description="A Real Estate Platform for buying and selling properties, built with React, Express,and Node.js."
-                  darkMode={darkMode}
-                />
-                <ProjectCard
-                  title="NFT Marketplace Dapp"
-                  imageUrl="/images/nftmarketplace2.png"
-                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-3/module-3/nft-marketplace"
-                  liveDemoUrl="https://metana-solidity-twxj.vercel.app/"
-                  description="An NFT Marketplace Dapp built with Solidity, React, and Next.js."
-                  darkMode={darkMode}
-                />
-                 <ProjectCard
-                  title="ERC20 Data Analytics Dashboard"
-                  imageUrl="/images/dataAnalyticsDash.png"
-                  githubUrl="https://github.com/skajosborn/metana-solidity/tree/module-5.5/module-5/blockchain-dashboard"
-                  liveDemoUrl="https://metana-solidity-sara-osborns-projects.vercel.app/"
-                  description="A dashboard for analyzing ERC20 token data, featuring the USDC token."
-                  darkMode={darkMode}
-                />
-                 <ProjectCard
-                  title="My Blockchain Blog"
-                  imageUrl="/images/my-blog.png"
-                  githubUrl="https://github.com/skajosborn/challenges_blog.git"
-                  liveDemoUrl="https://my-blog-xi-liart.vercel.app/"
-                  description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
-                  darkMode={darkMode}
-                />
-                <ProjectCard
-                  title="HelloDoctor"
-                  imageUrl="/images/hellodoc4.png"
-                  githubUrl="https://github.com/skajosborn/metana-fullstack-bootcamp/tree/main/module_3/my-movie-app"
-                  liveDemoUrl="https://hello-doctor-nu98.vercel.app/"
-                  description="A medical platform connecting doctors and patients, featuring appointment scheduling and health record management."
-                  darkMode={darkMode}
-                />
-                <ProjectCard
-                  title="Five Star Recipes"
-                  imageUrl="/images/recipe2.png"
-                  githubUrl="https://github.com/yourusername/todo-app"
-                  liveDemoUrl="/coming-soon"
-                  description="A recipe sharing platform with rating system and ingredient-based search functionality."
-                  darkMode={darkMode}
-                />
-                <ProjectCard
-                  title="Movie App"
-                  imageUrl="/images/movieapp.png"
-                  githubUrl="https://github.com/yourusername/movie-app"
-                  liveDemoUrl="https://module-3--mymovieappsbo.netlify.app/"
-                  description="A clone of a popular movie app with up-to-date movie browsing and search functionality."
-                  darkMode={darkMode}
-                />
-                <ProjectCard
-                  title="Central Florida Mountain Biking"
-                  imageUrl="/images/mtb.jpeg"
-                  githubUrl="https://github.com/yourusername/todo-app"
-                  liveDemoUrl="/coming-soon"
-                  description="An interactive guide to mountain biking trails in Central Florida with difficulty ratings and trail conditions."
-                  darkMode={darkMode}
-                />
-              </div>
-              <div className="flex justify-center mt-40">
-                <button
-                  onClick={() => router.push('/projects')}
-                  className="bg-gray-100 h-[40px] w-[100px] sm:h-[60px] sm:w-[100px] md:h-[70px] md:w-[130px] lg:h-[90px] lg:w-[200px] text-2xl sm:text-4xl md:text-2xl lg:text-2xl font-mulish font-normal transition-all duration-300 text-black flex items-center justify-center transform hover:scale-105 rounded-md mx-6"
-                  style={{
-                    transition: 'all 0.3s ease',
-                    boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 0 15px rgba(255, 255, 255, 0.6),
-                       0 0 25px rgba(255, 255, 255, 0.5),
-                       0 0 35px rgba(255, 255, 255, 0.4),
-                       inset 0 0 15px rgba(255, 255, 255, 0.3),
-                       inset 0 0 25px rgba(255, 255, 255, 0.2)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '4px 4px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(0, 0, 0, 0.2), inset 3px 3px 6px rgba(255, 255, 255, 0.5)';
-                  }}
-                >
-                  See More
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
         <section id="aboutme">
           <AboutMe darkMode={darkMode} />
         </section>
@@ -286,9 +275,16 @@ export default function Home() {
         </section>
         <section id="contact" className="mt-12 lg:mt-15 mb-20 px-4 sm:px-12 py-12">
           <h2 className={`text-4xl sm:text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
-          <p className={`text-4xl sm:text-4xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} mb-16 text-center`}>
-            I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
-          </p>
+          
+          {/* Container for the text - Updated to be wider */}
+          <div className={`relative w-full max-w-[2000px] mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12 mb-16`}>
+            <div className={`relative w-full max-w-[1950px] mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 lg:p-12`}>
+              <p className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center leading-relaxed`}>
+                I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
+              </p>
+            </div>
+          </div>
+          
           <div className="flex justify-center">
             <a
               href="/contact"
