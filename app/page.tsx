@@ -102,11 +102,11 @@ export default function Home() {
 
         {/* About Section */}
         
-        {/* Welcome Section - Updated with light font weight */}
+        {/* Welcome Section - More elegant typography */}
         <section id="welcome" className="mt-16 lg:mt-20 px-4 sm:px-12 py-8">
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
             <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}>
-              <div className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-8 lg:mb-10 leading-relaxed`}>
+              <div className={`text-2xl sm:text-2xl lg:text-3xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-8 lg:mb-10 leading-relaxed tracking-wide`}>
                 Welcome to my portfolio! I&apos;m a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I&apos;m passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Blog Section - Update paragraph font to light */}
+        {/* Blog Section - Enhanced typography */}
         <section id="blog" className="mt-20 lg:mt-24 px-8 py-8">
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-20 lg:mb-24`}>My Blog</h2>
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-20`}>
@@ -200,7 +200,7 @@ export default function Home() {
                   sizes="(max-width: 1950px) 100vw, 1950px"
                 />
               </div>
-              <div className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-20 lg:mb-24 mt-16 lg:mt-20 leading-relaxed`}>
+              <div className={`text-2xl sm:text-2xl lg:text-3xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center mb-20 lg:mb-24 mt-16 lg:mt-20 leading-relaxed tracking-wide`}>
                 Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
                 and my journey transitioning from education to tech. Feel free to explore my posts below.
               </div>
@@ -276,10 +276,9 @@ export default function Home() {
         <section id="contact" className="mt-12 lg:mt-15 mb-20 px-4 sm:px-12 py-12">
           <h2 className={`text-4xl sm:text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
           
-          {/* Container for the text - Updated to be wider */}
           <div className={`relative w-full max-w-[2000px] mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12 mb-16`}>
             <div className={`relative w-full max-w-[1950px] mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 lg:p-12`}>
-              <p className={`text-3xl sm:text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center leading-relaxed`}>
+              <p className={`text-2xl sm:text-2xl lg:text-3xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans font-light text-center leading-relaxed tracking-wide`}>
                 I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
               </p>
             </div>
