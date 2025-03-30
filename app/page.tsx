@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <div style={{ paddingTop: 'var(--navbar-height)' }}>
-      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-200'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0 px-2 sm:px-4`}>
+      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0 px-2 sm:px-4`}>
         <h2 className={`text-7xl sm:text-7xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[100px] md:pt-[120px] lg:pt-[200px] font-semibold text-center mb-16 lg:mb-20 transition-colors duration-300 font-montserrat`}>My Portfolio</h2>
         {/* Content Sections */}
         <section id="home" className="pt-0">
@@ -106,7 +106,7 @@ export default function Home() {
         <section id="welcome" className="mt-16 lg:mt-20 px-4 sm:px-12 py-8">
           <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
             <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}>
-              <div className={`text-5xl sm:text-5xl lg:text-5xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-sans leading-loose tracking-normal text-center mb-8 lg:mb-10`}>
+              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter font-light leading-relaxed tracking-normal text-center mb-8 lg:mb-10`}>
                 Welcome to my portfolio! I&apos;m a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I&apos;m passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function Home() {
                   sizes="(max-width: 1950px) 100vw, 1950px"
                 />
               </div>
-              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter leading-relaxed tracking-normal text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
+              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter font-light leading-relaxed tracking-normal text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
                 Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
                 and my journey transitioning from education to tech. Feel free to explore my posts below.
               </div>
@@ -257,36 +257,38 @@ export default function Home() {
           <AboutMe darkMode={darkMode} />
         </section>
 
-        {/* Contact Me */}
-        <section id="bitmoji" className="mt-18 lg:mt-10 px-4 sm:px-12 py-12">
-          <div className="relative w-full max-w-[450px] h-auto mx-auto bg-gray-100 rounded-lg shadow-lg px-4 py-4">
-            <a href="/contact">
-              <div className="relative w-full max-w-[430px] h-auto mx-auto bg-white rounded-sm shadow-lg p-8">
-                <div className="relative w-full h-[300px] sm:h-[450px]">
-                  <Image
-                    src="/images/bitmoji1.png"
-                    alt="Bitmoji"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="rounded-lg shadow-lg"
-                    sizes="(max-width: 430px) 100vw, 430px"
-                  />
-                </div>
-              </div>
-            </a>
-          </div>
-        </section>
+        {/* Contact Me - Combined Section */}
         <section id="contact" className="mt-12 lg:mt-15 mb-20 px-4 sm:px-12 py-12">
           <h2 className={`text-4xl sm:text-5xl lg:text-6xl ${darkMode ? 'text-white' : 'text-black'} font-montserrat font-semibold text-center mb-10 lg:mb-12`}>Let&apos;s Connect!</h2>
           
-          <div className={`relative w-full max-w-[2000px] mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-8 py-12 mb-16`}>
+          <div className={`relative w-full max-w-[2000px] mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-12 py-12 mb-16`}>
             <div className={`relative w-full max-w-[1950px] mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 lg:p-12`}>
-              <p className={`text-lg sm:text-xl lg:text-2xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter leading-relaxed tracking-normal text-center`}>
+              {/* Bitmoji Image with its own gray container */}
+              <div className="flex flex-col items-center mb-12">
+                <div className={`relative w-full max-w-[450px] ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg p-4`}>
+                  <div className={`relative w-full max-w-[430px] mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8`}>
+                    <div className="relative w-full h-[300px] sm:h-[450px]">
+                      <Image
+                        src="/images/bitmoji1.png"
+                        alt="Bitmoji"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg shadow-lg"
+                        sizes="(max-width: 430px) 100vw, 430px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Text */}
+              <p className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter font-light leading-relaxed tracking-normal text-center`}>
                 I&apos;m always open to exciting projects and collaborations. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
               </p>
             </div>
           </div>
           
+          {/* Contact Button */}
           <div className="flex justify-center">
             <a
               href="/contact"

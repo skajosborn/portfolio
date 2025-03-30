@@ -15,7 +15,7 @@ const AboutMe = ({ darkMode }: AboutMeProps) => {
           <div className="flex flex-col lg:flex-row relative">
             <div className="flex-1 lg:mx-8">
               <div className="h-full p-12 lg:p-16 flex flex-col justify-start">
-                <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-mono font-light text-left leading-relaxed space-y-6 tracking-wide`}>
+                <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-inter font-light text-center leading-relaxed space-y-8 tracking-wide [word-spacing:0.2em]`}>
                   <p>
                     Born and raised on the east coast of Long Island, NY. I attended college in the Hamptons, where I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
                     tip of the U.S. and spent the next several years as an educator, primarily focusing on math and science.
