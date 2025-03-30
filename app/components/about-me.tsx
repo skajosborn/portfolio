@@ -15,17 +15,27 @@ const AboutMe = ({ darkMode }: AboutMeProps) => {
           <div className="flex flex-col lg:flex-row relative">
             <div className="flex-1 lg:mx-8">
               <div className="h-full p-12 lg:p-16 flex flex-col justify-start">
-                <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-sans font-light text-left leading-relaxed`}>
-                  I was born and raised on the east coast of Long Island, NY where I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
-                  tip of the U.S. I spent the next several years as an educator, many of those years focused on math, science and technology. 
-                  I spent endless hours incorporating technology into lessons and coming up with creative ways to promote maximum learning.
-                  As I veered more towards technology and found myself analyzing programs and learning platforms, brainstorming ways to improve
-                  upon them, I fell more and more in love. I began teaching myself coding, starting with Python and moving on to MERN stack. I 
-                  finally decided it was time to change my path and pursue this field in its entirety. I became a certified software developer 
-                  and am currently in the process of becoming certified in web3 as well. I hold myself to the highest standards and am committed 
-                  to providing excellence in whatever I do. 
-                  When I&apos;m not coding, I can be found mountain biking on the trails, kayaking in the springs, or making my family take tacky 
-                  Christmas pictures. Please feel free to watch OUR STORY below or click on my blog to learn more about me.
+                <div className={`text-3xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-black'} font-mono font-light text-left leading-relaxed space-y-6 tracking-wide`}>
+                  <p>
+                    Born and raised on the east coast of Long Island, NY. I attended college in the Hamptons, where I received a degree in education/psychology. In 2005 I moved to Florida, the southeastern 
+                    tip of the U.S. and spent the next several years as an educator, primarily focusing on math and science.
+                  </p>
+                  
+                  <p>
+                    I spent endless hours incorporating technology into lessons and coming up with creative ways to promote maximum learning.
+                    As I veered more towards technology, I found myself analyzing programs and learning platforms, brainstorming ways to improve
+                    upon them and fell more and more in love. I began teaching myself coding, starting with Python and moving on to MERN stack.
+                  </p>
+                  
+                  <p>
+                    I finally decided it was time to change my path and pursue this field in its entirety. I became a certified software engineer, 
+                    and moved on to learn Web3. I hold myself to the highest standards, committed 
+                    to providing excellence in all that I do.
+                  </p>
+                  
+                  <p>
+                    When I&apos;m not coding, I can be found mountain biking on the trails, kayaking in the springs, or just enjoying nature. Please feel free to watch OUR STORY below or click on my blog to learn more about me.
+                  </p>
                 </div>
                 <div className={`text-4xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} font-bold text-center mt-16 mb-12`}>Our Story</div>
                 <div className="flex flex-col lg:flex-row gap-16 justify-center items-center">
