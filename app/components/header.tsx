@@ -90,7 +90,7 @@ function Header() {
 
   return (
     <Navbar 
-      className="fixed top-0 left-0 w-full h-[60px] sm:h-[60px] md:h-[60px] lg:h-[80px] xl:h-[80px] bg-gray-300 shadow-none z-[9999] !transform-none px-0 rounded-none border-0"
+      className="fixed top-0 left-0 w-full h-[70px] sm:h-[70px] md:h-[70px] lg:h-[90px] xl:h-[90px] bg-gray-300 shadow-none z-[9999] !transform-none px-0 rounded-none border-0"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
@@ -101,7 +101,7 @@ function Header() {
           <DynamicTypography
             as="h1"
             variant="h6"
-            className="text-3xl sm:text-4xl md:text-4xl font-light text-black mr-4 sm:mr-14 tracking-wide [word-spacing:0.2em]"
+            className="text-3xl sm:text-4xl md:text-4xl font-medium text-gray-700 mr-4 sm:mr-14 tracking-wide [word-spacing:0.2em]"
             style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}
             color="inherit"
             placeholder=""

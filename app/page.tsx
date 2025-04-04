@@ -60,12 +60,12 @@ export default function Home() {
 
   return (
     <div style={{ paddingTop: 'var(--navbar-height)' }}>
-      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0`}>
-        <h2 className={`text-7xl sm:text-7xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[100px] md:pt-[120px] lg:pt-[200px] font-semibold text-center mb-16 lg:mb-20 transition-colors duration-300 font-montserrat`}>My Portfolio</h2>
+      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0`}>
+        <h2 className={`text-5xl sm:text-5xl lg:text-5xl ${darkMode ? 'text-white' : 'text-black'} pt-[120px] sm:pt-[80px] md:pt-[100px] lg:pt-[200px] font-semibold text-center mb-16 lg:mb-20 transition-colors duration-300 font-montserrat`}>My Portfolio</h2>
         {/* Content Sections */}
         <section id="home" className="pt-0">
-          <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} shadow-md py-8 shadow-black/30`}>
-            <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-white'} shadow-md py-16 shadow-black/30`}>
+          <div className={`relative w-full ${darkMode ? 'bg-gray-800' : 'bg-gray-200'} shadow-md py-8 shadow-black/30`}>
+            <div className={`relative w-full ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} shadow-md py-16 shadow-black/30`}>
               <div className="relative w-full h-[300px] sm:h-[500px] lg:h-[900px]">
                 <Image
                   src="/images/desk2.png"
