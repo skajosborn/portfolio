@@ -23,7 +23,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
         <li key={item} className="p-1">
           <Link 
             href={`/#${item.toLowerCase()}`}
-            className="bg-gray-200 h-[50px] w-[145px] sm:h-[60px] sm:w-[165px] md:h-[60px] md:w-[185px] lg:h-[80px] xl:h-[100px] lg:w-[215px] text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-2xl font-light tracking-wide [word-spacing:0.2em] flex items-center justify-center transform hover:scale-105 rounded-md text-black transition-all duration-300 ease-in-out shadow-lg"
+            className="bg-gray-200 h-[50px] w-[145px] sm:h-[60px] sm:w-[165px] md:h-[50px] md:w-[150px] lg:h-[60px] lg:w-[160px] xl:h-[70px] xl:w-[170px] text-xl sm:text-2xl md:text-xl lg:text-xl xl:text-xl font-light tracking-wide [word-spacing:0.2em] flex items-center justify-center transform hover:scale-105 rounded-md text-black transition-all duration-300 ease-in-out shadow-lg"
             onClick={() => setIsMenuOpen && setIsMenuOpen(false)}
             style={{
               boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
@@ -53,7 +53,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
       <li>
         <Button
           onPress={toggleDarkMode}
-          className="h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[60px] md:w-[80px] lg:h-[80px] lg:w-[80px] rounded-full bg-gray-200 text-black flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
+          className="h-[50px] w-[50px] sm:h-[60px] sm:w-[60px] md:h-[50px] md:w-[50px] lg:h-[60px] lg:w-[60px] xl:h-[70px] xl:w-[70px] rounded-full bg-gray-200 text-black flex items-center justify-center transform hover:scale-105 transition-all duration-300 ease-in-out shadow-lg"
           style={{
             boxShadow: '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)'
           }}
@@ -69,7 +69,7 @@ function NavList({ menuItems, darkMode, toggleDarkMode, setIsMenuOpen }: {
             e.currentTarget.style.boxShadow = '3px 3px 5px rgba(0, 0, 0, 0.3), inset -2px -2px 5px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.5)';
           }}
         >
-          {darkMode ? <SunIcon className="h-8 w-8" /> : <MoonIcon className="h-8 w-8" />}
+          {darkMode ? <SunIcon className="h-6 w-6 md:h-6 md:w-6 lg:h-6 lg:w-6 xl:h-7 xl:w-7" /> : <MoonIcon className="h-6 w-6 md:h-6 md:w-6 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />}
         </Button>
       </li>
     </ul>
@@ -80,7 +80,6 @@ function Header() {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [openNav, setOpenNav] = useState(false);
 
-  // Ensure the menu closes on window resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 960) setOpenNav(false);
@@ -90,14 +89,13 @@ function Header() {
   }, []);
 
   return (
-    <Navbar
-      className="fixed top-0 left-0 w-full max-w-full h-[60px] sm:h-[60px] md:h-[60px] lg:h-[100px] xl:h-[160px] bg-gray-200 z-[9999] !transform-none px-0 rounded-none border-none lg:pb-2"
-      title="Your Navbar Title"
+    <Navbar 
+      className="fixed top-0 left-0 w-full h-[60px] sm:h-[60px] md:h-[60px] lg:h-[80px] xl:h-[80px] bg-gray-300 shadow-none z-[9999] !transform-none px-0 rounded-none border-0"
       placeholder=""
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
-      <div className="w-full flex items-center justify-between px-7 sm:px-4 py-1 pb-2">
+      <div className="w-full h-full flex items-center justify-between px-7 sm:px-4 border-0">
         {/* Name on the left */}
         <div className="flex-none">
           <DynamicTypography
@@ -114,7 +112,7 @@ function Header() {
           </DynamicTypography>
         </div>
 
-        {/* Desktop Navigation on the right */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex lg:flex-grow lg:justify-end lg:items-center lg:gap-4">
           <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
@@ -134,8 +132,10 @@ function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      <Collapse open={openNav}>
-        <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} setIsMenuOpen={setOpenNav} />
+      <Collapse open={openNav} className="w-full bg-white">
+        <div className="container mx-auto">
+          <NavList menuItems={['Home', 'About', 'Projects', 'Blog', 'Contact']} darkMode={darkMode} toggleDarkMode={toggleDarkMode} setIsMenuOpen={setOpenNav} />
+        </div>
       </Collapse>
     </Navbar>
   );

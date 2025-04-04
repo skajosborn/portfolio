@@ -48,14 +48,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full bg-white">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${playfair.variable} ${cormorant.variable} ${lora.variable} antialiased m-0 p-0 flex flex-col min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${playfair.variable} ${cormorant.variable} ${lora.variable} antialiased m-0 p-0 flex flex-col min-h-screen bg-white border-0`}>
         <DarkModeProvider>
           <Header />
-          <main className="pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] flex-grow">
+          <main className="flex-grow">
             {children}
           </main>
         </DarkModeProvider>

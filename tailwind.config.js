@@ -8,28 +8,6 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
-      components: {
-        Navbar: {
-          defaultProps: {
-            className: "block w-full fixed top-0 left-0 right-0 bg-gray-300 shadow-md z-[9999]",
-            fullWidth: true,
-          },
-          styles: {
-            base: {
-              navbar: {
-                initial: {
-                  display: "block",
-                  position: "fixed",
-                  width: "100vw",
-                  maxWidth: "100%",
-                  inset: "0px",
-                  zIndex: "9999",
-                }
-              }
-            }
-          }
-        }
-      },
       maxWidth: {
         'screen-2xl': '100%'
       },

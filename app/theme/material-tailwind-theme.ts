@@ -5,7 +5,7 @@ export default withMT({
     components: {
       Navbar: {
         defaultProps: {
-          className: "block w-full max-w-screen-2xl rounded-xl py-4 px-8 backdrop-saturate-200 backdrop-blur-2xl bg-opacity-80 border border-white/80 bg-white text-white fixed top-0 left-0",
+          className: "block w-full max-w-screen-2xl py-4 px-8",
           placeholder: "",
         },
         styles: {
@@ -14,6 +14,10 @@ export default withMT({
               position: "fixed",
               width: "100%",
               zIndex: "9999",
+              border: "none",
+              borderWidth: "0",
+              boxShadow: "none",
+              transition: "background-color 0.3s ease"
             }
           }
         }

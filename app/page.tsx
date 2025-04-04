@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <div style={{ paddingTop: 'var(--navbar-height)' }}>
-      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0 px-2 sm:px-4`}>
+      <div className={`relative min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white'} font-inter text-4xl overflow-hidden transition-colors duration-300 mt-0`}>
         <h2 className={`text-7xl sm:text-7xl lg:text-7xl ${darkMode ? 'text-white' : 'text-black'} pt-[140px] sm:pt-[100px] md:pt-[120px] lg:pt-[200px] font-semibold text-center mb-16 lg:mb-20 transition-colors duration-300 font-montserrat`}>My Portfolio</h2>
         {/* Content Sections */}
         <section id="home" className="pt-0">
@@ -104,13 +104,14 @@ export default function Home() {
         
         {/* Welcome Section - More elegant typography */}
         <section id="welcome" className="mt-16 lg:mt-20 px-4 sm:px-12 py-8">
-          <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
-            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}>
-              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter font-light leading-relaxed tracking-normal text-center mb-8 lg:mb-10`}>
-                Welcome to my portfolio! I&apos;m a Full-Stack Blockchain Developer specializing in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. I&apos;m passionate about brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. Explore my portfolio to discover some of my latest projects and see how I turn ideas into impactful realities.
+          {/* <div className={`relative w-full max-w-[2000px] h-auto mx-auto ${darkMode ? 'bg-gray-800' : 'bg-gray-100'} rounded-lg shadow-lg px-4 sm:px-12 py-12 sm:py-16`}>
+            <div className={`relative w-full max-w-[1950px] h-auto mx-auto ${darkMode ? 'bg-gray-700' : 'bg-white'} rounded-sm shadow-lg p-8 sm:p-16`}> */}
+              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-mono font-light leading-relaxed tracking-normal text-center mb-8 lg:mb-10`}>
+                {/* Welcome to my portfolio! As a Full-Stack Web3 Developer, I specialize in building secure, optimized decentralized applications (DApps), developing robust smart contracts, and seamlessly integrating Web3 technologies. My passion lies in brainstorming innovative solutions, crafting engaging user experiences, and bringing creative strategies to life. */} 
+                As a Full Stack Web3 developer, I can see your project through frontend, backend and everything in between. My passion lies in brainstorming innovative solutions, crafting engaging user experiences, and bringing creative ideas to fruition. Whether you're looking for blockchain security, decentralized applications (DApps), robust smart contract development or seamless Web3 integration, you can find it here. Feel free to explore my portfolio to discover some of my latest projects.
               </div>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </section>
         
         {/* Project Cards Section */}
@@ -200,7 +201,7 @@ export default function Home() {
                   sizes="(max-width: 1950px) 100vw, 1950px"
                 />
               </div>
-              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-inter font-light leading-relaxed tracking-normal text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
+              <div className={`text-4xl sm:text-4xl lg:text-4xl ${darkMode ? 'text-gray-200' : 'text-gray-800'} font-mono leading-relaxed tracking-normal text-center mb-20 lg:mb-24 mt-16 lg:mt-20`}>
                 Welcome to my blog! Here I share my thoughts and experiences about software development, web3 technologies, 
                 and my journey transitioning from education to tech. Feel free to explore my posts below.
               </div>

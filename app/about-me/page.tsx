@@ -85,7 +85,7 @@ const AboutMe = () => {
             Let&apos;s Connect!
           </h2>
           
-          <p className="text-lg lg:text-xl mb-16 px-8 font-inter leading-relaxed">
+          <p className="text-lg lg:text-xl mb-16 px-8 font-mono leading-relaxed">
             I&apos;m always open to new challenges and projects. If you&apos;re interested in working together or just want to say hi, feel free to reach out!
           </p>
           
